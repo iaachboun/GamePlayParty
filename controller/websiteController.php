@@ -2,7 +2,7 @@
 
 require_once 'model/logic.php';
 
-class controller {
+class websiteController {
 
 	public function __construct(){
 		$this->logic = new logic();
@@ -20,7 +20,7 @@ class controller {
 					$this->collectLogin();
 					break;
 				case 'home':
-					$this->collectHome();
+//					$this->collectHome();
 					break;
 				case 'search':
 					$this->collectSearch();
@@ -35,16 +35,16 @@ class controller {
 	}
 
 	public function collectLogin(){
-		include 'view/login.php';
+//		include 'view/login.php';
 
 	}
 
 	public function collectHome(){
-		include 'view/home.php';
+//		include 'view/home.php';
 	}
 
 	public function collectSearch(){
-		include 'view/search.php';
+//		include 'view/search.php';
 	}
 
 
