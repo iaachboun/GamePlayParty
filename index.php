@@ -1,6 +1,8 @@
 <?php
-include 'header.php';
-require_once 'controller/ContactsController.php';
 
-$controller = new ContactsController();
+require_once 'controller/controller.php';
+
+$controller = new controller();
 $controller->handleRequest();
+
+?>
