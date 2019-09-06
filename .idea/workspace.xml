@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="054b07a0-a877-461e-b91a-3e60992368dd" name="Default Changelist" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/controller/WebsiteController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/DataHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/connectDatabase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/dataHandler.php5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/products-logic.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/components/footer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/components/header.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/controller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/datahandler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/logic.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +35,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -33,6 +45,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -57,6 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1567673131225</updated>
       <workItem from="1567673132570" duration="1892000" />
+      <workItem from="1567687567938" duration="2193000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1567673266241</created>
@@ -76,7 +94,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
