@@ -1,7 +1,7 @@
 <?php
 require_once 'model/products-logic.php';
 
-class WebsiteController
+class zWebsiteController
 {
     public function __construct()
     {
