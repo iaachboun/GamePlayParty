@@ -1,5 +1,5 @@
 <?php
-require_once 'model/logic.php';
+require_once 'model/products-logic.php';
 
 class WebsiteController
 {
@@ -18,9 +18,7 @@ class WebsiteController
         try {
             $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : NULL;
             switch ($page) {
-                case 'home':
-                    include 'view/home.php';
-                    break;
+                default:
                     break;
             }
         } catch (ValidationException $e) {
