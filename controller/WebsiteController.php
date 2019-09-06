@@ -1,5 +1,5 @@
 <?php
-require_once 'model/products-logic.php';
+require_once 'model/logic.php';
 
 class WebsiteController
 {
