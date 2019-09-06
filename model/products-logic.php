@@ -6,7 +6,7 @@ class ProductsLogic
 {
     public function __construct()
     {
-        $this->DataHandler = new DataHandler("localhost", "mysql", "gameplayparty", "ilias", "Admin4a7a");
+        $this->DataHandler = new DataHandler("localhost", "mysql", "gameplayparty", "ilias", "test");
     }
 
     public function __destruct()

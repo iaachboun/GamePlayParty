@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="054b07a0-a877-461e-b91a-3e60992368dd" name="Default Changelist" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/controller/WebsiteController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/DataHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/connectDatabase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/dataHandler.php5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/products-logic.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/components/footer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/components/header.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/home.php" afterDir="false" />
+    <list default="true" id="054b07a0-a877-461e-b91a-3e60992368dd" name="Default Changelist" comment="new mvc">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/controller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/datahandler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/logic.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/WebsiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/WebsiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/websiteController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/connectDatabase.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/dataHandler.php5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/products-logic.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/products-logic.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +68,8 @@
       <option name="presentableId" value="Default" />
       <updated>1567673131225</updated>
       <workItem from="1567673132570" duration="1892000" />
-      <workItem from="1567687567938" duration="2193000" />
+      <workItem from="1567687567938" duration="2298000" />
+      <workItem from="1567756018662" duration="234000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1567673266241</created>
@@ -83,7 +78,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567673266241</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="new mvc">
+      <created>1567755936814</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1567755936814</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +106,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="new mvc" />
+    <option name="LAST_COMMIT_MESSAGE" value="new mvc" />
   </component>
 </project>
