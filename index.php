@@ -1,6 +1,6 @@
 <?php
-include 'view/header.php';
-require_once 'controller/websiteController.php';
+session_start();
+require_once 'Controller/Controller.php';
 
-$controller = new websiteController();
+$controller = new Controller();
 $controller->handleRequest();
