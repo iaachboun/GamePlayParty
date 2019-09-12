@@ -1,0 +1,35 @@
+footer {
+  background-color: #1C2331;
+  color: white;
+  padding: 10px 0 0 0;
+  div {
+    div {
+      div {
+        hr {
+          background-color: #009432 !important;
+        }
+        p{
+          color: white;
+          a{
+            color: white;
+            &:hover{
+
+              color: white;
+            }
+          }
+        }
+
+      }
+    }
+  }
+  div.footer-copyright{
+    background-color: #161C27;
+    a{
+      color: white;
+      &:hover{
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}

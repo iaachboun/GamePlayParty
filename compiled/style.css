@@ -7,4 +7,32 @@ body {
   width: 100%;
 }
 
+footer {
+  background-color: #1C2331;
+  color: white;
+  padding: 10px 0 0 0;
+}
+footer div div div hr {
+  background-color: #009432 !important;
+}
+footer div div div p {
+  color: white;
+}
+footer div div div p a {
+  color: white;
+}
+footer div div div p a:hover {
+  color: white;
+}
+footer div.footer-copyright {
+  background-color: #161C27;
+}
+footer div.footer-copyright a {
+  color: white;
+}
+footer div.footer-copyright a:hover {
+  color: white;
+  text-decoration: none;
+}
+
 /*# sourceMappingURL=style.css.map */
