@@ -7,22 +7,8 @@ body {
   width: 100%;
 }
 
-.hero {
-  width: 100%;
-}
-.hero img {
-  max-height: 650px;
-}
-
-.home-section {
-  margin-top: 100px;
-  padding: 20px;
-}
-.home-section .home-text {
-  font-size: 1.5em;
-}
-.home-section img {
-  border-radius: 15px;
+.navbar {
+  padding: 0 !important;
 }
 
 footer {
@@ -51,6 +37,24 @@ footer div.footer-copyright a {
 footer div.footer-copyright a:hover {
   color: white;
   text-decoration: none;
+}
+
+.hero {
+  width: 100%;
+}
+.hero img {
+  max-height: 650px;
+}
+
+.home-section {
+  margin: 100px 0;
+  padding: 20px;
+}
+.home-section .home-text {
+  font-size: 1.5em;
+}
+.home-section img {
+  border-radius: 15px;
 }
 
 /*# sourceMappingURL=style.css.map */
