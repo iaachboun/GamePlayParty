@@ -7,7 +7,7 @@
     <meta name="author" content="name">
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">
-    <link rel="stylesheet" href="stylesheet.css" type="text/css">
+    <link rel="stylesheet" href="compiled/style.css" type="text/css">
 </head>
 <body>
 <div class="header">
