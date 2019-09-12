@@ -1,0 +1,22 @@
+{
+  "name": "gameplayparty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "lite-server": "^2.5.4",
+    "sass": "^1.23.0-module.beta.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "watch": "sass --watch assets/style/app.scss compiled/style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://IliasAachboun@bitbucket.org/alboe/gameplayparty.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/alboe/gameplayparty#readme"
+}
