@@ -10,5 +10,6 @@
     <link rel="stylesheet" href="stylesheet.css" type="text/css">
 </head>
 <body>
-
-<h1>header</h1>
+<div class="header">
+    <img src="assets/img/logo.svg" alt="logo">
+</div>

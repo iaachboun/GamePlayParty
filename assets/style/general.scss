@@ -1,0 +1,34 @@
+
+// Breakpoints
+
+$bp-desktop-hd-extra: '1920px';
+
+$bp-desktop-hd: '1200px';
+
+$bp-desktop: '1000px';
+
+$bp-tablet: '750px';
+
+$bp-phablet: '550px';
+
+$bp-mobile: '320px';
+
+$breakpoints: (
+        'desktop-hd-extra': (min-width: 1920px),
+        'desktop-extra-large': (min-width: 1680px),
+        'desktop-large': (min-width: 1440px),
+        'desktop-hd': (min-width: 1215px),
+        'desktop': (min-width: 1214px),
+        'desktop-sm': (min-width: 1000px),
+        'tablet': (min-width: 758px),
+        'phablet': (min-width: 550px),
+        'mobile-lg': (min-width: 400px),
+        'mobile': (min-width: 320px),
+        'mobile-high': (max-height: 780px)
+);
+
+$font-family: 'Renner';
+
+$color-green: #2D9775;
+$color-dark-green: #284D4F;
+$color-dark-grey: #313131;
