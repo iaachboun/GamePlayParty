@@ -1,0 +1,18 @@
+.hero {
+  width: 100%;
+  img {
+    max-height: 650px;
+  }
+}
+
+.home-section {
+  margin-top: 100px;
+  padding: 20px;
+
+  .home-text {
+    font-size: 1.5em;
+  }
+  img {
+    border-radius: 15px;
+  }
+}
