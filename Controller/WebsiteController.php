@@ -20,46 +20,25 @@ class WebsiteController
 
     public function handleRequest()
     {
-    $this->pageSwitch();
-    $this->cinemaSwitch();
-    }
-
-    public function collectHome()
-    {
-        include 'view/home.php';
-    }
-
-    public function pageSwitch() {
         try {
-            $pagina = isset($_REQUEST['pagina']) ? $_REQUEST['pagina'] : null;
-            switch ($pagina) {
+            $request = isset($_REQUEST['request']) ? $_REQUEST['request'] : null;
+            switch ($request) {
+                case 'biosInfo':
+                    $id = $_REQUEST['id'];
+                    $result = $this->Logic->getCinema($id);
+                    include 'view/biosDetails.php';
+                    break;
                 case 'bioscopen':
                     $result = $this->Logic->getCinemas();
                     include 'view/bioscopen.php';
                     break;
                 default:
-                    $this->collectHome();
+                    include 'view/home.php';
                     break;
 
             }
         } catch (ValidationException $e) {
             $errors = $e->getErrors();
         }
-    }
-
-    public function cinemaSwitch()
-    {
-       /* try {
-            $bioscoop = isset($_REQUEST['request']) ? $_REQUEST['request'] : null;
-            switch ($bioscoop) {
-                case 'getCinemas':
-                    $result = $this->Logic->getCinemas();
-                    break;
-                default:
-                    break;
-            }
-        } catch (ValidationException $e) {
-            $errors = $e->getErrors();
-        }*/
     }
 }

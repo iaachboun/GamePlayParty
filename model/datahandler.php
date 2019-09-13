@@ -33,7 +33,6 @@ class DataHandler
     public function getData($sql)
     {
         $result = $this->dbh->query($sql, PDO::FETCH_ASSOC);
-
         return $result;
     }
 

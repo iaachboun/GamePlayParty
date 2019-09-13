@@ -36,7 +36,7 @@
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="?pagina=bioscopen">Bioscopen</a>
+                <a class="nav-link" href="?request=bioscopen">Bioscopen</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Contact</a>
