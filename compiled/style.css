@@ -57,6 +57,9 @@ footer div.footer-copyright a:hover {
   border-radius: 15px;
 }
 
+.bioscopen-section {
+  margin: 50px 0;
+}
 .bioscopen-section .bioscoop {
   text-align: center;
   padding: 30px 0;
