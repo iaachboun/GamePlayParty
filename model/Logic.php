@@ -14,17 +14,18 @@ class Logic
     {
     }
 
-    public function showtextLogic()
+    public function getCinema($id)
     {
-        $html = '<h2>logic 1</h2>';
-        return $html;
+        $sql = "SELECT * FROM `bioscopen` WHERE biosID =" .  $id;
+        $result = $this->DataHandler->getData($sql);
+        return $result;
     }
 
-    public function getCinemas() {
-        $sql = "SELECT `biosnaam` FROM `bioscopen`";
+    public function getCinemas()
+    {
+        $sql = "SELECT biosID, biosnaam FROM `bioscopen`";
         $result = $this->DataHandler->getData($sql);
 
         return $result;
     }
-
 }
