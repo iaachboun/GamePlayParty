@@ -9,6 +9,12 @@ body {
 
 .navbar {
   padding: 0 !important;
+  height: 80px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  z-index: 10;
 }
 
 footer {
@@ -37,6 +43,10 @@ footer div.footer-copyright a {
 footer div.footer-copyright a:hover {
   color: white;
   text-decoration: none;
+}
+
+body {
+  background-color: #2ecc71 !important;
 }
 
 .hero {
