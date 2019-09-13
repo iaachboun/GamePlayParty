@@ -6,7 +6,7 @@ class Logic3
     public function __construct()
     {
 
-        $this->DataHandler = new DataHandler("localhost", "mysql", "", "root", "");
+        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "ilias", "12345");
 
     }
 
