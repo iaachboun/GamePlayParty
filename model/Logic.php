@@ -20,8 +20,11 @@ class Logic
         return $html;
     }
 
+    public function getCinemas() {
+        $sql = "SELECT `biosnaam` FROM `bioscopen`";
+        $result = $this->DataHandler->getData($sql);
+
+        return $result;
+    }
 
 }
-
-
-?>
