@@ -5,4 +5,14 @@
 
 .navbar {
   padding: 0 !important;
+  height: 80px;
+  background-color: rgba(0,0,0,0.2);
+//  box-shadow: ;
+//  -moz-box-shadow: ;
+//  -o-box-shadow: ;
+//  -webkit-box-shadow: ;
+}
+
+.logo{
+  z-index: 10;
 }
