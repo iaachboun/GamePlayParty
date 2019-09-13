@@ -24,28 +24,9 @@ class WebsiteController
     $this->cinemaSwitch();
     }
 
-    public function collectHome($logic)
+    public function collectHome()
     {
-        $chosenLogic = $logic;
-        switch ($chosenLogic) {
-            case '1':
-                $html = $this->Logic->showtextLogic();
-                break;
-            case '2':
-                $html = $this->Logic2->showtextLogic2();
-                break;
-            case '3':
-                $html = $this->Logic3->showtextLogic3();
-                break;
-            case '4':
-                $html = $this->Logic4->showtextLogic4();
-                break;
-            default:
-                $html = $this->Logic->showtextLogic();
-                break;
-        }
         include 'view/home.php';
-        return $html;
     }
 
     public function pageSwitch() {
@@ -57,7 +38,7 @@ class WebsiteController
                     include 'view/bioscopen.php';
                     break;
                 default:
-                    $this->collectHome($_REQUEST['logic']);
+                    $this->collectHome();
                     break;
 
             }

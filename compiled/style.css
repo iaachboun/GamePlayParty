@@ -10,11 +10,22 @@ body {
 .navbar {
   padding: 0 !important;
   height: 80px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #1C2331;
+}
+.navbar div ul li a {
+  color: white !important;
+}
+
+.logo-container {
+  max-width: 50%;
+  z-index: 100 !important;
+  position: absolute;
 }
 
 .logo {
   z-index: 10;
+  height: auto;
+  max-width: 100%;
 }
 
 footer {
@@ -43,10 +54,6 @@ footer div.footer-copyright a {
 footer div.footer-copyright a:hover {
   color: white;
   text-decoration: none;
-}
-
-body {
-  background-color: #2ecc71 !important;
 }
 
 .hero {

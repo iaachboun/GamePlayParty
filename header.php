@@ -22,13 +22,15 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img src="assets/img/logo.svg" alt="logo">
+<div class="logo-container">
+    <img class="logo" src="assets/img/logo.svg" alt="logo">
+</div>
+<nav class="navbar navbar-expand-lg navbar-light justify-content-end">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon text-white"><i class="fa fa-navicon"></i></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="index.php">Home</a>
