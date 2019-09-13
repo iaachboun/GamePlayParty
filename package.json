@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "lite-server": "^2.5.4",
     "sass": "^1.23.0-module.beta.1"
   },
   "devDependencies": {},
