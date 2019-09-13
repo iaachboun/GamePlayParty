@@ -4,7 +4,7 @@ require_once 'model/Logic2.php';
 require_once 'model/Logic3.php';
 require_once 'model/Logic4.php';
 
-class Controller
+class WebsiteController
 {
     public function __construct()
     {
@@ -20,18 +20,8 @@ class Controller
 
     public function handleRequest()
     {
-        try {
-            $pagina = isset($_REQUEST['pagina']) ? $_REQUEST['pagina'] : null;
-            switch ($pagina) {
-
-                default:
-                    $this->collectHome($_REQUEST['logic']);
-                    break;
-
-            }
-        } catch (ValidationException $e) {
-            $errors = $e->getErrors();
-        }
+    $this->pageSwitch();
+    $this->cinemaSwitch();
     }
 
     public function collectHome($logic)
@@ -58,5 +48,37 @@ class Controller
         return $html;
     }
 
+    public function pageSwitch() {
+        try {
+            $pagina = isset($_REQUEST['pagina']) ? $_REQUEST['pagina'] : null;
+            switch ($pagina) {
+                case 'bioscopen':
+                    $result = $this->Logic->getCinemas();
+                    include 'view/bioscopen.php';
+                    break;
+                default:
+                    $this->collectHome($_REQUEST['logic']);
+                    break;
 
+            }
+        } catch (ValidationException $e) {
+            $errors = $e->getErrors();
+        }
+    }
+
+    public function cinemaSwitch()
+    {
+       /* try {
+            $bioscoop = isset($_REQUEST['request']) ? $_REQUEST['request'] : null;
+            switch ($bioscoop) {
+                case 'getCinemas':
+                    $result = $this->Logic->getCinemas();
+                    break;
+                default:
+                    break;
+            }
+        } catch (ValidationException $e) {
+            $errors = $e->getErrors();
+        }*/
+    }
 }
