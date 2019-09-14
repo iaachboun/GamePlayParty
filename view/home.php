@@ -14,7 +14,7 @@
                 maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. Het is in de jaren '60
                 populair geworden met de in
             </div>
-            <button>Button</button>
+            <a href="#" class="btn-custom btn-green btn-lg btn-block home-button-top-space">Lorem Ipsum</a>
         </div>
         <div class="col-6">
             <img src="./assets/img/kids-paying-e-sports-tournament.jpg" class="hero">

@@ -6,13 +6,35 @@
 .navbar {
   padding: 0 !important;
   height: 80px;
-  background-color: rgba(0,0,0,0.2);
-//  box-shadow: ;
-//  -moz-box-shadow: ;
-//  -o-box-shadow: ;
-//  -webkit-box-shadow: ;
+  background-color: #1C2331 !important;
+  div{
+    ul{
+      background-color: #1C2331;
+      text-align: center;
+      padding: 10px;
+      li{
+        text-align: center;
+        a{
+          color: white !important;
+        }
+      }
+    }
+  }
+}
+
+.logo-container{
+  max-width: 50%;
+  z-index: 100 !important;
+  position: absolute;
 }
 
 .logo{
+
   z-index: 10;
+  height: auto;
+  max-width: 100%;
+}
+
+.navbar-toggler{
+  margin-right: 20px;
 }
