@@ -6,7 +6,7 @@
 
 <div class="home-section container">
     <div class="row home-content">
-        <div class="col-6">
+        <div class="col-12 col-md-6">
             <div class="home-text">
                 <h2>Title</h2>
                 Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard
