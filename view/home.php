@@ -6,19 +6,17 @@
 
 <div class="home-section container">
     <div class="row home-content">
+        <div class="col-12 col-md-6 home-content-image">
+            <img src="./assets/img/hero/internationaal-eclairgame-01.jpg" class="img-responsive" style="max-width: 100%" alt="Responsive image">
+        </div>
         <div class="col-12 col-md-6">
             <div class="home-text">
                 <h2>Title</h2>
-                Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard
-                proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam
-                en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen overleefd
-                maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. Het is in de jaren '60
-                populair geworden met de in
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor ultrices semper. Cras feugiat velit sem, id fermentum metus hendrerit sed. Vestibulum malesuada aliquet dolor, sed facilisis nibh dictum vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam in lacinia est, vitae ullamcorper dui. Fusce eros dolor, lacinia ac massa vitae, dictum imperdiet sapien. Ut ac ipsum est. Fusce a facilisis diam. Sed id eleifend magna.
+                </p>
             </div>
             <a href="#" class="btn-custom btn-green btn-lg btn-block home-button-top-space">Lorem Ipsum</a>
-        </div>
-        <div class="col-6">
-            <img src="./assets/img/hero/internationaal-eclairgame-01.jpg" class="hero">
         </div>
     </div>
 </div>

@@ -11,7 +11,7 @@
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
                 <!-- Content -->
-                <h6 class="text-uppercase font-weight-bold">Company name</h6>
+                <h6 class="text-uppercase font-weight-bold">Gameplay Party</h6>
                 <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra posuere nibh, ut sagittis lacus aliquet tincidunt. Curabitur cursus quam augue, sed rutrum libero malesuada nec.</p>
 
@@ -41,7 +41,7 @@
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 
                 <!-- Links -->
-                <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+                <h6 class="text-uppercase font-weight-bold">Handige links</h6>
                 <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>
                     <a href="#">Cookie beleid</a>
@@ -51,9 +51,6 @@
                 </p>
                 <p>
                     <a href="#">Privacy</a>
-                </p>
-                <p>
-                    <a href="#">kkrop</a>
                 </p>
 
             </div>
@@ -66,7 +63,7 @@
                 <h6 class="text-uppercase font-weight-bold">Contact</h6>
                 <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>
-                    <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+                    <i class="fas fa-envelope mr-3"></i> info@gameplayparty.com</p>
 
             </div>
             <!-- Grid column -->

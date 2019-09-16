@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>title</title>
-    <meta name="author" content="name">
-    <meta name="description" content="description here">
+    <title>Gameplay Party</title>
+    <meta name="author" content="ALBOE">
+    <meta name="description" content="Gameplay Party">
     <meta name="keywords" content="keywords,here">
     <link rel="stylesheet" href="compiled/style.css" type="text/css">
     <!--    jquery cdn-->

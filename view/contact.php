@@ -14,22 +14,26 @@
                 maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. Het is in de jaren '60
                 populair geworden met de in
             </div>
-            <button>Button</button>
+            <button class="btn-custom btn-green">Button</button>
         </div>
-        <form>
+        <form action="#" method="POST">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Uw Email">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Telefoon</label>
-                <input type="password" class="form-control" id="exampleInputPhone1" placeholder="Telefoon">
+                <label for="exampleInputPhone1">Telefoon</label>
+                <input type="int" class="form-control" id="exampleInputPhone1" placeholder="Telefoon">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Onderwerp</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Onderwerp"></textarea>
+                <label for="exampleInputSubject1">Onderwerp</label>
+                <input type="text" class="form-control" id="exampleInputSubject1" placeholder="Onderwerp">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Bericht</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Uw bericht"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Verzend</button>
         </form>
         <div class="col-6">
             <div class="home-text">
