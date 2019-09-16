@@ -6,9 +6,9 @@
                 <div class="col-6">
                     <div class="detailContent">
                         <h3><?php echo $row['biosnaam'] ?></h3>
-                        <p>Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is
-                            de
-                            zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken.</p>
+                        <p>
+                            <?= $row['omschrijving']; ?>
+                        </p>
                         <p>
                             <?php echo $row['biosadres'] ?><br>
                             <?php echo $row['biospostcode'] ?>
