@@ -1,6 +1,6 @@
 <div class="hero">
     <img src="./assets/img/hero-image.jpg" class="hero">
-
+    <img src="./assets/img/kids-paying-e-sports-tournament.jpg" class="hero">
 </div>
 
 <div class="home-section container">

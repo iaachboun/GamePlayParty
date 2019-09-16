@@ -107,6 +107,7 @@
         crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="assets/js/slick.min.js"></script>
+<script type="text/javascript" src="assets/js/hero.js"></script>
 
 </body>
 </html>
