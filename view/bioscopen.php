@@ -11,8 +11,7 @@
                         <p>Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is
                             de
                             zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken.</p>
-                        <button>Reseveer nu</button>
-                        <button>Meer info</button>
+                        <a href="?request=biosInfo&id=<?php echo $row['biosID'] ?>"><button>Meer info</button></a>
                     </div>
                 </div>
             <?php } ?>
