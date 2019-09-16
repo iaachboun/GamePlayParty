@@ -39,7 +39,7 @@
                 <a class="nav-link" href="?request=bioscopen">Bioscopen</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="?request=contact">Contact</a>
             </li>
         </ul>
     </div>
