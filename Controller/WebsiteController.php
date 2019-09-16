@@ -1,17 +1,13 @@
 <?php
 require_once 'model/Logic.php';
-require_once 'model/Logic2.php';
-require_once 'model/Logic3.php';
-require_once 'model/Logic4.php';
+
 
 class WebsiteController
 {
     public function __construct()
     {
         $this->Logic = new Logic();
-        $this->Logic2 = new Logic2();
-        $this->Logic3 = new Logic3();
-        $this->Logic4 = new Logic4();
+
     }
 
     public function __destruct()
