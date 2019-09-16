@@ -40,6 +40,10 @@ body {
   margin-right: 20px;
 }
 
+.navbar-collapse {
+  z-index: 99;
+}
+
 footer {
   background-color: #1C2331;
   color: white;
@@ -79,10 +83,10 @@ footer div.footer-copyright a:hover {
   margin: 100px 0;
   padding: 20px;
 }
-.home-section .home-text {
+.home-section .home-content .home-text {
   font-size: 1.5em;
 }
-.home-section img {
+.home-section .home-content img {
   border-radius: 15px;
 }
 

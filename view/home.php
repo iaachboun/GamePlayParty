@@ -1,10 +1,11 @@
 <div class="hero">
-    <img src="./assets/img/hero-image.jpg" class="hero">
-    <img src="./assets/img/kids-paying-e-sports-tournament.jpg" class="hero">
+    <img src="./assets/img/Kinepolis%20Jaarbeurs%20Utrecht.jpg" class="hero">
+    <img src="./assets/img/Kinepolis%20Almere.jpg" class="hero">
+    <img src="./assets/img/Kinepolis%20Den%20Helder.jpg" class="hero">
 </div>
 
 <div class="home-section container">
-    <div class="row">
+    <div class="row home-content">
         <div class="col-6">
             <div class="home-text">
                 <h2>Title</h2>
@@ -17,7 +18,7 @@
             <a href="#" class="btn-custom btn-green btn-lg btn-block home-button-top-space">Lorem Ipsum</a>
         </div>
         <div class="col-6">
-            <img src="./assets/img/kids-paying-e-sports-tournament.jpg" class="hero">
+            <img src="./assets/img/hero/internationaal-eclairgame-01.jpg" class="hero">
         </div>
     </div>
 </div>
