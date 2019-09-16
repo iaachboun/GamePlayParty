@@ -28,6 +28,9 @@ class WebsiteController
                     $result = $this->Logic->getCinemas();
                     include 'view/bioscopen.php';
                     break;
+                case 'contact':
+                    include 'view/contact.php';
+                    break;
                 default:
                     include 'view/home.php';
                     break;

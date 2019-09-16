@@ -22,19 +22,16 @@
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
                 <!-- Links -->
-                <h6 class="text-uppercase font-weight-bold">Products</h6>
+                <h6 class="text-uppercase font-weight-bold">Navigatie</h6>
                 <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>
-                    <a href="#">Lorem Ipsum</a>
+                    <a href="index.php">Home</a>
                 </p>
                 <p>
-                    <a href="#">Lorem Ipsum</a>
+                    <a href="?=request=bioscopen">Bioscopen</a>
                 </p>
                 <p>
-                    <a href="#">Lorem Ipsum</a>
-                </p>
-                <p>
-                    <a href="#">Lorem Ipsum</a>
+                    <a href="?=request=contact">Contact</a>
                 </p>
 
             </div>
@@ -47,16 +44,16 @@
                 <h6 class="text-uppercase font-weight-bold">Useful links</h6>
                 <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>
-                    <a href="#">Your Account</a>
+                    <a href="#">Cookie beleid</a>
                 </p>
                 <p>
-                    <a href="#">Become an Affiliate</a>
+                    <a href="#">FAQ</a>
                 </p>
                 <p>
-                    <a href="#">Shipping Rates</a>
+                    <a href="#">Privacy</a>
                 </p>
                 <p>
-                    <a href="#">Help</a>
+                    <a href="#">kkrop</a>
                 </p>
 
             </div>
@@ -69,13 +66,7 @@
                 <h6 class="text-uppercase font-weight-bold">Contact</h6>
                 <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>
-                    <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-                <p>
                     <i class="fas fa-envelope mr-3"></i> info@example.com</p>
-                <p>
-                    <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-                <p>
-                    <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
 
             </div>
             <!-- Grid column -->

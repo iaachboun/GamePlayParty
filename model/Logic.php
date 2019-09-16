@@ -6,7 +6,7 @@ class Logic
     public function __construct()
     {
 
-        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "root", "");
+        $this->DataHandler = new DataHandler("localhost", "mysql", "gpp", "root", "");
 
     }
 
@@ -23,7 +23,7 @@ class Logic
 
     public function getCinemas()
     {
-        $sql = "SELECT biosID, biosnaam, omschrijving FROM `bioscopen`";
+        $sql = "SELECT biosID, biosnaam FROM `bioscopen`";
         $result = $this->DataHandler->getData($sql);
 
         return $result;

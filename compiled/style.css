@@ -115,14 +115,18 @@ footer div.footer-copyright a:hover {
 }
 
 .biosDetails-section {
-  margin: 100px 0;
+  margin: 50px 0;
 }
 .biosDetails-section p {
   padding: 15px 30px 15px 0;
   margin: 0 auto;
 }
+.biosDetails-section .detailContent {
+  padding: 50px 0;
+}
 
 .detailImg {
+  margin: 50px 0;
   width: 100%;
   border-radius: 10px;
 }
