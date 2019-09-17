@@ -44,13 +44,13 @@
                 <h6 class="text-uppercase font-weight-bold">Handige links</h6>
                 <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>
-                    <a href="#">Cookie beleid</a>
+                    <a href="?request=cookie-beleid">Cookie beleid</a>
                 </p>
                 <p>
                     <a href="#">FAQ</a>
                 </p>
                 <p>
-                    <a href="#">Privacy</a>
+                    <a href="?request=algemene-voorwaarden">Privacy</a>
                 </p>
 
             </div>
