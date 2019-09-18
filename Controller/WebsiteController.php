@@ -36,6 +36,12 @@ class WebsiteController
                 case 'contact':
                     include 'view/contact.php';
                     break;
+                case 'cookie-beleid':
+                    include 'view/cookie-beleid.php';
+                    break;
+                case 'algemene-voorwaarden':
+                    include 'view/algemene-voorwaarden.php';
+                    break;
                 default:
                     include 'view/home.php';
                     break;
