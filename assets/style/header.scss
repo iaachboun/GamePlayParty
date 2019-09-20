@@ -7,14 +7,17 @@
   padding: 0 !important;
   height: 80px;
   background-color: #1C2331 !important;
-  div{
-    ul{
+
+  div {
+    ul {
       background-color: #1C2331;
       text-align: center;
       padding: 10px;
-      li{
+
+      li {
         text-align: center;
-        a{
+
+        a {
           color: white !important;
         }
       }
@@ -22,20 +25,20 @@
   }
 }
 
-.logo-container{
+.logo-container {
   max-width: 50%;
   z-index: 100 !important;
   position: absolute;
 }
 
-.logo{
+.logo {
 
   z-index: 10;
   height: auto;
   max-width: 150%;
 }
 
-.navbar-toggler{
+.navbar-toggler {
   margin-right: 20px;
 }
 

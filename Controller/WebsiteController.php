@@ -19,7 +19,8 @@ class WebsiteController
         try {
             $request = isset($_REQUEST['request']) ? $_REQUEST['request'] : null;
             $id = $_REQUEST['id'];
-
+            $page = "footerContent";
+            $footerContent = $this->Logic->getContent($page);
             switch ($request) {
                 case 'biosInfo':
                     $result = $this->Logic->getCinema($id);
@@ -43,7 +44,10 @@ class WebsiteController
                     include 'view/algemene-voorwaarden.php';
                     break;
                 default:
+                    $page = "Home";
+                    $result = $this->Logic->getContent($page);
                     include 'view/home.php';
+
                     break;
 
             }
