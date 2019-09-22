@@ -6,7 +6,7 @@ class Logic
     public function __construct()
     {
 
-        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "root", "");
+        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "ilias", "12345");
 
     }
 
@@ -16,7 +16,7 @@ class Logic
 
     public function getCinema($id)
     {
-        $sql = "SELECT * FROM `bioscopen` WHERE biosID =" .  $id;
+        $sql = "SELECT * FROM `bioscopen` WHERE biosID =" . $id;
         $result = $this->DataHandler->getData($sql);
         return $result;
     }
@@ -28,4 +28,13 @@ class Logic
 
         return $result;
     }
+
+    public function getContent($page)
+    {
+        $sql = "SELECT * FROM contentManagement WHERE contentManagement.pagina = '$page'";
+
+        $result = $this->DataHandler->getData($sql);
+        return $result;
+    }
+
 }

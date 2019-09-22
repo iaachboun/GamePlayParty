@@ -5,16 +5,23 @@
 
 <div class="contact-section container">
     <div class="row">
+
         <div class="col-12 col-md-6">
             <div class="contact-text col-md-6 col-12">
                 <h2>Title</h2>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mollis nunc sit amet ultrices congue. Cras nibh ipsum, varius ac imperdiet at, convallis volutpat nibh. Sed iaculis condimentum sem, at finibus nibh. Curabitur aliquet odio nec purus congue, in accumsan diam ultricies. Morbi tincidunt metus non vulputate egestas. Donec eu ligula et sem malesuada efficitur a id arcu. Duis eu orci nisi. Quisque est nibh, tincidunt ut turpis id, varius feugiat erat.
                 </p>
+
+                <h2>Meedoen?</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mollis nunc sit amet ultrices congue. Cras nibh ipsum, varius ac imperdiet at, convallis volutpat nibh. Sed iaculis condimentum sem, at finibus nibh. Curabitur aliquet odio nec purus congue, in accumsan diam ultricies. Morbi tincidunt metus non vulputate egestas. Donec eu ligula et sem malesuada efficitur a id arcu. Duis eu orci nisi. Quisque est nibh, tincidunt ut turpis id, varius feugiat erat.
+                </p>
                 <button class="btn-custom btn-green">Button</button>
             </div>
         </div>
-        <div class="col-md-6 col-12 contact-form-container">
+
+        <div class="col-12 col-md-6 contact-form-container">
             <form action="#" method="POST">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
@@ -36,13 +43,6 @@
                 <button type="submit" class="btn-custom btn-green">Verzend</button>
             </form>
         </div>
-        <div class="col-12 col-md-6">
-            <div class="contact-text  col-md-6 col-12">
-                <h2>Meedoen?</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mollis nunc sit amet ultrices congue. Cras nibh ipsum, varius ac imperdiet at, convallis volutpat nibh. Sed iaculis condimentum sem, at finibus nibh. Curabitur aliquet odio nec purus congue, in accumsan diam ultricies. Morbi tincidunt metus non vulputate egestas. Donec eu ligula et sem malesuada efficitur a id arcu. Duis eu orci nisi. Quisque est nibh, tincidunt ut turpis id, varius feugiat erat.
-                </p>
-            </div>
-        </div>
+
     </div>
 </div>

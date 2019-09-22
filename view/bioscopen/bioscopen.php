@@ -20,6 +20,7 @@
                                                                                          src="assets/img/<?php echo $biosnaam; ?>.jpg"></a>
                         <p><?php echo $omschrijving; ?></p>
                         <a href="?request=biosInfo&id=<?php echo $biosID; ?>"><button class="btn-custom btn-green">Meer info</button></a>
+<!--                        <a href="?request=beschickbaar&id=--><?php //echo $biosID; ?><!--"><button class="btn-custom btn-green">Reseveer nu!</button></a>-->
                     </div>
                 </div>
             <?php } ?>
