@@ -11,6 +11,9 @@ body {
   padding: 0 !important;
   height: 80px;
   background-color: #1C2331 !important;
+  position: fixed !important;
+  z-index: 9 !important;
+  width: 100% !important;
 }
 .navbar div ul {
   background-color: #1C2331;
@@ -27,7 +30,7 @@ body {
 .logo-container {
   max-width: 50%;
   z-index: 100 !important;
-  position: absolute;
+  position: fixed;
 }
 
 .logo {
