@@ -24,6 +24,7 @@ class WebsiteController
             switch ($request) {
                 case 'biosInfo':
                     $result = $this->Logic->getCinema($id);
+                    $vrije_plaatsen = $this->Logic->getVrijePlaatsen($id);
                     include 'view/bioscopen/biosDetails.php';
                     break;
                 case 'bioscopen':

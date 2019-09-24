@@ -10,6 +10,7 @@
   position: fixed !important;
   z-index: 9 !important;
   width: 100% !important;
+  top: 0 !important;
   div{
     ul{
       background-color: #1C2331;
@@ -29,6 +30,7 @@
   max-width: 50%;
   z-index: 100 !important;
   position: fixed;
+  top: 0 !important;
 }
 
 .logo{
