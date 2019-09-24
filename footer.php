@@ -1,5 +1,3 @@
-<?php                     var_dump($footerContent);
-?>
 <!-- Footer -->
 <footer class="page-footer font-small">
 
@@ -15,7 +13,8 @@
                 <!-- Content -->
                 <h6 class="text-uppercase font-weight-bold">Gameplay Party</h6>
                 <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-<!--                --><?php //$row = $footerContent->fetch(PDO::FETCH_ASSOC); var_dump($row); ?>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor ultrices semper. Cras
+                    feugiat velit sem, id fermentum metus hendrerit sed. Vestibulum malesuada</p>
             </div>
             <!-- Grid column -->
 

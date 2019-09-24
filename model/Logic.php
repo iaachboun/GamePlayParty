@@ -4,7 +4,7 @@ require_once 'model/DataHandler.php';
 class Logic {
 	public function __construct() {
 
-		$this->DataHandler = new DataHandler( "localhost", "mysql", "GamePlayParty", "root", "" );
+		$this->DataHandler = new DataHandler( "localhost", "mysql", "GamePlayParty", "ilias", "12345" );
 
 	}
 

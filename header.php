@@ -19,6 +19,8 @@
           crossorigin="anonymous">
     <!--    slick js-->
     <link rel="stylesheet" type="text/css" href="assets/style/slick.css"/>
+    <!--    typed js-->
+    <script type="text/javascript" src="assets/js/typed/typed.js"></script>
 
 </head>
 <body>
