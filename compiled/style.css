@@ -86,6 +86,7 @@ footer div.footer-copyright a:hover {
 
 .heroTitle {
   background-color: rgba(0, 0, 0, 0.7) !important;
+  height: 3em;
   padding: 50px;
   border-radius: 10px;
 }
