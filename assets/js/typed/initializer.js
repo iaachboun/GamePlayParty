@@ -38,8 +38,8 @@ export default class Initializer {
 
     // text content of element
     self.elContent = self.attr
-      ? self.el.getAttribute(self.attr)
-      : self.el.textContent;
+        ? self.el.getAttribute(self.attr)
+        : self.el.textContent;
 
     // html or plain text
     self.contentType = self.options.contentType;

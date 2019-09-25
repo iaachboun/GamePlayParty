@@ -3,12 +3,11 @@
     <img src="./assets/img/Kinepolis%20Almere.jpg" class="hero">
     <img src="./assets/img/Kinepolis%20Den%20Helder.jpg" class="hero">
 </div>
-<div style="position: absolute; left: 50%; top: 300px;">
-    <div style="position: relative; left: -50%;">
-        <h1 class="heroTitle">Gaming parties organiseren</h1>
+<div style="position: absolute; left: 50%; top: 300px;" class="banner">
+    <div style="position: relative; left: -50%;" class="typed_wrap">
+        <h1 class="heroTitle"><span class="typed" id="typed"></span></h1>
     </div>
 </div>
-
 
 <div class="home-section container">
     <div class="row home-content">
