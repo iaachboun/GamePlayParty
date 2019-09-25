@@ -87,8 +87,12 @@ footer div.footer-copyright a:hover {
 .heroTitle {
   background-color: rgba(0, 0, 0, 0.7) !important;
   padding: 50px;
-  color: white;
   border-radius: 10px;
+}
+.heroTitle div h1 {
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 /* DEMO-SPECIFIC STYLES */
