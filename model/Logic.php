@@ -1,10 +1,14 @@
 <?php
 require_once 'model/DataHandler.php';
+require_once 'utilities/biosDetailCreate.php';
+require_once 'utilities/biosVrijePlaatsen.php';
 
 class Logic {
 	public function __construct() {
 
 		$this->DataHandler = new DataHandler( "localhost", "mysql", "GamePlayParty", "root", "" );
+        $this->biosDetailCreate = new biosDetailCreate();
+        $this->biosVrijePlaatsen = new biosVrijePlaatsen();
 
 	}
 
@@ -14,13 +18,15 @@ class Logic {
 	public function getCinema( $id ) {
 		$sql    = "SELECT * FROM `bioscopen` WHERE biosID =" . $id;
 		$result = $this->DataHandler->getData( $sql );
+        $results = $this->biosDetailCreate->createbiosdetail($result);
 
-		return $result;
+		return $results;
 	}
 
 	public function getVrijePlaatsen( $id ) {
     	$sql = "SELECT DATE_FORMAT(`datum`, '%d %M %Y'), begin_tijd, eind_tijd, aantal_plaatsen FROM `vrije_reserveringen` WHERE biosID = '$id'";
-    	$vrije_plaatsen =  $this->DataHandler->getData($sql);
+    	$result =  $this->DataHandler->getData($sql);
+    	$vrije_plaatsen = $this->biosVrijePlaatsen->biosCreateVrijePlaatsen($result);
     	return $vrije_plaatsen;
 	}
 

@@ -23,26 +23,22 @@ class WebsiteController
             $footerContent = $this->Logic->getContent($page);
             switch ($request) {
                 case 'biosInfo':
-                    $result = $this->Logic->getCinema($id);
-                    $vrije_plaatsen = $this->Logic->getVrijePlaatsen($id);
-                    include 'view/bioscopen/biosDetails.php';
+                    $this->collectCreateCinema($id);
                     break;
                 case 'bioscopen':
-                    $result = $this->Logic->getCinemas();
-                    include 'view/bioscopen/bioscopen.php';
+                    $this->collectCreateCinemaList();
                     break;
                 case 'beschickbaar':
-                    $result = $this->Logic->getCinema($id);
-                    include 'view/bioscopen/reseveringen/beschickbaar.php';
+                    $this->collectBeschikbaar($id);
                     break;
                 case 'contact':
-                    include 'view/contact.php';
+                    $this->collectContact();
                     break;
                 case 'cookie-beleid':
-                    include 'view/cookie-beleid.php';
+                    $this->collectCookieBeleid();
                     break;
                 case 'algemene-voorwaarden':
-                    include 'view/algemene-voorwaarden.php';
+                    $this->collectAlgemeneVoorwaarden();
                     break;
                 default:
                     $page = "Home";
@@ -56,4 +52,35 @@ class WebsiteController
             $errors = $e->getErrors();
         }
     }
+
+    public function collectCreateCinema($id){
+        $biosinfo = $this->Logic->getCinema($id);
+        $vrije_plaatsen = $this->Logic->getVrijePlaatsen($id);
+        include 'view/bioscopen/biosDetails.php';
+
+    }
+
+    public function collectCreateCinemaList(){
+        $result = $this->Logic->getCinemas();
+        include 'view/bioscopen/bioscopen.php';
+    }
+
+    public function collectBeschikbaar($id){
+        $result = $this->Logic->getCinema($id);
+        include 'view/bioscopen/reseveringen/beschickbaar.php';
+    }
+
+    public function collectContact(){
+        include 'view/contact.php';
+    }
+
+    public function collectCookieBeleid(){
+        include 'view/cookie-beleid.php';
+    }
+
+    public function collectAlgemeneVoorwaarden(){
+        include 'view/algemene-voorwaarden.php';
+    }
+
+
 }
