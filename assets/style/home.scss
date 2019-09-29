@@ -1,4 +1,4 @@
-
+@import "mixin";
 body {
   //background-color: #2ecc71 !important;
 }
@@ -10,20 +10,37 @@ body {
     max-height: 650px;
   }
 }
-
-.heroTitle {
-  background-color: rgb(0,0,0,0.7) !important;
-  div {
-    h1 {
-      background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
+.bannerHero {
+  display: none;
+  @include respond-to('tablet') {
+    display: block;
   }
-  //background-color: #1C2331;
-  height: 3em;
-  padding: 50px;
-  border-radius: 10px;
+  .heroTitle {
+    height: 150px !important;
+    margin: 0 auto;
+    max-width: 600px;
+    background-color: none;
+    @include respond-to('tablet') {
+      background-color: rgb(0,0,0,0.7) !important;
+
+    }
+    div {
+      h1 {
+        background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+        -webkit-background-clip: text;
+        color: transparent;
+        display: none;
+        @include respond-to('tablet') {
+          display: block;
+        };
+      }
+    }
+    //background-color: #1C2331;
+    height: 3em;
+    padding: 50px;
+    border-radius: 10px;
+  }
+
 }
 
 

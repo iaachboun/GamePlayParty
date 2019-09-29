@@ -84,16 +84,38 @@ footer div.footer-copyright a:hover {
   max-height: 650px;
 }
 
-.heroTitle {
-  background-color: rgba(0, 0, 0, 0.7) !important;
+.bannerHero {
+  display: none;
+}
+@media (min-width: 758px) {
+  .bannerHero {
+    display: block;
+  }
+}
+.bannerHero .heroTitle {
+  height: 150px !important;
+  margin: 0 auto;
+  max-width: 600px;
+  background-color: none;
   height: 3em;
   padding: 50px;
   border-radius: 10px;
 }
-.heroTitle div h1 {
+@media (min-width: 758px) {
+  .bannerHero .heroTitle {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+  }
+}
+.bannerHero .heroTitle div h1 {
   background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
   -webkit-background-clip: text;
   color: transparent;
+  display: none;
+}
+@media (min-width: 758px) {
+  .bannerHero .heroTitle div h1 {
+    display: block;
+  }
 }
 
 /* DEMO-SPECIFIC STYLES */

@@ -19,7 +19,7 @@ class Logic {
 	}
 
 	public function getVrijePlaatsen( $id ) {
-    	$sql = "SELECT * FROM `vrije_reserveringen` WHERE biosID = '$id'";
+    	$sql = "SELECT DATE_FORMAT(`datum`, '%d %M %Y'), begin_tijd, eind_tijd, aantal_plaatsen FROM `vrije_reserveringen` WHERE biosID = '$id'";
     	$vrije_plaatsen =  $this->DataHandler->getData($sql);
     	return $vrije_plaatsen;
 	}
