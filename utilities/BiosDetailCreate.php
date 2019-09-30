@@ -4,7 +4,7 @@
 class biosDetailCreate
 {
 
-    public function createbiosdetail($result)
+    public function createBiosDetail($result)
     {
         $html = "";
 

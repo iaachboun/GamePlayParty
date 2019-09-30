@@ -53,32 +53,38 @@ class WebsiteController
         }
     }
 
-    public function collectCreateCinema($id){
+    public function collectCreateCinema($id)
+    {
         $biosinfo = $this->Logic->getCinema($id);
         $vrije_plaatsen = $this->Logic->getVrijePlaatsen($id);
         include 'view/bioscopen/biosDetails.php';
 
     }
 
-    public function collectCreateCinemaList(){
+    public function collectCreateCinemaList()
+    {
         $result = $this->Logic->getCinemas();
         include 'view/bioscopen/bioscopen.php';
     }
 
-    public function collectBeschikbaar($id){
+    public function collectBeschikbaar($id)
+    {
         $result = $this->Logic->getCinema($id);
         include 'view/bioscopen/reseveringen/beschickbaar.php';
     }
 
-    public function collectContact(){
+    public function collectContact()
+    {
         include 'view/contact.php';
     }
 
-    public function collectCookieBeleid(){
+    public function collectCookieBeleid()
+    {
         include 'view/cookie-beleid.php';
     }
 
-    public function collectAlgemeneVoorwaarden(){
+    public function collectAlgemeneVoorwaarden()
+    {
         include 'view/algemene-voorwaarden.php';
     }
 
