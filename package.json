@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "froala-editor": "^3.0.5-rc.1",
     "sass": "^1.23.0-module.beta.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@editorjs/editorjs": "^2.15.1"
+  },
   "scripts": {
     "watch": "sass --watch assets/style/app.scss compiled/style.css",
     "test": "echo \"Error: no test specified\" && exit 1"

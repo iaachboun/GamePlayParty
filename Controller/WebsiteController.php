@@ -19,9 +19,12 @@ class WebsiteController
         try {
             $request = isset($_REQUEST['request']) ? $_REQUEST['request'] : null;
             $id = $_REQUEST['id'];
-            $page = "footerContent";
-            $footerContent = $this->Logic->getContent($page);
+            $page = $_REQUEST['pagina'];
+
             switch ($request) {
+                case 'beheer':
+                    $this->beheerContent($page);
+                    break;
                 case 'biosInfo':
                     $this->collectCreateCinema($id);
                     break;
@@ -88,5 +91,20 @@ class WebsiteController
         include 'view/algemene-voorwaarden.php';
     }
 
-
+    public function beheerContent($page)
+    {
+        switch ($page) {
+            case 'contact':
+                include 'view/contact.php';
+                break;
+            case 'bioscopen':
+                $result = $this->Logic->getCinemas();
+                include 'view/beheer/beheerPage.php';
+                break;
+            default:
+                $result = $this->Logic->getContent($page);
+                include 'view/beheer/beheerPage.php';
+                break;
+        }
+    }
 }

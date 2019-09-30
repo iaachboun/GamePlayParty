@@ -97,15 +97,16 @@
 <script type="text/javascript" src="assets/js/slick.min.js"></script>
 <script type="text/javascript" src="assets/js/hero.js"></script>
 <script type="text/javascript" src="assets/js/typed/typed.js"></script>
+<script type="text/javascript" src="assets/js/wysiwyg.json"></script>
 
-<script>
-    import Typed from "assets/js/typed/typed";
-
-    var typed = new Typed('#typed', {
-        strings: ["First sentence.", "Second sentence."],
-        typeSpeed: 30
-    });
-</script>
+<!--<script>-->
+<!--    import Typed from "assets/js/typed/typed";-->
+<!---->
+<!--    var typed = new Typed('#typed', {-->
+<!--        strings: ["First sentence.", "Second sentence."],-->
+<!--        typeSpeed: 30-->
+<!--    });-->
+<!--</script>-->
 
 
 </body>

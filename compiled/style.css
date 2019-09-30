@@ -288,4 +288,17 @@ h1 {
   margin: 100px 0px;
 }
 
+.beheerNav-section {
+  position: relative;
+  z-index: 9999;
+  margin: 80px 0;
+  background: grey;
+}
+.beheerNav-section .beheerNav {
+  background: red;
+}
+.beheerNav-section .beheerNav a {
+  float: left;
+}
+
 /*# sourceMappingURL=style.css.map */
