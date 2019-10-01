@@ -18,8 +18,13 @@ class WebsiteController
     {
         try {
             $request = isset($_REQUEST['request']) ? $_REQUEST['request'] : null;
-            $id = $_REQUEST['id'];
-            $page = $_REQUEST['pagina'];
+
+            if (isset($_REQUEST['id'])) {
+                $id = $_REQUEST['id'];
+            }
+            if (isset($_REQUEST['pagina'])) {
+                $page = $_REQUEST['pagina'];
+            }
 
             switch ($request) {
                 case 'beheer':
