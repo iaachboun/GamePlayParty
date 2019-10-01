@@ -1,0 +1,13 @@
+.beheerNav-section {
+  position: relative;
+  z-index: 9999;
+  margin: 80px 0;
+  background: grey;
+  .beheerNav {
+    background: red;
+
+    a {
+      float: left;
+    }
+  }
+}

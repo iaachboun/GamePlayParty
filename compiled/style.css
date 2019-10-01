@@ -95,7 +95,7 @@ footer div.footer-copyright a:hover {
 .bannerHero .heroTitle {
   height: 150px !important;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 630px;
   background-color: none;
   height: 3em;
   padding: 50px;
@@ -114,7 +114,7 @@ footer div.footer-copyright a:hover {
 }
 @media (min-width: 758px) {
   .bannerHero .heroTitle div h1 {
-    display: block;
+    display: inline-block;
   }
 }
 
@@ -153,7 +153,7 @@ h1 {
   }
 }
 .home-section {
-  margin: 100px 0;
+  margin: 0 0 100px 0;
   padding: 20px;
 }
 .home-section .home-content .home-text {
@@ -286,6 +286,19 @@ h1 {
 
 .cookie-beleid-section {
   margin: 100px 0px;
+}
+
+.beheerNav-section {
+  position: relative;
+  z-index: 9999;
+  margin: 80px 0;
+  background: grey;
+}
+.beheerNav-section .beheerNav {
+  background: red;
+}
+.beheerNav-section .beheerNav a {
+  float: left;
 }
 
 /*# sourceMappingURL=style.css.map */
