@@ -40,6 +40,9 @@ class WebsiteController
                 case 'algemene-voorwaarden':
                     $this->collectAlgemeneVoorwaarden();
                     break;
+                case 'login':
+                    $this->collectLogin($_REQUEST['email'], $_REQUEST['wachtwoord']);
+                    break;
                 default:
                     $page = "Home";
                     $result = $this->Logic->getContent($page);
@@ -86,6 +89,17 @@ class WebsiteController
     public function collectAlgemeneVoorwaarden()
     {
         include 'view/algemene-voorwaarden.php';
+    }
+
+    public function collectLogin($email, $wachtwoord){
+        if (isset($_POST['login-submit'])) {
+            $email = $_POST['email'];
+            $password = $_POST['wachtwoord'];
+            
+            $result = $this->Logic->getLogin($email, $wachtwoord);
+        }
+
+        include 'view/login.php';
     }
 
 

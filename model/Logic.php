@@ -8,7 +8,7 @@ class Logic
     public function __construct()
     {
 
-        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "root", "");
+        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayPlarty", "root", "");
         $this->BiosDetailCreate = new biosDetailCreate();
         $this->BiosVrijePlaatsen = new biosVrijePlaatsen();
 
@@ -53,4 +53,17 @@ class Logic
         return $result;
     }
 
+    public function getLogin($email, $wachtwoord)
+    {
+
+        if (isset($email, $wachtwoord)) {
+
+            $result = $this->DataHandler->getPreparedQueryData($email, $wachtwoord);
+            
+            return $result;
+
+            
+        }
+        
+    }
 }

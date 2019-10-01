@@ -42,6 +42,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="?request=contact">Contact</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="?request=login">Login</a>
+            </li>
         </ul>
     </div>
 </nav>
