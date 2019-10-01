@@ -38,3 +38,5 @@
         </div>
     </div>
 </div>
+<div id="editorJs"></div>
+<button id="saveBtn">Save Article</button>

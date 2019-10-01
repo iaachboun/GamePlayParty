@@ -97,7 +97,7 @@
 <script type="text/javascript" src="assets/js/slick.min.js"></script>
 <script type="text/javascript" src="assets/js/hero.js"></script>
 <script type="text/javascript" src="assets/js/typed/typed.js"></script>
-<script type="text/javascript" src="assets/js/wysiwyg.json"></script>
+<script type="text/javascript" src="assets/js/wysiwyg.js"></script>
 
 <!--<script>-->
 <!--    import Typed from "assets/js/typed/typed";-->
