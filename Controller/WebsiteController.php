@@ -101,8 +101,6 @@ class WebsiteController
 
     public function collectLogin($email, $wachtwoord){
         if (isset($_POST['login-submit'])) {
-            $email = $_POST['email'];
-            $password = $_POST['wachtwoord'];
             
             $result = $this->Logic->getLogin($email, $wachtwoord);
         }
