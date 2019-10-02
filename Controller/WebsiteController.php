@@ -99,12 +99,24 @@ class WebsiteController
         include 'view/algemene-voorwaarden.php';
     }
 
-    public function collectLogin($email, $wachtwoord){
+    public function collectLogin($email, $wachtwoord)
+    {
         if (isset($_POST['login-submit'])) {
-            $email = $_POST['email'];
-            $password = $_POST['wachtwoord'];
-            
             $result = $this->Logic->getLogin($email, $wachtwoord);
+
+            $username = $result[0][1];
+            $rol = $result[0][4];
+            $userID = $result[0][0];
+
+
+
+
+
+            $_SESSION['rol'] = $rol;
+            $_SESSION['username'] = $username;
+            $_SESSION['userID'] = $userID;
+
+//            var_dump($_SESSION['username']);
         }
 
         include 'view/login.php';
