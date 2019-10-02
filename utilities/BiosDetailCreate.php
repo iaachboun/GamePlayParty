@@ -16,6 +16,7 @@ class BiosDetailCreate
             $biosplaats = $row['biosplaats'];
             $biosprovincie = $row['biosprovincie'];
 
+            $html .= "<div class='col-12 col-md-6 detailImg-section'>";
             $html .= "<img class='detailImg' src='assets/img/$biosnaam.jpg' alt=''>";
             $html .= "</div>";
             $html .= "<div class='col-12 col-md-6'>";

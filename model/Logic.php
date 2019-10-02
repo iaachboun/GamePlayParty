@@ -28,7 +28,7 @@ class Logic
 
     public function getVrijePlaatsen($id)
     {
-        $sql = "SELECT DATE_FORMAT(`datum`, '%d %M %Y'), begin_tijd, eind_tijd, aantal_plaatsen FROM `vrije_reserveringen` WHERE biosID = '$id'";
+        $sql = "SELECT DATE_FORMAT(`datum`, '%d-%m-%Y'), TIME_FORMAT(`begin_tijd`, '%h:%i'), TIME_FORMAT(`eind_tijd`, '%h:%i'), zaal, aantal_plaatsen FROM `vrije_reserveringen` WHERE biosID = '$id'";
         $result = $this->DataHandler->getData($sql);
         $vrije_plaatsen = $this->BiosVrijePlaatsen->BiosCreateVrijePlaatsen($result);
         return $vrije_plaatsen;

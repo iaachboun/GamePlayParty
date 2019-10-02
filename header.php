@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,9 +56,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.php">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="?request=beheer&pagina=Home">Beheer</a>
-            </li>
+            <?php
+            if ($_SESSION['rol'] == '0') {
+
+                echo "<li class='nav-item'>
+                        <a class='nav-link' href = '?request=beheer&pagina=Home'> Beheer</a >
+                       </li >";
+            }
+            ?>
             <li class="nav-item">
                 <a class="nav-link" href="?request=bioscopen">Bioscopen</a>
             </li>
@@ -65,7 +71,12 @@
                 <a class="nav-link" href="?request=contact">Contact</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="?request=login">Login</a>
+                <?php
+                if (!isset($_SESSION['rol'])) { ?>
+                    <a class="nav-link" href="?request=login">Login</a>
+                <?php }else{ ?>
+                    <a class="nav-link" href="?request=login">Log out</a>
+                <?php }?>
             </li>
         </ul>
     </div>
