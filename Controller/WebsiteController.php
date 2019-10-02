@@ -47,7 +47,6 @@ class WebsiteController
                     $page = "Home";
                     $result = $this->Logic->getContent($page);
                     include 'view/home.php';
-
                     break;
 
             }
@@ -98,6 +97,8 @@ class WebsiteController
                 include 'view/contact.php';
                 break;
             case 'bioscopen':
+                $allCinemas = $this->Logic->getCinemas();
+
                 $result = $this->Logic->getCinemas();
                 include 'view/beheer/beheerPage.php';
                 break;

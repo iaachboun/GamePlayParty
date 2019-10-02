@@ -26,6 +26,7 @@
     <!--    slick js-->
     <link rel="stylesheet" type="text/css" href="assets/style/slick.css"/>
     <!--    editor js-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest"></script>
     <script src="https://cdn.jsdelivr.net/combine/npm/@editorjs/link@2.1.3,npm/@editorjs/list@1.4.0,npm/@editorjs/checklist@1.1.0,npm/@editorjs/embed@2.2.1,npm/@editorjs/quote@2.3.0,npm/@editorjs/header@2.3.0,npm/@editorjs/simple-image@1.3.2,npm/@editorjs/editorjs@2.15.1"></script>
     <script>
         $( document ).ready(function() {
@@ -33,7 +34,7 @@
                 $id = this.classList[1];
                 console.log($id);
                 tinymce.init({
-                    selector: `textarea.${$id}`,
+                    selector: `.${$id}`,
                 });
             })
         });

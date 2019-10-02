@@ -1,7 +1,7 @@
 <?php
 
 
-class biosDetailCreate
+class BiosDetailCreate
 {
 
     public function createBiosDetail($result)

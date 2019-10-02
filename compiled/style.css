@@ -301,4 +301,12 @@ h1 {
   float: left;
 }
 
+.editorJs {
+  background: grey;
+}
+.editorJs img {
+  height: auto;
+  width: 400px;
+}
+
 /*# sourceMappingURL=style.css.map */

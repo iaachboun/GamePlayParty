@@ -4,7 +4,7 @@
 class BiosVrijePlaatsen
 {
 
-    public function biosCreateVrijePlaatsen($result)
+    public function BiosCreateVrijePlaatsen($result)
     {
         $html = "";
 
