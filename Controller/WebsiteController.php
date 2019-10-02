@@ -102,6 +102,10 @@ class WebsiteController
     public function collectLogin($email, $wachtwoord)
     {
         if (isset($_POST['login-submit'])) {
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 236e30f37b3ea6b96e01e7e968f190e4f832bc02
             $result = $this->Logic->getLogin($email, $wachtwoord);
 
             $username = $result[0][1];
