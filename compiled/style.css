@@ -106,20 +106,20 @@ footer div.footer-copyright a:hover {
     background-color: rgba(0, 0, 0, 0.7) !important;
   }
 }
-.bannerHero .heroTitle div h1 {
+.bannerHero .heroTitle div h1.typing {
   background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
   -webkit-background-clip: text;
   color: transparent;
   display: none;
 }
 @media (min-width: 758px) {
-  .bannerHero .heroTitle div h1 {
+  .bannerHero .heroTitle div h1.typing {
     display: inline-block;
   }
 }
 
 /* DEMO-SPECIFIC STYLES */
-h1 {
+h1.typing {
   color: #fff;
   overflow: hidden;
   /* Ensures the content is not revealed until the animation */

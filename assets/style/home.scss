@@ -25,7 +25,7 @@ body {
 
     }
     div {
-      h1 {
+      h1.typing {
         background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
         -webkit-background-clip: text;
         color: transparent;
@@ -45,7 +45,7 @@ body {
 
 
 /* DEMO-SPECIFIC STYLES */
-h1 {
+h1.typing {
   color: #fff;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: .15em solid orange; /* The typwriter cursor */
@@ -120,6 +120,7 @@ h1 {
 
     .home-text {
       font-size: 1.5em;
+
     }
 
     img {

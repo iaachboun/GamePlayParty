@@ -41,7 +41,7 @@
     </script>
 </head>
 <body>
-<!--<div class="logo-container">
+<div class="logo-container">
     <img class="logo" src="assets/img/logo.svg" alt="logo">
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark justify-content-end">
@@ -55,7 +55,7 @@
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <?php
-            if ($_SESSION['rol'] == '0') {
+            if (isset($_SESSION['rol']) && $_SESSION['rol'] == '0') {
 
                 echo "<li class='nav-item'>
                         <a class='nav-link' href = '?request=beheer&pagina=Home'> Beheer</a >
@@ -79,4 +79,3 @@
         </ul>
     </div>
 </nav>
--->

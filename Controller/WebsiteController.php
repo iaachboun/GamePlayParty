@@ -55,6 +55,9 @@ class WebsiteController
                 case 'cookie-beleid':
                     $this->collectCookieBeleid();
                     break;
+                case 'annulering-beleid':
+                    include 'view/annulering.php';
+                    break;
                 case 'algemene-voorwaarden':
                     $this->collectAlgemeneVoorwaarden();
                     break;
@@ -115,10 +118,6 @@ class WebsiteController
     public function collectLogin($email, $wachtwoord)
     {
         if (isset($_POST['login-submit'])) {
-<<<<<<< HEAD
-=======
-            
->>>>>>> 236e30f37b3ea6b96e01e7e968f190e4f832bc02
             $result = $this->Logic->getLogin($email, $wachtwoord);
 
             $username = $result[0][1];
