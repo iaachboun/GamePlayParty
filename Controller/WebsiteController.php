@@ -1,12 +1,13 @@
 <?php
 require_once 'model/Logic.php';
-
+require_once 'utilities/Mail.php';
 
 class WebsiteController
 {
     public function __construct()
     {
         $this->Logic = new Logic();
+        $this->Mail = new Mail();
 
     }
 
@@ -26,6 +27,15 @@ class WebsiteController
                 $page = $_REQUEST['pagina'];
             }
 
+            if(isset($_REQUEST['contactsubmit'])){
+                $naam = $_REQUEST['naam'];
+                $email =$_REQUEST['email'];
+                $telefoon = $_REQUEST['telefoon'];
+                $onderwerp = $_REQUEST['onderwerp'];
+                $bericht = $_REQUEST['bericht'];
+                $submit = $_REQUEST['contactsubmit'];
+            }
+
             switch ($request) {
                 case 'beheer':
                     $this->beheerContent($page);
@@ -40,7 +50,7 @@ class WebsiteController
                     $this->collectBeschikbaar($id);
                     break;
                 case 'contact':
-                    $this->collectContact();
+                    $this->collectContact($naam, $email, $telefoon, $onderwerp, $bericht, $submit);
                     break;
                 case 'cookie-beleid':
                     $this->collectCookieBeleid();
@@ -81,8 +91,11 @@ class WebsiteController
         include 'view/bioscopen/reseveringen/beschickbaar.php';
     }
 
-    public function collectContact()
+    public function collectContact($naam, $email, $telefoon, $onderwerp, $bericht, $submit)
     {
+        if(isset($submit)){
+            $this->Mail->sendMail($naam, $email, $telefoon, $onderwerp, $bericht);
+        }
         include 'view/contact.php';
     }
 
