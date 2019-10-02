@@ -8,8 +8,8 @@ class Logic
     public function __construct()
     {
         $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "ilias", "12345");
-        $this->BiosDetailCreate = new BiosDetailCreate();
-        $this->BiosVrijePlaatsen = new BiosVrijePlaatsen();
+        $this->BiosDetailCreate = new biosDetailCreate();
+        $this->BiosVrijePlaatsen = new biosVrijePlaatsen();
 
     }
 
@@ -45,11 +45,33 @@ class Logic
 
     public function getContent($page)
     {
+        $sql = "SELECT * FROM contentmanagement WHERE contentmanagement.pagina = '$page'";
 
-        $sql = "SELECT * FROM contentmanagement WHERE contentmanagement.pagina = '$page'" ;
         $result = $this->DataHandler->getData($sql);
 
         return $result;
     }
 
+    public function getLogin($email, $wachtwoord)
+    {
+        if (isset($email, $wachtwoord)) {
+            $result = $this->DataHandler->getPreparedQueryData($email, $wachtwoord);
+            if ($result == null) {
+                echo 'verkeerde gegevens';
+            } else {
+                echo 'ingelogd';
+            }
+        }
+        return $result;
+
+    }
+
+    public function updateContent($data, $page)
+    {
+        $sql = "UPDATE `contentmanagement` SET `content`='$data' WHERE pagina = '$page';";
+
+        $result = $this->DataHandler->getData($sql);
+
+        return $result;
+    }
 }

@@ -8,7 +8,8 @@
     <meta name="description" content="Gameplay Party">
     <meta name="keywords" content="keywords,here">
     <script src="assets/js/main.js" type="module"></script>
-
+    <!--    axios-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!--    wizziwick-->
     <script src="https://cdn.tiny.cloud/1/6hm4wgcoj7hq4i71e8y0b5z97t5nqn081rp8cjbnirrfg54k/tinymce/5/tinymce.min.js"
             referrerpolicy="origin"></script>
@@ -29,8 +30,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest"></script>
     <script src="https://cdn.jsdelivr.net/combine/npm/@editorjs/link@2.1.3,npm/@editorjs/list@1.4.0,npm/@editorjs/checklist@1.1.0,npm/@editorjs/embed@2.2.1,npm/@editorjs/quote@2.3.0,npm/@editorjs/header@2.3.0,npm/@editorjs/simple-image@1.3.2,npm/@editorjs/editorjs@2.15.1"></script>
     <script>
-        $( document ).ready(function() {
-            $(".beheerContent").on( "click", function() {
+        $(document).ready(function () {
+            $(".beheerContent").on("click", function () {
                 $id = this.classList[1];
                 console.log($id);
                 tinymce.init({
@@ -62,6 +63,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="?request=contact">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="?request=login">Login</a>
             </li>
         </ul>
     </div>

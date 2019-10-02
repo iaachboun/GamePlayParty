@@ -18,10 +18,18 @@ class WebsiteController
     {
         try {
             $request = isset($_REQUEST['request']) ? $_REQUEST['request'] : null;
-            $id = $_REQUEST['id'];
-            $page = $_REQUEST['pagina'];
+
+            if (isset($_REQUEST['id'])) {
+                $id = $_REQUEST['id'];
+            }
+            if (isset($_REQUEST['pagina'])) {
+                $page = $_REQUEST['pagina'];
+            }
 
             switch ($request) {
+                case 'updateData':
+                    $this->updateData($_REQUEST['data'], $_REQUEST['page']);
+                    break;
                 case 'beheer':
                     $this->beheerContent($page);
                     break;
@@ -42,6 +50,9 @@ class WebsiteController
                     break;
                 case 'algemene-voorwaarden':
                     $this->collectAlgemeneVoorwaarden();
+                    break;
+                case 'login':
+                    $this->collectLogin($_REQUEST['email'], $_REQUEST['wachtwoord']);
                     break;
                 default:
                     $page = "Home";
@@ -90,6 +101,17 @@ class WebsiteController
         include 'view/algemene-voorwaarden.php';
     }
 
+    public function collectLogin($email, $wachtwoord)
+    {
+        if (isset($_POST['login-submit'])) {
+
+            $result = $this->Logic->getLogin($email, $wachtwoord);
+        }
+
+        include 'view/login.php';
+    }
+
+
     public function beheerContent($page)
     {
         switch ($page) {
@@ -97,15 +119,21 @@ class WebsiteController
                 include 'view/contact.php';
                 break;
             case 'bioscopen':
-                $allCinemas = $this->Logic->getCinemas();
-
                 $result = $this->Logic->getCinemas();
                 include 'view/beheer/beheerPage.php';
                 break;
             default:
+
                 $result = $this->Logic->getContent($page);
                 include 'view/beheer/beheerPage.php';
                 break;
         }
+    }
+
+    public function updateData($data, $page)
+    {
+        $result = $this->Logic->updateContent($data, $page);
+
+        return $result;
     }
 }
