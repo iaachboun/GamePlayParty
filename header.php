@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,8 +29,8 @@
     <!--    editor js-->
     <script src="https://cdn.jsdelivr.net/combine/npm/@editorjs/link@2.1.3,npm/@editorjs/list@1.4.0,npm/@editorjs/checklist@1.1.0,npm/@editorjs/embed@2.2.1,npm/@editorjs/quote@2.3.0,npm/@editorjs/header@2.3.0,npm/@editorjs/simple-image@1.3.2,npm/@editorjs/editorjs@2.15.1"></script>
     <script>
-        $( document ).ready(function() {
-            $(".beheerContent").on( "click", function() {
+        $(document).ready(function () {
+            $(".beheerContent").on("click", function () {
                 $id = this.classList[1];
                 console.log($id);
                 tinymce.init({
@@ -40,7 +41,7 @@
     </script>
 </head>
 <body>
-<div class="logo-container">
+<!--<div class="logo-container">
     <img class="logo" src="assets/img/logo.svg" alt="logo">
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark justify-content-end">
@@ -53,15 +54,29 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.php">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="?request=beheer&pagina=Home">Beheer</a>
-            </li>
+            <?php
+            if ($_SESSION['rol'] == '0') {
+
+                echo "<li class='nav-item'>
+                        <a class='nav-link' href = '?request=beheer&pagina=Home'> Beheer</a >
+                       </li >";
+            }
+            ?>
             <li class="nav-item">
                 <a class="nav-link" href="?request=bioscopen">Bioscopen</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="?request=contact">Contact</a>
             </li>
+            <li class="nav-item">
+                <?php
+                if (!isset($_SESSION['rol'])) { ?>
+                    <a class="nav-link" href="?request=login">Login</a>
+                <?php }else{ ?>
+                    <a class="nav-link" href="?request=login">Log out</a>
+                <?php }?>
+            </li>
         </ul>
     </div>
 </nav>
+-->

@@ -35,4 +35,16 @@ class DataHandler
         $result = $this->dbh->query($sql, PDO::FETCH_ASSOC);
         return $result;
     }
+
+    public function getPreparedQueryData($email, $wachtwoord){
+        $stmt = $this->dbh->prepare("SELECT * FROM users where email = :email and wachtwoord = :wachtwoord");
+        $stmt->execute([
+            'email' => $email,
+            'wachtwoord' => $wachtwoord
+        ]);
+
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
 }
