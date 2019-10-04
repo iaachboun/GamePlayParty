@@ -27,15 +27,6 @@ class WebsiteController
                 $page = $_REQUEST['pagina'];
             }
 
-            if(isset($_REQUEST['contactsubmit'])){
-                $naam = $_REQUEST['naam'];
-                $email =$_REQUEST['email'];
-                $telefoon = $_REQUEST['telefoon'];
-                $onderwerp = $_REQUEST['onderwerp'];
-                $bericht = $_REQUEST['bericht'];
-                $submit = $_REQUEST['contactsubmit'];
-            }
-
             switch ($request) {
                 case 'beheer':
                     $this->beheerContent($page);
@@ -50,7 +41,12 @@ class WebsiteController
                     $this->collectBeschikbaar($id);
                     break;
                 case 'contact':
-                    $this->collectContact($naam, $email, $telefoon, $onderwerp, $bericht, $submit);
+                    $this->collectContact($_REQUEST['naam'],
+                        $_REQUEST['email'],
+                        $_REQUEST['telefoon'],
+                        $_REQUEST['onderwerp'],
+                        $_REQUEST['bericht'],
+                        $_REQUEST['contactsubmit']);
                     break;
                 case 'cookie-beleid':
                     $this->collectCookieBeleid();
@@ -94,12 +90,12 @@ class WebsiteController
     public function collectBeschikbaar($id)
     {
         $result = $this->Logic->getCinema($id);
-        include 'view/bioscopen/reseveringen/beschickbaar.php';
+        include 'view/bioscopen/reseveringen/beschikbaar.php';
     }
 
-    public function collectContact($naam, $email, $telefoon, $onderwerp, $bericht, $submit)
+    public function collectContact($naam, $email, $telefoon, $onderwerp, $bericht, $contactsubmit)
     {
-        if(isset($submit)){
+        if (isset($contactsubmit)) {
             $this->Mail->sendMail($naam, $email, $telefoon, $onderwerp, $bericht);
         }
         include 'view/contact.php';
@@ -123,9 +119,6 @@ class WebsiteController
             $username = $result[0][1];
             $rol = $result[0][4];
             $userID = $result[0][0];
-
-
-
 
 
             $_SESSION['rol'] = $rol;

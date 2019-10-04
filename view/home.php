@@ -24,7 +24,7 @@
 
             <div class="col-12 col-md-6">
                 <div class="home-text">
-                    <h2>Title</h2>
+                    <h2>Power to the players</h2>
                     <p>
                         <?php echo nl2br($row['content']) ?>
                     </p>

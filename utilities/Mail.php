@@ -5,7 +5,7 @@ class Mail
 {
 
     public function sendMail($naam, $email, $telefoon, $onderwerp, $bericht){
-        $to = "info@gameplayparty.com";
+        $to = "chenpeihu6@gmail.com";
         $phone = $telefoon;
         $subject = $onderwerp;
         $msg = $bericht;

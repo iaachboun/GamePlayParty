@@ -52,7 +52,7 @@
                     <textarea class="form-control" name="bericht" id="FormControlTextarea" rows="3" placeholder="Uw bericht"
                               required></textarea>
                 </div>
-                <button type="submit" name="submit" class="btn-custom btn-green">Verzend</button>
+                <button type="submit" name="contactsubmit" class="btn-custom btn-green">Verzend</button>
             </form>
         </div>
 
