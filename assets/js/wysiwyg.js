@@ -10,25 +10,7 @@
 //     },
 // });
 
-console.log();
-/*const homeContent = new EditorJS({
-    holderId: 'homeContent',
-
-    data: {
-        time: 1570008723203,
-        blocks: [
-            {
-                type: "paragraph",
-                data: {
-                    text: "FUCKIN KANKER CODE"
-                }
-            }
-        ],
-        version: "2.15.1"
-    }
-
-
-});*/
+var newBeheerData = JSON.parse($('#contentBeheerData').text());
 
 const homeBeheerImg = new EditorJS({
     holderId: 'homeBeheerImg',
@@ -47,8 +29,7 @@ const homeBeheerContent = new EditorJS({
         linkTool: LinkTool,
         checklist: Checklist,
     },
-
-
+    data: newBeheerData
 });
 
 $('#saveBtn').on('click', function () {

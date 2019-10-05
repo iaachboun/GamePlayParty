@@ -23,15 +23,23 @@
             </div>
 
             <div class="col-12 col-md-6">
-                <div class="home-text">
-                    <h2>Title</h2>
-                    <p>
-                        <?php echo $row['content'] ?>
-                    </p>
+                <div id="homeContent" class="home-text">
                 </div>
-                <a href="?request=bioscopen" class="btn-custom btn-green btn-lg btn-block home-button-top-space">Check
-                    de bioscopen</a>
+                <a href="?request=bioscopen"
+                   class="btn-custom btn-green btn-lg btn-block home-button-top-space">bekijk de
+                    bioscopen</a>
             </div>
+            <p id="contentData" style="display: block"><?php echo $row['content'] ?></p>
         <?php } ?>
     </div>
 </div>
+
+<script>
+    var newData = JSON.parse($('#contentData').text());
+
+    const homeContent = new EditorJS({
+        holderId: 'homeContent',
+        data: newData,
+
+    });
+</script>

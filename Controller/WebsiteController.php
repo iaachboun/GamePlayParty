@@ -26,9 +26,9 @@ class WebsiteController
                 $page = $_REQUEST['pagina'];
             }
 
-            if(isset($_REQUEST['contactsubmit'])){
+            if (isset($_REQUEST['contactsubmit'])) {
                 $naam = $_REQUEST['naam'];
-                $email =$_REQUEST['email'];
+                $email = $_REQUEST['email'];
                 $telefoon = $_REQUEST['telefoon'];
                 $onderwerp = $_REQUEST['onderwerp'];
                 $bericht = $_REQUEST['bericht'];
@@ -37,7 +37,7 @@ class WebsiteController
 
             switch ($request) {
                 case 'updateData':
-                    $this->updateData($_REQUEST['data'], $_REQUEST['page']);
+                    $this->updateData($_REQUEST);
                     break;
                 case 'beheer':
                     $this->beheerContent($page);
@@ -97,7 +97,7 @@ class WebsiteController
 
     public function collectContact($naam, $email, $telefoon, $onderwerp, $bericht, $submit)
     {
-        if(isset($submit)){
+        if (isset($submit)) {
             $this->Mail->sendMail($naam, $email, $telefoon, $onderwerp, $bericht);
         }
         include 'view/contact.php';
@@ -116,15 +116,12 @@ class WebsiteController
     public function collectLogin($email, $wachtwoord)
     {
         if (isset($_POST['login-submit'])) {
-            
+
             $result = $this->Logic->getLogin($email, $wachtwoord);
 
             $username = $result[0][1];
             $rol = $result[0][4];
             $userID = $result[0][0];
-
-
-
 
 
             $_SESSION['rol'] = $rol;
@@ -156,9 +153,12 @@ class WebsiteController
         }
     }
 
-    public function updateData($data, $page)
+    public function updateData($request)
     {
-        $result = $this->Logic->updateContent($data, $page);
+        $id = 'beheerContent' . $request['id'];
+        var_dump($request);
+//        var_dump($_REQUEST);
+//        $result = $this->Logic->updateContent();
 
         return $result;
     }

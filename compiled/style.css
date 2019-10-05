@@ -120,7 +120,6 @@ footer div.footer-copyright a:hover {
 
 /* DEMO-SPECIFIC STYLES */
 h1 {
-  color: #fff;
   overflow: hidden;
   /* Ensures the content is not revealed until the animation */
   border-right: 0.15em solid orange;
