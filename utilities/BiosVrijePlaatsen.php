@@ -17,18 +17,20 @@ class BiosVrijePlaatsen
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 
-            $datum = $row["DATE_FORMAT(`datum`, '%d-%m-%Y')"];
-            $begin_tijd = $row['TIME_FORMAT(`begin_tijd`, \'%h:%i\')'];;
-            $eind_tijd = $row['TIME_FORMAT(`eind_tijd`, \'%h:%i\')'];
+            $datum = $row["DATE_FORMAT(`reserveringsdatum`, '%d-%m-%Y')"];
+            $begin_tijd = $row['TIME_FORMAT(`reservering_begin_tijd`, \'%h:%i\')'];;
+            $eind_tijd = $row['TIME_FORMAT(`reservering_eind_tijd`, \'%h:%i\')'];
             $zaal = $row['zaal'];
-            $aantal_plaatsen = $row['aantal_plaatsen'];
+            $console = $row['console'];
+            $aantal_plaatsen = $row['aantal_stoelen'];
+            $rolstoeplaatsen = $row['rolstoelplaatsen'];
+            $schermgrootte = $row['schermgrootte'];
 
             $html .= "<div class='vrijePlaatsen'>" .
                 "<table>" .
                 "<tr>" .
                 "<th><h3>$datum</h3></th>" .
                 "</tr>" .
-                "<tr></tr>" .
                 "<tr>" .
                 "<td>Tijd:</td>" .
                 "<td>$begin_tijd - $eind_tijd</td>" .
@@ -39,6 +41,12 @@ class BiosVrijePlaatsen
                 "</tr>" .
                 "<tr>" .
                 "<td>Zaal:</td><td>$zaal</td>" .
+                "</tr>".
+                "<tr>".
+                "<td>Console:</td><td>$console</td>".
+                "</tr>".
+                "<tr><td>Schermgroote: </td><td>$schermgrootte</td></tr>".
+                "<tr><td>Rolstoelplaatsen: </td><td>$rolstoeplaatsen</td></tr>".
                 "</table>" .
                 "</div>";
 

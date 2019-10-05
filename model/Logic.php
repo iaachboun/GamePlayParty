@@ -7,6 +7,7 @@ class Logic
 {
     public function __construct()
     {
+
         $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "ilias", "12345");
         $this->BiosDetailCreate = new biosDetailCreate();
         $this->BiosVrijePlaatsen = new biosVrijePlaatsen();
@@ -28,7 +29,12 @@ class Logic
 
     public function getVrijePlaatsen($id)
     {
-        $sql = "SELECT DATE_FORMAT(`datum`, '%d-%m-%Y'), TIME_FORMAT(`begin_tijd`, '%h:%i'), TIME_FORMAT(`eind_tijd`, '%h:%i'), zaal, aantal_plaatsen FROM `vrije_reserveringen` WHERE biosID = '$id'";
+        $sql = "SELECT reserveringsID, DATE_FORMAT(`reserveringsdatum`, '%d-%m-%Y'), TIME_FORMAT(`reservering_begin_tijd`, '%h:%i'), TIME_FORMAT(`reservering_eind_tijd`, '%h:%i'), zaal_id, zaal, aantal_stoelen, rolstoelplaatsen, schermgrootte, console_id, console
+ FROM `reserveringen`
+   natural join zalen
+   natural join consoles
+  WHERE biosID = '$id'
+   and gereserveerd = 0";
         $result = $this->DataHandler->getData($sql);
         $vrije_plaatsen = $this->BiosVrijePlaatsen->BiosCreateVrijePlaatsen($result);
         return $vrije_plaatsen;

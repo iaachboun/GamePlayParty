@@ -7,6 +7,7 @@ class WebsiteController
     public function __construct()
     {
         $this->Logic = new Logic();
+        $this->Mail = new Mail();
 
     }
 
@@ -26,9 +27,9 @@ class WebsiteController
                 $page = $_REQUEST['pagina'];
             }
 
-            if (isset($_REQUEST['contactsubmit'])) {
+            if(isset($_REQUEST['contactsubmit'])){
                 $naam = $_REQUEST['naam'];
-                $email = $_REQUEST['email'];
+                $email =$_REQUEST['email'];
                 $telefoon = $_REQUEST['telefoon'];
                 $onderwerp = $_REQUEST['onderwerp'];
                 $bericht = $_REQUEST['bericht'];
@@ -52,7 +53,12 @@ class WebsiteController
                     $this->collectBeschikbaar($id);
                     break;
                 case 'contact':
-                    $this->collectContact($naam, $email, $telefoon, $onderwerp, $bericht, $submit);
+                    $this->collectContact($_REQUEST['naam'],
+                        $_REQUEST['email'],
+                        $_REQUEST['telefoon'],
+                        $_REQUEST['onderwerp'],
+                        $_REQUEST['bericht'],
+                        $_REQUEST['contactsubmit']);
                     break;
                 case 'cookie-beleid':
                     $this->collectCookieBeleid();
@@ -67,6 +73,7 @@ class WebsiteController
                     $page = "Home";
                     $result = $this->Logic->getContent($page);
                     include 'view/home.php';
+
                     break;
 
             }
@@ -92,10 +99,10 @@ class WebsiteController
     public function collectBeschikbaar($id)
     {
         $result = $this->Logic->getCinema($id);
-        include 'view/bioscopen/reseveringen/beschickbaar.php';
+        include 'view/bioscopen/reseveringen/beschikbaar.php';
     }
 
-    public function collectContact($naam, $email, $telefoon, $onderwerp, $bericht, $submit)
+    public function collectContact($naam, $email, $telefoon, $onderwerp, $bericht, $contactsubmit)
     {
         if (isset($submit)) {
             $this->Mail->sendMail($naam, $email, $telefoon, $onderwerp, $bericht);

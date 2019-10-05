@@ -47,7 +47,7 @@
                     <a href="?request=cookie-beleid">Cookie beleid</a>
                 </p>
                 <p>
-                    <a href="#">FAQ</a>
+                    <a href="?request=annulering-beleid">Annulering</a>
                 </p>
                 <p>
                     <a href="?request=algemene-voorwaarden">Privacy</a>
