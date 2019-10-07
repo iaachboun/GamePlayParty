@@ -1,12 +1,4 @@
-<div class="beheer-section">
-    <div class="container">
-        <div class="row beheerNav-section">
-            <div class="col-12 beheerNav">
-                <a class="nav-link" href="?request=beheer&pagina=Home">Home</a>
-                <a class="nav-link" href="?request=beheer&pagina=bioscopen">bioscopen</a>
-                <a class="nav-link" href="?request=beheer&pagina=bioscopen">contact</a>
-            </div>
-        </div>
+<?php include 'view/beheer/beheerheader.php'; ?>
         <div class="row">
             <form method="get" action="?request=updateData">
                 <?php

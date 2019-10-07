@@ -11,7 +11,7 @@
     <script src="assets/js/main.js" type="module"></script>
     <!--    axios-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!--    wizziwick-->
+    <!--    wysiwyg-->
     <script src="https://cdn.tiny.cloud/1/6hm4wgcoj7hq4i71e8y0b5z97t5nqn081rp8cjbnirrfg54k/tinymce/5/tinymce.min.js"
             referrerpolicy="origin"></script>
 
@@ -31,58 +31,71 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest"></script>
     <script src="https://cdn.jsdelivr.net/combine/npm/@editorjs/link@2.1.3,npm/@editorjs/list@1.4.0,npm/@editorjs/checklist@1.1.0,npm/@editorjs/embed@2.2.1,npm/@editorjs/quote@2.3.0,npm/@editorjs/header@2.3.0,npm/@editorjs/simple-image@1.3.2,npm/@editorjs/editorjs@2.15.1"></script>
     <script>
-        $(document).ready(function () {
-            $(".beheerContent").on("click", function (){
-                $id = this.classList[1];
-                console.log($id);
-                tinymce.init({
-                    selector: `.${$id}`,
+        tinymce.init({
+            selector: '#mytextarea',
+            plugins: 'image code | link | lists',
+            menubar: 'insert',
+            toolbar: 'undo redo | styleselect | alignleft aligncenter alignright | numlist bullist | link | image code',
+            height : 450,
 
-                });
-            });
-            $(".beheerContent").on("click", function (){
-                console.log(this);
-            })
+
+            /* without images_upload_url set, Upload tab won't show up*/
+            images_upload_url: 'upload.php',
         });
     </script>
+<!--    <script>-->
+<!--        $(document).ready(function () {-->
+<!--            $(".beheerContent").on("click", function (){-->
+<!--                $id = this.classList[1];-->
+<!--                console.log($id);-->
+<!--                tinymce.init({-->
+<!--                    selector: `.${$id}`,-->
+<!---->
+<!--                });-->
+<!--            });-->
+<!--            $(".beheerContent").on("click", function (){-->
+<!--                console.log(this);-->
+<!--            })-->
+<!--        });-->
+<!--    </script>-->
 </head>
-<body>
-<!--<div class="logo-container">
-    <img class="logo" src="assets/img/logo.svg" alt="logo">
-</div>
-<nav class="navbar navbar-expand-lg navbar-dark justify-content-end">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-dark navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="index.php">Home</a>
-            </li>
-            <?php
-/*            if ($_SESSION['rol'] == '0') {
-
-                echo "<li class='nav-item'>
-                        <a class='nav-link' href = '?request=beheer&pagina=Home'> Beheer</a >
-                       </li >";
-            }
-            */?>
-            <li class="nav-item">
-                <a class="nav-link" href="?request=bioscopen">Bioscopen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="?request=contact">Contact</a>
-            </li>
-            <li class="nav-item">
-                <?php
-/*                if (!isset($_SESSION['rol'])) { */?>
-                    <a class="nav-link" href="?request=login">Login</a>
-                <?php /*}else{ */?>
-                    <a class="nav-link" href="?request=login">Log out</a>
-                <?php /*}*/?>
-            </li>
-        </ul>
-    </div>
-</nav>
--->
+<!--<body>-->
+<!--<div class="logo-container">-->
+<!--    <img class="logo" src="assets/img/logo.svg" alt="logo">-->
+<!--</div>-->
+<!--<nav class="navbar navbar-expand-lg navbar-dark justify-content-end">-->
+<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"-->
+<!--            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--        <span class="navbar-dark navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">-->
+<!--        <ul class="navbar-nav">-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="index.php">Home</a>-->
+<!--            </li>-->
+<!--            --><?php
+//            if (isset($_SESSION['rol'])  && $_SESSION['rol'] == '0') {
+//
+//                echo "<li class='nav-item'>
+//                        <a class='nav-link' href = '?request=beheer&pagina=Home'> Beheer</a >
+//                       </li >";
+//            }
+//            ?>
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="?request=bioscopen">Bioscopen</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="?request=contact">Contact</a>-->
+<!--            </li>-->
+<!--            <li class="nav-item">-->
+<!--                --><?php
+//                if (!isset($_SESSION['loggedin'])) { ?>
+<!--                    <a class="nav-link" href="?request=login">Login</a>-->
+<!--                --><?php //}else{ ?>
+<!--                    <a class="nav-link" href="?request=logout">Log out</a>-->
+<!--                --><?php //}?>
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</nav>-->
+<!---->

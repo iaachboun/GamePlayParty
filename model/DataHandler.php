@@ -37,7 +37,7 @@ class DataHandler
     }
 
     public function getPreparedQueryData($email, $wachtwoord){
-        $stmt = $this->dbh->prepare("SELECT * FROM users where email = :email and wachtwoord = :wachtwoord");
+        $stmt = $this->dbh->prepare("SELECT * from users where email = :email or username = :email    and wachtwoord = :wachtwoord");
         $stmt->execute([
             'email' => $email,
             'wachtwoord' => $wachtwoord
@@ -47,4 +47,56 @@ class DataHandler
 
         return $result;
     }
+
+    public function updatePreparedQueryData($paginaID ,$mytextarea){
+        $stmt = $this->dbh->prepare("UPDATE contentmanagement set content = :content where paginaID = :paginaID");
+        $result = $stmt->execute([
+            'content' => $mytextarea,
+            'paginaID' => $paginaID
+        ]);
+
+        return $result;
+    }
+
+    public function addPreparedQueryData($paginatitel, $mytextarea){
+        //check rol to see who to assign as the owner of the page
+        if(isset($_SESSION['rol'])) {
+            switch($_SESSION['rol']){
+                case "0":
+                    $owner = "beheer";
+                    break;
+                case "1":
+                    $owner = "bioscoop";
+                    break;
+            }
+        }
+        //insert into the database table contentmangement
+        $stmt = $this->dbh->prepare("INSERT INTO `contentmanagement`(owner, pagina, content) VALUES(:owner, :pagina, :content)");
+        var_dump($stmt);
+        $result = $stmt->execute([
+            'owner' => $owner,
+            'pagina' => $paginatitel,
+            'content' => $mytextarea
+        ]);
+
+        return $result;
+    }
+
+    public function updateBioscoopData($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie, $aantal_zalen){
+        $stmt = $this->dbh->prepare("UPDATE bioscopen set biosnaam = :biosnaam, biosadres = :biosadres, biospostcode = :biospostcode, biosplaats = :biosplaats, biosprovincie = :biosprovincie, aantal_zalen = :aantal_zalen
+ where biosID = :biosID");
+        var_dump($stmt);
+        $result = $stmt->execute([
+            'biosnaam' => $biosnaam,
+            'biosadres' => $biosadres,
+            'biospostcode' => $biospostcode,
+            'biosplaats' => $biosplaats,
+            'biosprovincie' => $biosprovincie,
+            'aantal_zalen' => $aantal_zalen,
+            'biosID' => $biosID
+        ]);
+
+        return $result;
+    }
+
 }

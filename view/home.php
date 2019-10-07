@@ -6,7 +6,7 @@
 <div style="position: relative; top: -290px;" class="banner bannerHero">
     <div style="height: 100px; position: relative;" class="heroTitle">
         <div class="typewriter">
-            <h1>Gaming parties organiseren</h1>
+            <h1 id="typewritten">Gaming parties organiseren</h1>
         </div>
     </div>
 </div>

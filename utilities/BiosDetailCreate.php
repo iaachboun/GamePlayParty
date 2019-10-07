@@ -10,7 +10,7 @@ class BiosDetailCreate
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             $biosnaam = $row['biosnaam'];
-            $omschrijving = nl2br($row['omschrijving']);
+            $omschrijving = $row['content'];
             $biosadres = $row['biosadres'];
             $biospostcode = $row['biospostcode'];
             $biosplaats = $row['biosplaats'];
@@ -23,6 +23,7 @@ class BiosDetailCreate
             $html .= "<div class='detailContent'>";
             $html .= "<h3>$biosnaam</h3>";
             $html .= "<p>$omschrijving</p>";
+            $html .= "<h2>Adres: </h2>";
             $html .= "<p>$biosadres<br>$biospostcode $biosplaats<br>$biosprovincie</p>";
             $html .= "</div>";
             $html .= "</div>";

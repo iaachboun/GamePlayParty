@@ -8,7 +8,7 @@ class Logic
     public function __construct()
     {
 
-        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "ilias", "12345");
+        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "root", "");
         $this->BiosDetailCreate = new biosDetailCreate();
         $this->BiosVrijePlaatsen = new biosVrijePlaatsen();
 
@@ -20,7 +20,10 @@ class Logic
 
     public function getCinema($id)
     {
-        $sql = "SELECT * FROM `bioscopen` WHERE biosID =" . $id;
+        $sql = "SELECT biosnaam, biosadres, biospostcode, biosplaats, biosprovincie, aantal_zalen, content 
+FROM `bioscopen` 
+natural join contentmanagement
+WHERE biosID = " . $id;
         $result = $this->DataHandler->getData($sql);
         $results = $this->BiosDetailCreate->createBiosDetail($result);
 
@@ -63,9 +66,9 @@ class Logic
         if (isset($email, $wachtwoord)) {
             $result = $this->DataHandler->getPreparedQueryData($email, $wachtwoord);
             if ($result == null) {
-                echo 'verkeerde gegevens';
+                echo "<script>alert('verkeerde gegevens')</script>";
             } else {
-                echo 'ingelogd';
+                echo "<script>window.href.location('?request=beheer')</script>";
             }
         }
         return $result;
