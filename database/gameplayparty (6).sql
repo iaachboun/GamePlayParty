@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 04 okt 2019 om 21:52
+-- Gegenereerd op: 07 okt 2019 om 12:59
 -- Serverversie: 10.1.30-MariaDB
 -- PHP-versie: 7.2.1
 
@@ -36,7 +36,6 @@ CREATE TABLE `bioscopen` (
   `biosplaats` text,
   `biosprovincie` text,
   `omschrijving` text,
-  `beschikbaar` tinyint(1) DEFAULT NULL,
   `aantal_zalen` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -44,10 +43,10 @@ CREATE TABLE `bioscopen` (
 -- Gegevens worden geëxporteerd voor tabel `bioscopen`
 --
 
-INSERT INTO `bioscopen` (`biosID`, `biosnaam`, `biosadres`, `biospostcode`, `biosplaats`, `biosprovincie`, `omschrijving`, `beschikbaar`, `aantal_zalen`) VALUES
-(1, 'Kinepolis Jaarbeurs Utrecht', 'Jaarbeursboulevard 300', '3521 BC', 'Utrecht', 'Utrecht', 'Met Kinepolis Jaarbeurs (14 zalen, 3.010 stoelen) heeft Utrecht eindelijk een moderne megabioscoop in de binnenstad: de grootste bioscoop van Utrecht, en een van de grootste bioscopen van Nederland. \r\n\r\nKinepolis Jaarbeurs biedt elke filmbezoeker the ultimate cinema experience: ruime en comfortabele stoelen, royale beenruimte, en beeld en geluid van het allerhoogste niveau. Alle zalen zijn voorzien van laserprojectie. Voor een nog intensere bioscoopervaring kijk je een film in Laser ULTRA, met haarscherp laserbeeld en het ruimtelijke geluid van Dolby Atmos.\r\n\r\nKinepolis Jaarbeurs ligt op slechts een paar minuten loopafstand van het Centraal Station van Utrecht, tegen de Jaarbeurshallen aan. Een hapje eten of borrelen voor of na de film? Dat kan bij de naastgelegen foodcourt Speys.', 0, 10),
-(2, 'Kinepolis Almere', 'Forum 16', '1315 TH', 'Almere', 'Flevoland', 'Kinepolis Almere is sinds 2004 gevestigd in het levendige centrum van Almere. Het ontwerp van het imposante gebouw is van de bekroonde architect Rem Koolhaas. De megabioscoop telt 8 zalen met in totaal 2137 comfortabele stoelen. \r\n\r\nBij binnenkomst is de trap die diagonaal door het gebouw loopt, de eerste blikvanger. Kinepolis Almere is sinds november 2017 verbouwd om meer aan te sluiten bij de look-and-feel van Kinepolis. Dit betekent dat alle zetels zijn vernieuwd,  dat er automatische ticket machines (ATMs) op de trap zijn geplaatst en er een volledige nieuwe shop met een ruimer assortiment is gekomen.', 0, 10),
-(3, 'Kinepolis Den Helder\r\n', 'Willemsoord 51', '1781 AS', 'Den Helder', 'Noord-Holland', 'Kinepolis Den Helder opende in 2003 haar deuren in gebouw 51 op Willemsoord, de voormalige scheeps- en onderhoudswerf voor de Koninklijke Marine.\r\n\r\nVerschillende details van de Oude Rijkswerf zijn intact gelaten; twee van de zalen zijn nieuw tegen de Scheepswerkerplaats aangebouwd.\r\n\r\nDe bioscoop in de kop van Noord-Holland heeft in totaal 6 moderne bioscoopzalen en 776 stoelen.', 0, 10);
+INSERT INTO `bioscopen` (`biosID`, `biosnaam`, `biosadres`, `biospostcode`, `biosplaats`, `biosprovincie`, `omschrijving`, `aantal_zalen`) VALUES
+(1, 'Kinepolis Jaarbeurs Utrecht', 'Jaarbeursboulevard 300', '3521 BC', 'Utrecht', 'Utrecht', 'Met Kinepolis Jaarbeurs (14 zalen, 3.010 stoelen) heeft Utrecht eindelijk een moderne megabioscoop in de binnenstad: de grootste bioscoop van Utrecht, en een van de grootste bioscopen van Nederland. \r\n\r\nKinepolis Jaarbeurs biedt elke filmbezoeker the ultimate cinema experience: ruime en comfortabele stoelen, royale beenruimte, en beeld en geluid van het allerhoogste niveau. Alle zalen zijn voorzien van laserprojectie. Voor een nog intensere bioscoopervaring kijk je een film in Laser ULTRA, met haarscherp laserbeeld en het ruimtelijke geluid van Dolby Atmos.\r\n\r\nKinepolis Jaarbeurs ligt op slechts een paar minuten loopafstand van het Centraal Station van Utrecht, tegen de Jaarbeurshallen aan. Een hapje eten of borrelen voor of na de film? Dat kan bij de naastgelegen foodcourt Speys.', 10),
+(2, 'Kinepolis Almere', 'Forum 16', '1315 TH', 'Almere', 'Flevoland', 'Kinepolis Almere is sinds 2004 gevestigd in het levendige centrum van Almere. Het ontwerp van het imposante gebouw is van de bekroonde architect Rem Koolhaas. De megabioscoop telt 8 zalen met in totaal 2137 comfortabele stoelen. \r\n\r\nBij binnenkomst is de trap die diagonaal door het gebouw loopt, de eerste blikvanger. Kinepolis Almere is sinds november 2017 verbouwd om meer aan te sluiten bij de look-and-feel van Kinepolis. Dit betekent dat alle zetels zijn vernieuwd,  dat er automatische ticket machines (ATMs) op de trap zijn geplaatst en er een volledige nieuwe shop met een ruimer assortiment is gekomen.', 10),
+(3, 'Kinepolis Den Helder\r\n', 'Willemsoord 51', '1781 AS', 'Den Helder', 'Noord-Holland', 'Kinepolis Den Helder opende in 2003 haar deuren in gebouw 51 op Willemsoord, de voormalige scheeps- en onderhoudswerf voor de Koninklijke Marine.\r\n\r\nVerschillende details van de Oude Rijkswerf zijn intact gelaten; twee van de zalen zijn nieuw tegen de Scheepswerkerplaats aangebouwd.\r\n\r\nDe bioscoop in de kop van Noord-Holland heeft in totaal 6 moderne bioscoopzalen en 776 stoelen.', 10);
 
 -- --------------------------------------------------------
 
@@ -76,6 +75,9 @@ INSERT INTO `consoles` (`console_id`, `console`) VALUES
 --
 
 CREATE TABLE `contentmanagement` (
+  `paginaID` int(255) NOT NULL,
+  `owner` varchar(255) NOT NULL,
+  `biosID` int(11) DEFAULT NULL,
   `pagina` varchar(100) NOT NULL,
   `content` text NOT NULL,
   `image` varchar(200) NOT NULL
@@ -85,10 +87,13 @@ CREATE TABLE `contentmanagement` (
 -- Gegevens worden geëxporteerd voor tabel `contentmanagement`
 --
 
-INSERT INTO `contentmanagement` (`pagina`, `content`, `image`) VALUES
-('contact', 'Title\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mollis nunc sit amet ultrices congue. Cras nibh ipsum, varius ac imperdiet at, convallis volutpat nibh. Sed iaculis condimentum sem, at finibus nibh. Curabitur aliquet odio nec purus congue, in accumsan diam ultricies. Morbi tincidunt metus non vulputate egestas. Donec eu ligula et sem malesuada efficitur a id arcu. Duis eu orci nisi. Quisque est nibh, tincidunt ut turpis id, varius feugiat erat.\r\n\r\nMeedoen?\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mollis nunc sit amet ultrices congue. Cras nibh ipsum, varius ac imperdiet at, convallis volutpat nibh. Sed iaculis condimentum sem, at finibus nibh. Curabitur aliquet odio nec purus congue, in accumsan diam ultricies. Morbi tincidunt metus non vulputate egestas. Donec eu ligula et sem malesuada efficitur a id arcu. Duis eu orci nisi. Quisque est nibh, tincidunt ut turpis id, varius feugiat erat.', ''),
-('footerContent', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra posuere nibh, ut sagittis lacus aliquet tincidunt. Curabitur cursus quam augue, sed rutrum libero malesuada nec.', ''),
-('Home', 'Breng jouw spel naar het volgende niveau op het grote scherm! Met een prive-theater dat speciaal voor jou en je crew is gereserveerd, heb je nog nooit eerder zo gespeeld. Maak er een toernooi van!\r\n\r\n	Neem je eigen favoriete Xbox One-spellen mee of kies uit het aanbod van je theater.', './assets/img/hero/internationaal-eclairgame-01.jpg');
+INSERT INTO `contentmanagement` (`paginaID`, `owner`, `biosID`, `pagina`, `content`, `image`) VALUES
+(1, 'beheer', NULL, 'footerContent', '<p>ok</p>\r\n<p><img src=\"assets/img/uploadvintage-pizza-drawing-hand-drawn-vector-16085839.jpg\" alt=\"\" width=\"50\" height=\"34\" /></p>', ''),
+(2, 'beheer', NULL, 'Home', '<p>Breng jouw spel naar het volgende niveau op het grote scherm! Met een prive-theater dat speciaal voor jou en je crew is gereserveerd, heb je nog nooit eerder zo gespeeld. Maak er een toernooi van! Neem je eigen favoriete Xbox One-spellen mee of kies uit het aanbod van je theater.</p>', './assets/img/hero/internationaal-eclairgame-01.jpg'),
+(3, 'beheer', NULL, 'contact', 'Title\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mollis nunc sit amet ultrices congue. Cras nibh ipsum, varius ac imperdiet at, convallis volutpat nibh. Sed iaculis condimentum sem, at finibus nibh. Curabitur aliquet odio nec purus congue, in accumsan diam ultricies. Morbi tincidunt metus non vulputate egestas. Donec eu ligula et sem malesuada efficitur a id arcu. Duis eu orci nisi. Quisque est nibh, tincidunt ut turpis id, varius feugiat erat.\r\n\r\nMeedoen?\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mollis nunc sit amet ultrices congue. Cras nibh ipsum, varius ac imperdiet at, convallis volutpat nibh. Sed iaculis condimentum sem, at finibus nibh. Curabitur aliquet odio nec purus congue, in accumsan diam ultricies. Morbi tincidunt metus non vulputate egestas. Donec eu ligula et sem malesuada efficitur a id arcu. Duis eu orci nisi. Quisque est nibh, tincidunt ut turpis id, varius feugiat erat.', ''),
+(5, 'beheer', 1, 'Kinepolis Jaarbeurs Utrecht', '<p>Met Kinepolis Jaarbeurs (14 zalen, 3.010 stoelen) heeft Utrecht eindelijk een moderne megabioscoop in de binnenstad: de grootste bioscoop van Utrecht, en een van de grootste bioscopen van Nederland.&nbsp;</p>\r\n<p>Kinepolis Jaarbeurs biedt elke filmbezoeker the ultimate cinema experience: ruime en comfortabele stoelen, royale beenruimte, en beeld en geluid van het allerhoogste niveau. Alle zalen zijn voorzien van laserprojectie. Voor een nog intensere bioscoopervaring kijk je een film in Laser ULTRA, met haarscherp laserbeeld en het ruimtelijke geluid van Dolby Atmos.</p>\r\n<p>Kinepolis Jaarbeurs ligt op slechts een paar minuten loopafstand van het Centraal Station van Utrecht, tegen de Jaarbeurshallen aan. Een hapje eten of borrelen voor of na de film? Dat kan bij de naastgelegen foodcourt Speys.</p>', ''),
+(6, 'beheer', 2, 'Kinepolis Almere', '<p>Kinepolis Almere is sinds 2004 gevestigd in het levendige centrum van Almere. Het ontwerp van het imposante gebouw is van de bekroonde architect Rem Koolhaas. De megabioscoop telt 8 zalen met in totaal 2137 comfortabele stoelen.&nbsp;</p>\r\n<p>Bij binnenkomst is de trap die diagonaal door het gebouw loopt, de eerste blikvanger. Kinepolis Almere is sinds november 2017 verbouwd om meer aan te sluiten bij de look-and-feel van Kinepolis. Dit betekent dat alle zetels zijn vernieuwd,&nbsp; dat er automatische ticket machines (ATMs) op de trap zijn geplaatst en er een volledige nieuwe shop met een ruimer assortiment is gekomen.</p>', ''),
+(7, 'beheer', 3, 'Kinepolis Den Helder', '<p>Kinepolis Den Helder opende in 2003 haar deuren in gebouw 51 op Willemsoord, de voormalige scheeps- en onderhoudswerf voor de Koninklijke Marine.</p>\r\n<p>Verschillende details van de Oude Rijkswerf zijn intact gelaten; twee van de zalen zijn nieuw tegen de Scheepswerkerplaats aangebouwd.</p>\r\n<p>De bioscoop in de kop van Noord-Holland heeft in totaal 6 moderne bioscoopzalen en 776 stoelen.</p>', '');
 
 -- --------------------------------------------------------
 
@@ -184,7 +189,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `username`, `email`, `wachtwoord`, `rol`) VALUES
-(1, 'jjoonjjoon', 'jimmyqsaid@gmail.com', '123456789', 0);
+(1, 'jjoonjjoon', 'jimmyqsaid@gmail.com', '123456789', 0),
+(2, 'lazyduck408', 'jack.jones@gameplayparty.nl', 'jokers', 0);
 
 -- --------------------------------------------------------
 
@@ -230,7 +236,8 @@ ALTER TABLE `consoles`
 -- Indexen voor tabel `contentmanagement`
 --
 ALTER TABLE `contentmanagement`
-  ADD PRIMARY KEY (`pagina`);
+  ADD PRIMARY KEY (`paginaID`),
+  ADD KEY `biosID` (`biosID`);
 
 --
 -- Indexen voor tabel `diensten`
@@ -284,6 +291,12 @@ ALTER TABLE `consoles`
   MODIFY `console_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT voor een tabel `contentmanagement`
+--
+ALTER TABLE `contentmanagement`
+  MODIFY `paginaID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT voor een tabel `reserveringen`
 --
 ALTER TABLE `reserveringen`
@@ -293,7 +306,7 @@ ALTER TABLE `reserveringen`
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT voor een tabel `zalen`
@@ -304,6 +317,12 @@ ALTER TABLE `zalen`
 --
 -- Beperkingen voor geëxporteerde tabellen
 --
+
+--
+-- Beperkingen voor tabel `contentmanagement`
+--
+ALTER TABLE `contentmanagement`
+  ADD CONSTRAINT `contentmanagement_ibfk_1` FOREIGN KEY (`biosID`) REFERENCES `bioscopen` (`biosID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Beperkingen voor tabel `reserveringen`
