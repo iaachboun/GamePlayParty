@@ -5,6 +5,8 @@ require_once 'utilities/beheer/PaginaEdit.php';
 require_once 'utilities/beheer/AddPage.php';
 require_once 'utilities/beheer/BeheerBioscopen.php';
 require_once 'utilities/beheer/BeheerEditBioscoop.php';
+require_once 'utilities/beheer/GebruikersList.php';
+require_once 'utilities/beheer/EditGebruikerForm.php';
 
 class BeheerderLogic
 {
@@ -18,6 +20,8 @@ class BeheerderLogic
         $this->AddPage = new AddPage();
         $this->BeheerBioscopen = new BeheerBioscopen();
         $this->BeheerEditBioscoop = new BeheerEditBioscoop();
+        $this->GebruikersList = new GebruikersList();
+        $this->EditGebruikerForm = new EditGebruikerForm();
 
     }
 
@@ -97,6 +101,34 @@ class BeheerderLogic
         }
         return $result;
 
+    }
+
+    public function gebruikersList()
+    {
+        $sql = "SELECT userID, username, email, wachtwoord, rol, biosnaam
+FROM users
+LEFT JOIN bioscopen
+ON users.biosID = bioscopen.biosID";
+        $result = $this->DataHandler->getData($sql);
+        $makeGebruikersList = $this->GebruikersList->makeGebruikersList($result);
+        return $makeGebruikersList;
+    }
+
+    public function editGebruiker($userID){
+        $sql = "SELECT * FROM users WHERE userID = $userID";
+        $result = $this->DataHandler->getData($sql);
+        $editGebruikerForm = $this->EditGebruikerForm->makeEditGebruikerForm($result);
+        return $editGebruikerForm;
+    }
+
+    public function updateGebruiker($username, $email, $wachtwoord, $userID){
+        if (isset($username, $email, $wachtwoord, $userID)) {
+            $result = $this->DataHandler->beheerUpdateGebruikerData($username, $email, $wachtwoord, userID);
+            if ($result != null) {
+                echo "<script>window.location.href = '?request=beheer&pagina=editGebruiker&userID=$userID'</script>";
+            }
+        }
+        return $result;
     }
 
 }

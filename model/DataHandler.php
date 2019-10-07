@@ -37,7 +37,7 @@ class DataHandler
     }
 
     public function getPreparedQueryData($email, $wachtwoord){
-        $stmt = $this->dbh->prepare("SELECT * from users where email = :email or username = :email    and wachtwoord = :wachtwoord");
+        $stmt = $this->dbh->prepare("SELECT * from users where email = :email or username = :email and wachtwoord = :wachtwoord");
         $stmt->execute([
             'email' => $email,
             'wachtwoord' => $wachtwoord
@@ -94,6 +94,20 @@ class DataHandler
             'biosprovincie' => $biosprovincie,
             'aantal_zalen' => $aantal_zalen,
             'biosID' => $biosID
+        ]);
+
+        return $result;
+    }
+
+    public function beheerUpdateGebruikerData($username, $email, $wachtwoord, $userID){
+        $stmt = $this->dbh->prepare("UPDATE users set username = :username, email = :email, wachtwoord = :wachtwoord
+ where userID = :userID");
+        var_dump($stmt);
+        $result = $stmt->execute([
+            'username' => $username,
+            'email' => $email,
+            'wachtwoord' => $wachtwoord,
+            'userID' => $userID
         ]);
 
         return $result;

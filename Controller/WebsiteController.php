@@ -137,11 +137,14 @@ class WebsiteController
                 $username = $result[0][1];
                 $rol = $result[0][4];
                 $userID = $result[0][0];
+                $biosID = $result[0][5];
 
                 $_SESSION['loggedin'] = true;
                 $_SESSION['rol'] = $rol;
                 $_SESSION['username'] = $username;
                 $_SESSION['userID'] = $userID;
+                $_SESSION['biosID'] = $biosID;
+                var_dump($_SESSION['rol']);
                 if ($_SESSION['rol'] == 0 || $_SESSION['rol'] == "0") {
                     echo "<script>window.location.href = '?request=beheer'</script>";
                 }
@@ -181,6 +184,12 @@ class WebsiteController
             case 'editBioscoop':
                 $this->collectEditBioscoop($_REQUEST['biosID']);
                 break;
+            case 'gebruikers':
+                $this->collectGebruikersList();
+                break;
+            case 'editGebruiker':
+                $this->collectEditGebruiker($_REQUEST['userID']);
+                break;
             default:
 
                 /*$result = $this->Logic->getContent($page);
@@ -202,6 +211,9 @@ class WebsiteController
 
                 case 'updateBioscoop':
                     $this->updateBioscoop($_REQUEST['biosID'], $_REQUEST['biosnaam'], $_REQUEST['biosadres'], $_REQUEST['biospostcode'], $_REQUEST['biosplaats'], $_REQUEST['biosprovincie'], $_REQUEST['aantal_zalen']);
+                    break;
+                case 'updateGebruiker':
+                    $this->updateGebruiker($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['wachtwoord'], $_REQUEST['userID']);
                     break;
 
                 default:
@@ -279,5 +291,22 @@ class WebsiteController
 
         return $result;
 
+    }
+
+    public function collectGebruikersList(){
+        $result = $this->BeheerderLogic->gebruikersList();
+        include 'view/beheer/beheerGebruikers.php';
+        return $result;
+    }
+
+    public function collectEditGebruiker($userID){
+        $result = $this->BeheerderLogic->editGebruiker($userID);
+        include 'view/beheer/editGebruiker.php';
+        return $result;
+    }
+
+    public function updateGebruiker($username, $email, $wachtwoord, $userID){
+        $result = $this->BeheerderLogic->updateGebruiker($username, $email, $wachtwoord, $userID);
+        return $result;
     }
 }
