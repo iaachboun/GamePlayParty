@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 07 okt 2019 om 12:59
+-- Gegenereerd op: 07 okt 2019 om 13:38
 -- Serverversie: 10.1.30-MariaDB
 -- PHP-versie: 7.2.1
 
@@ -103,6 +103,7 @@ INSERT INTO `contentmanagement` (`paginaID`, `owner`, `biosID`, `pagina`, `conte
 
 CREATE TABLE `diensten` (
   `dienstID` int(11) NOT NULL,
+  `biosID` int(11) DEFAULT NULL,
   `dienst` text,
   `tarief` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -111,9 +112,9 @@ CREATE TABLE `diensten` (
 -- Gegevens worden geëxporteerd voor tabel `diensten`
 --
 
-INSERT INTO `diensten` (`dienstID`, `dienst`, `tarief`) VALUES
-(1, 'Kinderen GamePlayParty\r\n', '€20,00'),
-(2, 'GamePlayParty\r\n', '€25,00');
+INSERT INTO `diensten` (`dienstID`, `biosID`, `dienst`, `tarief`) VALUES
+(1, NULL, 'Kinderen GamePlayParty\r\n', '€20,00'),
+(2, NULL, 'GamePlayParty\r\n', '€25,00');
 
 -- --------------------------------------------------------
 
@@ -243,13 +244,15 @@ ALTER TABLE `contentmanagement`
 -- Indexen voor tabel `diensten`
 --
 ALTER TABLE `diensten`
-  ADD PRIMARY KEY (`dienstID`);
+  ADD PRIMARY KEY (`dienstID`),
+  ADD KEY `biosID` (`biosID`);
 
 --
 -- Indexen voor tabel `info_dienst`
 --
 ALTER TABLE `info_dienst`
-  ADD KEY `FK` (`reserveringsID`,`dienstID`);
+  ADD KEY `FK` (`reserveringsID`,`dienstID`),
+  ADD KEY `dienstID` (`dienstID`);
 
 --
 -- Indexen voor tabel `klanten`
@@ -323,6 +326,19 @@ ALTER TABLE `zalen`
 --
 ALTER TABLE `contentmanagement`
   ADD CONSTRAINT `contentmanagement_ibfk_1` FOREIGN KEY (`biosID`) REFERENCES `bioscopen` (`biosID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Beperkingen voor tabel `diensten`
+--
+ALTER TABLE `diensten`
+  ADD CONSTRAINT `diensten_ibfk_1` FOREIGN KEY (`biosID`) REFERENCES `bioscopen` (`biosID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Beperkingen voor tabel `info_dienst`
+--
+ALTER TABLE `info_dienst`
+  ADD CONSTRAINT `info_dienst_ibfk_1` FOREIGN KEY (`reserveringsID`) REFERENCES `reserveringen` (`reserveringsID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `info_dienst_ibfk_2` FOREIGN KEY (`dienstID`) REFERENCES `diensten` (`dienstID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Beperkingen voor tabel `reserveringen`
