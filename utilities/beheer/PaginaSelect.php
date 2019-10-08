@@ -23,7 +23,7 @@ class PaginaSelect
             $html .= "<tr>";
             $html .= "<td><a href=?request=beheer&pagina=editContent&paginaID=" . $paginaID . ">" . $pagina . "</a></td>";
             $html .= "<td>$owner</td>";
-            $html .= "<td><a href=?request=beheer&pagina=paginas&func=verwijderPagina&paginaID=" . $paginaID . ">Verwijderen</a></td>";
+            $html .= "<td><a href=?request=beheer&pagina=paginas&func=verwijderPagina&paginaID=" . $paginaID . " onclick='return confirm(`Weet je zeker dat je deze pagina wilt verwijderen`)'>Verwijderen</a></td>";
             $html .= "</tr>";
 
         }
