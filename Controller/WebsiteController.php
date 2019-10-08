@@ -450,6 +450,9 @@ class WebsiteController
 
         if (isset($func)) {
             switch ($func) {
+                case 'verwijderDiesnt':
+                    $this->removeBeschick($_REQUEST['reserveringsID']);
+                    break;
                 case 'update':
                     $this->biosUpdateContent($_REQUEST['paginaID'], $_REQUEST['mytextarea']);
                     break;
@@ -472,6 +475,10 @@ class WebsiteController
         }
     }
 
+    public function removeBeschick($id){
+        $result = $this->BiosBeheerLogic->verwijderRes($id);
+        return $result;
+    }
 
     public function biosCollectpaginas()
     {

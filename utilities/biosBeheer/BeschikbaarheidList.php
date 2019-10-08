@@ -21,7 +21,8 @@ class BeschikbaarheidList
             $reservering_eind_tijd = $row['reservering_eind_tijd'];
             $gereserveerd = $row['gereserveerd'];
             $zaal = $row['zaal'];
-
+            $reseveringsID = $row['reserveringsID'];
+            var_dump($row);
             $html .= "<tr>";
             $html .= "<td>$reserveringsdatum</a></td>";
             $html .= "<td>$zaal</td>";
@@ -34,6 +35,7 @@ class BeschikbaarheidList
                 $gereserveerd = "Gereserveerd";
                 $html .= "<td><span style='color: red'>$gereserveerd</span></td>";
             }
+            $html .= "<td><a href=?request=biosbeheer&pagina=beschikbaarheden&func=verwijderDiesnt&reserveringsID=" . $reseveringsID . " onclick='return confirm(`Weet je zeker dat je deze resevering wilt verwijderen`)'>Verwijder</a></td>";
             $html .= "</tr>";
 
         }

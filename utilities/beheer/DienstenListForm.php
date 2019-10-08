@@ -23,7 +23,7 @@ class DienstenListForm
             $html .= "<tr>";
             $html .= "<td><a href=?request=beheer&pagina=editGebruiker&biosID=" . $biosID . ">" . $dienst . "</a></td>";
             $html .= "<td>€$tarief</td>";
-            $html .= "<td><a href=?request=beheer&pagina=diensten&func=verwijderDiesnt&diesntID=" . $dienstID . " onclick='return confirm(`Weet je zeker dat je deze diesnt wilt verwijderen`)'>Verwijder</a></td>";
+            $html .= "<td><a href=?request=beheer&pagina=diensten&func=verwijderDiesnt&diesntID=" . $dienstID . " onclick='return confirm(`Weet je zeker dat je deze dienst wilt verwijderen`)'>Verwijder</a></td>";
             $html .= "</tr>";
         }
 
