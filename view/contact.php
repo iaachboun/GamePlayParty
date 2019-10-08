@@ -8,23 +8,12 @@
 
         <div class="col-12 col-md-6">
             <div class="contact-text col-md-6 col-12">
-                <h2>Title</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mollis nunc sit amet ultrices
-                    congue. Cras nibh ipsum, varius ac imperdiet at, convallis volutpat nibh. Sed iaculis condimentum
-                    sem, at finibus nibh. Curabitur aliquet odio nec purus congue, in accumsan diam ultricies. Morbi
-                    tincidunt metus non vulputate egestas. Donec eu ligula et sem malesuada efficitur a id arcu. Duis eu
-                    orci nisi. Quisque est nibh, tincidunt ut turpis id, varius feugiat erat.
-                </p>
+            <?php
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
 
-                <h2>Meedoen?</h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mollis nunc sit amet ultrices
-                    congue. Cras nibh ipsum, varius ac imperdiet at, convallis volutpat nibh. Sed iaculis condimentum
-                    sem, at finibus nibh. Curabitur aliquet odio nec purus congue, in accumsan diam ultricies. Morbi
-                    tincidunt metus non vulputate egestas. Donec eu ligula et sem malesuada efficitur a id arcu. Duis eu
-                    orci nisi. Quisque est nibh, tincidunt ut turpis id, varius feugiat erat.
-                </p>
+
+            <p id="contentData" style="display: block"><?php echo $row['content'] ?></p>
+        <?php } ?>
                 <button class="btn-custom btn-green">Button</button>
             </div>
         </div>
