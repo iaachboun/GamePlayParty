@@ -220,6 +220,9 @@ class WebsiteController
 
         if (isset($func)) {
             switch ($func) {
+                case 'verwijderDiesnt':
+                    $this->removeDiesnt($_REQUEST['diesntID']);
+                    break;
                 case 'addUser':
                     $this->addUser($_REQUEST['username'],$_REQUEST['email'],$_REQUEST['wachtwoord'],$_REQUEST['rol'],$_REQUEST['bioscoop'] );
                     break;
@@ -263,6 +266,10 @@ class WebsiteController
         return $result;
     }
 
+    public function removeDiesnt($id){
+        $result = $this->BeheerderLogic->verwijderDiesnt($id);
+        return $result;
+    }
 
     public function showAddUserForm(){
         $result = $this->BeheerderLogic->showNewUserForm();

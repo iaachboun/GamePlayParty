@@ -242,5 +242,13 @@ ON users.biosID = bioscopen.biosID";
 
         return $result;
     }
-
+    public function verwijderDiesnt($id)
+    {
+        $sql = "DELETE FROM `diensten` WHERE dienstID = $id";
+        $result = $this->DataHandler->getData($sql);
+        if ($result != null) {
+            echo "<script>window.location.href = '?request=beheer&pagina=diensten'</script>";
+        }
+        return $result;
+    }
 }
