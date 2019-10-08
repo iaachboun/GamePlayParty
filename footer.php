@@ -13,8 +13,34 @@
                 <!-- Content -->
                 <h6 class="text-uppercase font-weight-bold">Gameplay Party</h6>
                 <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor ultrices semper. Cras
-                    feugiat velit sem, id fermentum metus hendrerit sed. Vestibulum malesuada</p>
+                <?php
+
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "gameplayparty";
+            
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+            
+            $sql = "SELECT * FROM contentmanagement WHERE pagina = 'footerContent';";
+            $result = $conn->query($sql);
+            
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    echo "<p id='contentData'>". $row['content']."</p>";
+                }
+            } else {
+                echo "0 results";
+            }
+            $conn->close();
+
+    ?>
             </div>
             <!-- Grid column -->
 
@@ -28,10 +54,10 @@
                     <a href="index.php">Home</a>
                 </p>
                 <p>
-                    <a href="?=request=bioscopen">Bioscopen</a>
+                    <a href="?request=bioscopen">Bioscopen</a>
                 </p>
                 <p>
-                    <a href="?=request=contact">Contact</a>
+                    <a href="?request=contact">Contact</a>
                 </p>
 
             </div>

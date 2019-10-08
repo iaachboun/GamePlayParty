@@ -77,6 +77,10 @@ footer div.footer-copyright a:hover {
   text-decoration: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .hero {
   width: 100%;
 }
@@ -155,9 +159,6 @@ h1#typewritten {
   margin: 0 0 100px 0;
   padding: 20px;
 }
-.home-section .home-content .home-text {
-  font-size: 1.5em;
-}
 .home-section .home-content img {
   border-radius: 15px;
 }
@@ -175,6 +176,10 @@ h1#typewritten {
     margin-bottom: 30px;
   }
 }
+.pijl {
+  float: right;
+}
+
 .biosDetails-section {
   padding: 130px 0;
 }

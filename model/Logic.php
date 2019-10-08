@@ -20,9 +20,7 @@ class Logic
 
     public function getCinema($id)
     {
-        $sql = "SELECT biosnaam, biosadres, biospostcode, biosplaats, biosprovincie, aantal_zalen, content 
-FROM `bioscopen` 
-natural join contentmanagement
+        $sql = "SELECT * FROM `contentmanagement` 
 WHERE biosID = " . $id;
         $result = $this->DataHandler->getData($sql);
         $results = $this->BiosDetailCreate->createBiosDetail($result);
@@ -60,6 +58,7 @@ WHERE biosID = " . $id;
 
         return $result;
     }
+
 
     public function getLogin($email, $wachtwoord)
     {

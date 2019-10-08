@@ -112,6 +112,8 @@ class WebsiteController
 
     public function collectContact($naam, $email, $telefoon, $onderwerp, $bericht, $contactsubmit)
     {
+        $page = "Contact";
+        $result = $this->Logic->getContent($page);
         if (isset($submit)) {
             $this->Mail->sendMail($naam, $email, $telefoon, $onderwerp, $bericht);
         }

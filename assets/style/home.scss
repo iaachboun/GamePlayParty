@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 @import "mixin";
 body {
   //background-color: #2ecc71 !important;
@@ -68,58 +72,12 @@ h1#typewritten {
   50% { border-color: white }
 }
 
-//.typed_wrap {
-//  display: block;
-//  -webkit-transform: translate(-50%,-50%);
-//  -moz-transform: translate(-50%,-50%);
-//  -ms-transform: translate(-50%,-50%);
-//  -o-transform: translate(-50%,-50%);
-//  transform: translate(-50%,-50%);
-//}
-//
-//
-///*Add custom cursor so it auto inherits font styles*/
-//.typed::after {
-//  content: '|';
-//  display: inline;
-//  -webkit-animation: blink 0.7s infinite;
-//  -moz-animation: blink 0.7s infinite;
-//  animation: blink 0.7s infinite;
-//}
-//
-///*Removes cursor that comes with typed.js*/
-//
-//.typed-cursor {
-//  opacity: 1;
-//  -webkit-animation: blink 0.7s infinite;
-//  -moz-animation: blink 0.7s infinite;
-//  animation: blink 0.7s infinite;
-//}
-//@keyframes blink {
-//  0% { opacity: 1; }
-//  50% { opacity: 0; }
-//  100% { opacity: 1; }
-//}
-//@-webkit-keyframes blink {
-//  0% { opacity: 1; }
-//  50% { opacity: 0; }
-//  100% { opacity: 1; }
-//}
-//@-moz-keyframes blink {
-//  0% { opacity: 1; }
-//  50% { opacity: 0; }
-//  100% { opacity: 1; }
-//}
 
 .home-section {
   margin: 0 0 100px 0;
   padding: 20px;
 
   .home-content {
-
-    .home-text {
-      font-size: 1.5em;
-    }
 
     img {
       border-radius: 15px;
@@ -143,4 +101,8 @@ h1#typewritten {
     }
   }
 
+}
+
+.pijl{
+  float: right;
 }

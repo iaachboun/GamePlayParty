@@ -9,22 +9,11 @@ class BiosDetailCreate
         $html = "";
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            $biosnaam = $row['biosnaam'];
-            $omschrijving = $row['content'];
-            $biosadres = $row['biosadres'];
-            $biospostcode = $row['biospostcode'];
-            $biosplaats = $row['biosplaats'];
-            $biosprovincie = $row['biosprovincie'];
+            $content = $row['content'];
 
-            $html .= "<div class='col-12 col-md-6 detailImg-section'>";
-            $html .= "<img class='detailImg' src='assets/img/$biosnaam.jpg' alt=''>";
-            $html .= "</div>";
             $html .= "<div class='col-12 col-md-6'>";
             $html .= "<div class='detailContent'>";
-            $html .= "<h3>$biosnaam</h3>";
-            $html .= "<p>$omschrijving</p>";
-            $html .= "<h2>Adres: </h2>";
-            $html .= "<p>$biosadres<br>$biospostcode $biosplaats<br>$biosprovincie</p>";
+            $html .= $content;
             $html .= "</div>";
             $html .= "</div>";
         }
