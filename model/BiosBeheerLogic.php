@@ -7,6 +7,10 @@ require_once 'utilities/biosBeheer/BiosBeheerBioscopen.php';
 require_once 'utilities/biosBeheer/BiosBeheerEditBioscoop.php';
 require_once 'utilities/biosBeheer/BiosGebruikersList.php';
 require_once 'utilities/biosBeheer/BiosEditGebruikerForm.php';
+require_once 'utilities/biosBeheer/AddBeschikbaarheidFormulier.php';
+require_once 'utilities/biosBeheer/ZaalSelect.php';
+require_once 'utilities/biosBeheer/ConsoleSelect.php';
+require_once 'utilities/biosBeheer/BeschikbaarheidList.php';
 
 class BiosBeheerLogic
 {
@@ -22,6 +26,10 @@ class BiosBeheerLogic
         $this->BeheerEditBioscoop = new BiosBeheerEditBioscoop();
         $this->GebruikersList = new BiosGebruikersList();
         $this->EditGebruikerForm = new BiosEditGebruikerForm();
+        $this->AddBeschikbaarheidFormulier = new AddBeschikbaarheidFormulier();
+        $this->ZaalSelect = new ZaalSelect();
+        $this->ConsoleSelect = new ConsoleSelect();
+        $this->BeschikbaarheidList = new BeschikbaarheidList();
 
     }
 
@@ -119,21 +127,61 @@ WHERE users.biosID = '$biosID'";
         return $makeGebruikersList;
     }
 
+<<<<<<< HEAD
 
     public function editGebruiker($userID){
+=======
+    public function editGebruiker($userID)
+    {
+>>>>>>> 87a5a3c6d76d131d17a7cf795720c0e2401452ea
         $sql = "SELECT * FROM users WHERE userID = $userID";
         $result = $this->DataHandler->getData($sql);
         $editGebruikerForm = $this->EditGebruikerForm->makeEditGebruikerForm($result);
         return $editGebruikerForm;
     }
 
-    public function updateGebruiker($username, $email, $wachtwoord, $userID){
+    public function updateGebruiker($username, $email, $wachtwoord, $userID)
+    {
         if (isset($username, $email, $wachtwoord, $userID)) {
-            $result = $this->DataHandler->beheerUpdateGebruikerData($username, $email, $wachtwoord, $userID);
+            $result = $this->DataHandler->biosBeheerUpdateGebruikerData($username, $email, $wachtwoord, $userID);
             if ($result != null) {
                 echo "<script>window.location.href = '?request=beheer&pagina=editGebruiker&userID=$userID'</script>";
             }
         }
         return $result;
     }
+
+    public function beschikbaarhedenList(){
+        $sql = "select * from reserveringen";
+        $result = $this->DataHandler->getData($sql);
+        $makeBeschikbaarheidList = $this->BeschikbaarheidList->makeBeschikbaarheidList($result);
+        return $makeBeschikbaarheidList;
+    }
+
+    public function collectAddBeschikbaarheid($biosID)
+    {
+        $zaalSelectSQL = "SELECT zaal, zaal_id FROM zalen where biosID = $biosID";
+        $zaalSelectSQLResult = $this->DataHandler->getData($zaalSelectSQL);
+        $zaalSelect = $this->ZaalSelect->makeZaalSelect($zaalSelectSQLResult);
+
+        $consoleSelectSQL = "SELECT console_id, console FROM consoles";
+        $consoleSelectSQLResult = $this->DataHandler->getData($consoleSelectSQL);
+        $consoleSelect = $this->ConsoleSelect->makeConsoleSelect($consoleSelectSQLResult);
+
+        $result = $this->AddBeschikbaarheidFormulier->makeAddBeschikbaarheidFormulier($zaalSelect, $consoleSelect);
+        return $result;
+    }
+
+    public function addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console)
+    {
+//        $result = $this->DataHandler->addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console);
+//        return $result;
+        if (isset($biosID, $date, $begintijd, $eindtijd, $zaal, $console)) {
+            $result = $this->DataHandler->addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console);
+            if ($result != null) {
+                echo "<script>window.location.href = '?request=biosbeheer&pagina=addBeschikbaarheid&biosID=$biosID'</script>";
+            }
+        }
+    }
+
 }

@@ -373,6 +373,7 @@ class WebsiteController
         return $result;
     }
 
+<
     //biosbeheer
     public function biosBeheerContent($page, $func)
     {
@@ -397,8 +398,12 @@ class WebsiteController
             case 'editGebruiker':
                 $this->biosCollectEditGebruiker($_REQUEST['userID']);
                 break;
+            case 'Beschikbaarheden':
+                $this->biosCollectBeschikbaarheden();
+                break;
             case 'addBeschikbaarheid';
                 $this->biosCollectAddBeschikbaarheid();
+
                 break;
             default:
 
@@ -420,6 +425,10 @@ class WebsiteController
                     break;
                 case 'updateGebruiker':
                     $this->biosUpdateGebruiker($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['wachtwoord'], $_REQUEST['userID']);
+                    break;
+
+                case 'addNewBeschikbaarheid':
+                    $this->addNewBeschikbaarheid($_REQUEST['biosID'], $_REQUEST['date'], $_REQUEST['begintijd'], $_REQUEST['eindtijd'], $_REQUEST['zaal'], $_REQUEST['console']);
                     break;
 
                 default:
@@ -519,9 +528,30 @@ class WebsiteController
         return $result;
     }
 
+
+    public function biosCollectBeschikbaarheden()
+    {
+        $result = $this->BiosBeheerLogic->beschikbaarhedenList();
+        include 'view/biosbeheer/beschikbaarheden.php';
+        return $result;
+    }
+
+
+    public function biosCollectAddBeschikbaarheid($biosID)
+    {
+        $result = $this->BiosBeheerLogic->collectAddBeschikbaarheid($biosID);
+        include 'view/biosbeheer/addBeschikbaarheid.php';
+        return $result;
+    }
+
     public function biosCollectAddBeschikbaarheid()
     {
 
+    public function addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console)
+    {
+        $result = $this->BiosBeheerLogic->addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console);
+        include 'view/biosbeheer/addBeschikbaarheid.php';
+        return $result;
     }
 
 
