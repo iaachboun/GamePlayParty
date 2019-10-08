@@ -175,6 +175,9 @@ class WebsiteController
     public function beheerContent($page, $func)
     {
         switch ($page) {
+            case 'addBioscoop':
+                $this->addNewBios();
+                break;
             case 'paginas':
                 $this->collectpaginas();
                 break;
@@ -209,6 +212,9 @@ class WebsiteController
 
         if (isset($func)) {
             switch ($func) {
+                case 'addBios':
+                    $this->addNewBioscoop($_REQUEST['biosID'], $_REQUEST['biosnaam'], $_REQUEST['biosadres'], $_REQUEST['biospostcode'], $_REQUEST['biosplaats'], $_REQUEST['biosprovincie'], $_REQUEST['omschrijving'] ,$_REQUEST['beschickbaarheid_auto'], $_REQUEST['beschickbaarheid_fiets'],  $_REQUEST['beschickbaarheid_OV'], $_REQUEST['aantal_zalen']);
+                    break;
                 case 'update':
                     $this->updateContent($_REQUEST['paginaID'], $_REQUEST['mytextarea']);
                     break;
@@ -231,6 +237,17 @@ class WebsiteController
         }
     }
 
+    public function addNewBioscoop($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats ,$biosprovincie,$omschrijving, $beschickbaarheid_auto, $beschickbaarheid_fiets, $beschickbaarheid_OV ,$aantal_zalen){
+        $result = $this->BeheerderLogic->addBiosForm($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie,$omschrijving, $beschickbaarheid_auto, $beschickbaarheid_fiets, $beschickbaarheid_OV ,$aantal_zalen);
+        return $result;
+    }
+
+
+    public function addNewBios() {
+        $result = $this->BeheerderLogic->addBios();
+        include 'view/beheer/addBioscopen.php';
+        return $result;
+    }
 
     public function collectpaginas()
     {
@@ -253,6 +270,7 @@ class WebsiteController
         include 'view/beheer/beheerEditContent.php';
         return $result;
     }
+
 
     public function updateData($request)
     {
@@ -317,14 +335,6 @@ class WebsiteController
         $result = $this->BeheerderLogic->updateGebruiker($username, $email, $wachtwoord, $userID);
         return $result;
     }
-
-
-
-
-
-
-
-
 
     //biosbeheer
     public function biosBeheerContent($page, $func)
@@ -472,4 +482,6 @@ class WebsiteController
     public function biosCollectAddBeschikbaarheid(){
 
     }
+
+
 }

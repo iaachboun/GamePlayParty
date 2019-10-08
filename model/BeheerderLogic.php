@@ -7,6 +7,7 @@ require_once 'utilities/beheer/BeheerBioscopen.php';
 require_once 'utilities/beheer/BeheerEditBioscoop.php';
 require_once 'utilities/beheer/GebruikersList.php';
 require_once 'utilities/beheer/EditGebruikerForm.php';
+require_once 'utilities/beheer/addNewBiosForm.php';
 
 class BeheerderLogic
 {
@@ -14,7 +15,7 @@ class BeheerderLogic
     public function __construct()
     {
 
-        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "root", "");
+        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "ilias", "12345");
         $this->PaginaSelect = new PaginaSelect();
         $this->PaginaEdit = new PaginaEdit();
         $this->AddPage = new AddPage();
@@ -22,6 +23,7 @@ class BeheerderLogic
         $this->BeheerEditBioscoop = new BeheerEditBioscoop();
         $this->GebruikersList = new GebruikersList();
         $this->EditGebruikerForm = new EditGebruikerForm();
+        $this->addBiosForm = new addNewBiosForm();
 
     }
 
@@ -128,6 +130,19 @@ ON users.biosID = bioscopen.biosID";
                 echo "<script>window.location.href = '?request=beheer&pagina=editGebruiker&userID=$userID'</script>";
             }
         }
+        return $result;
+    }
+
+
+    public function addBios()
+    {
+        $makePaginaSelect = $this->addBiosForm->newBios();
+        return $makePaginaSelect;
+    }
+
+    public function addBiosForm($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie,$omschrijving, $beschickbaarheid_auto, $beschickbaarheid_fiets, $beschickbaarheid_OV ,$aantal_zalen) {
+        $sql = "INSERT INTO bioscopen(biosnaam, biosadres, biospostcode, biosplaats, biosprovincie, omschrijving, beschikbaarheid_auto, beschikbaarheid_fiets, beschikbaarheid_ov, aantal_zalen) VALUES ('$biosnaam','$biosadres','$biospostcode','$biosplaats','$biosprovincie','$omschrijving','$beschickbaarheid_auto','$beschickbaarheid_fiets','$beschickbaarheid_OV','$aantal_zalen')";
+        $result = $this->DataHandler->getData($sql);
         return $result;
     }
 

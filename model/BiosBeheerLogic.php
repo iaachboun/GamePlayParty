@@ -14,7 +14,7 @@ class BiosBeheerLogic
     public function __construct()
     {
 
-        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "root", "");
+        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "ilias", "12345");
         $this->PaginaSelect = new BiosPaginaSelect();
         $this->PaginaEdit = new BiosPaginaEdit();
         $this->AddPage = new BiosAddPage();
@@ -135,5 +135,4 @@ WHERE users.biosID = '$biosID'";
         }
         return $result;
     }
-
 }
