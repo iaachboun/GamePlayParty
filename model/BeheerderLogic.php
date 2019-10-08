@@ -10,6 +10,7 @@ require_once 'utilities/beheer/DienstenListForm.php';
 require_once 'utilities/beheer/EditGebruikerForm.php';
 require_once 'utilities/beheer/addNewBiosForm.php';
 require_once 'utilities/beheer/addNewDienstForm.php';
+require_once 'utilities/beheer/gebruikerToevoegen.php';
 
 class BeheerderLogic
 {
@@ -28,6 +29,7 @@ class BeheerderLogic
         $this->EditGebruikerForm = new EditGebruikerForm();
         $this->addBiosForm = new addNewBiosForm();
         $this->addNewDienstForm = new addNewDienstForm();
+        $this->gebruikerToevoegen = new gebruikerToevoegen();
 
     }
 
@@ -197,7 +199,6 @@ ON users.biosID = bioscopen.biosID";
     public function verwijderPagina($id)
     {
         $sql = "DELETE FROM `contentmanagement` WHERE paginaID = $id";
-        var_dump($sql);
         $result = $this->DataHandler->getData($sql);
         if ($result != null) {
             echo "<script>window.location.href = '?request=beheer&pagina=paginas'</script>";
@@ -205,5 +206,69 @@ ON users.biosID = bioscopen.biosID";
         return $result;
     }
 
+    public function verwijderUser($id)
+    {
+        $sql = "DELETE FROM `users` WHERE userID = $id";
+        $result = $this->DataHandler->getData($sql);
+        if ($result != null) {
+            echo "<script>window.location.href = '?request=beheer&pagina=gebruikers'</script>";
+        }
+        return $result;
+    }
 
+    public function showNewUserForm()
+    {
+        $sql = "SELECT biosnaam,biosID FROM bioscopen";
+        $result = $this->DataHandler->getData($sql);
+        $showForm = $this->gebruikerToevoegen->addUserForm($result);
+        return $showForm;
+    }
+
+    public function addNewUser($username, $email, $password, $rol, $biosID)
+    {
+        $condition = false;
+        switch ($rol) {
+            case 'Website beheerder':
+                $rolCode = 0;
+                break;
+            case 'Biscoop beheerder':
+                $condition = true;
+                $rolCode = 1;
+                break;
+            case 'Toeschouwer':
+                $rolCode = 2;
+                break;
+        }
+        if ($condition === true) {
+            if ($biosID === false){
+                $biosID = 3;
+            }else {
+                $biosID = $biosID['biosID'];
+            }
+            $sql = "INSERT INTO users(username, email, wachtwoord, rol, biosID) VALUES ('$username','$email','$password',$rolCode, $biosID)";
+        } else {
+            $sql = "INSERT INTO users(username, email, wachtwoord, rol) VALUES ('$username','$email','$password',$rolCode)";
+        }
+        $result = $this->DataHandler->getData($sql);
+        if ($result != null) {
+            echo "<script>window.location.href = '?request=beheer&pagina=gebruikers'</script>";
+        }
+        return $result;
+    }
+
+    public function getBiosId($bioscoop){
+        $sql = "SELECT biosID FROM bioscopen WHERE biosnaam = '$bioscoop'";
+        $result = $this->DataHandler->getData($sql);
+
+        return $result;
+    }
+    public function verwijderDiesnt($id)
+    {
+        $sql = "DELETE FROM `diensten` WHERE dienstID = $id";
+        $result = $this->DataHandler->getData($sql);
+        if ($result != null) {
+            echo "<script>window.location.href = '?request=beheer&pagina=diensten'</script>";
+        }
+        return $result;
+    }
 }

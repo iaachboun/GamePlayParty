@@ -113,6 +113,14 @@ class BiosBeheerLogic
         return $result;
 
     }
+    public function verwijderRes($id) {
+        $sql = "DELETE FROM `reserveringen` WHERE reserveringsID = $id";
+        $result = $this->DataHandler->getData($sql);
+        if ($result != null) {
+            echo "<script>window.location.href = '?request=beheer&pagina=beschikbaarheden'</script>";
+        }
+        return $result;
+    }
 
     public function gebruikersList()
     {
@@ -147,9 +155,10 @@ WHERE users.biosID = '$biosID'";
     }
 
     public function beschikbaarhedenList(){
-        $sql = "select * from reserveringen";
+        $biosID = $_SESSION['biosID'];
+        $sql = "select reserveringsID, reserveringsdatum, reservering_begin_tijd, reservering_eind_tijd, zaal, gereserveerd from reserveringen natural join zalen where biosID = '$biosID'";
         $result = $this->DataHandler->getData($sql);
-        $makeBeschikbaarheidList = $this->BeschikbaarheidList->makeBeschikbaarheidList($result);
+        $makeBeschikbaarheidList = $this->BeschikbaarheidList->makeBeschikbaarhediList($result);
         return $makeBeschikbaarheidList;
     }
 

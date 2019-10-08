@@ -8,7 +8,6 @@
     <meta name="author" content="ALBOE">
     <meta name="description" content="Gameplay Party">
     <meta name="keywords" content="keywords,here">
-    <script src="assets/js/main.js" type="module"></script>
     <!--    axios-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!--    wysiwyg-->

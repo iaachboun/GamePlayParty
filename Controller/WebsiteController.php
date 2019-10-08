@@ -177,6 +177,9 @@ class WebsiteController
     public function beheerContent($page, $func)
     {
         switch ($page) {
+            case  'addGebruiker':
+                $this->showAddUserForm();
+                break;
             case 'addBioscoop':
                 $this->addNewBios();
                 break;
@@ -220,6 +223,15 @@ class WebsiteController
 
         if (isset($func)) {
             switch ($func) {
+                case 'verwijderDiesnt':
+                    $this->removeDiesnt($_REQUEST['diesntID']);
+                    break;
+                case 'addUser':
+                    $this->addUser($_REQUEST['username'],$_REQUEST['email'],$_REQUEST['wachtwoord'],$_REQUEST['rol'],$_REQUEST['bioscoop'] );
+                    break;
+                case 'verwijderUser':
+                    $this->removeUser($_REQUEST['userID']);
+                    break;
                 case 'verwijderPagina':
                     $this->removePagina($_REQUEST['paginaID']);
                     break;
@@ -253,6 +265,28 @@ class WebsiteController
                     break;
             }
         }
+    }
+
+    public function addUser($username,$email,$password,$rol,$bioscoop){
+        $biosID = $this->BeheerderLogic->getBiosId($bioscoop)->fetch(PDO::FETCH_ASSOC);
+        $result = $this->BeheerderLogic->addNewUser($username,$email,$password,$rol,$biosID);
+        return $result;
+    }
+
+    public function removeDiesnt($id){
+        $result = $this->BeheerderLogic->verwijderDiesnt($id);
+        return $result;
+    }
+
+    public function showAddUserForm(){
+        $result = $this->BeheerderLogic->showNewUserForm();
+        include 'view/beheer/addBioscopen.php';
+        return $result;
+    }
+
+    public function removeUser($id){
+        $result = $this->BeheerderLogic->verwijderUser($id);
+        return $result;
     }
 
     public function removePagina($id)
@@ -439,6 +473,9 @@ class WebsiteController
 
         if (isset($func)) {
             switch ($func) {
+                case 'verwijderDiesnt':
+                    $this->removeBeschick($_REQUEST['reserveringsID']);
+                    break;
                 case 'update':
                     $this->biosUpdateContent($_REQUEST['paginaID'], $_REQUEST['mytextarea']);
                     break;
@@ -461,6 +498,10 @@ class WebsiteController
         }
     }
 
+    public function removeBeschick($id){
+        $result = $this->BiosBeheerLogic->verwijderRes($id);
+        return $result;
+    }
 
     public function biosCollectpaginas()
     {
