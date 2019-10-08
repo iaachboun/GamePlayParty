@@ -8,7 +8,7 @@ class Logic
     public function __construct()
     {
 
-        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "ilias", "12345");
+        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "root", "");
         $this->BiosDetailCreate = new biosDetailCreate();
         $this->BiosVrijePlaatsen = new biosVrijePlaatsen();
 
@@ -20,8 +20,7 @@ class Logic
 
     public function getCinema($id)
     {
-        $sql = "SELECT * FROM `contentmanagement` 
-WHERE biosID = " . $id;
+        $sql = "SELECT * FROM `contentmanagement` WHERE biosID = " . $id;
         $result = $this->DataHandler->getData($sql);
         $results = $this->BiosDetailCreate->createBiosDetail($result);
 

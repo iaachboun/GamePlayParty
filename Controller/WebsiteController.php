@@ -200,6 +200,9 @@ class WebsiteController
             case 'gebruikers':
                 $this->collectGebruikersList();
                 break;
+            case 'diensten':
+                $this->collectDiensten();
+                break;
             case 'editGebruiker':
                 $this->collectEditGebruiker($_REQUEST['userID']);
                 break;
@@ -348,6 +351,14 @@ class WebsiteController
         include 'view/beheer/beheerGebruikers.php';
         return $result;
     }
+
+    public function collectDiensten()
+    {
+        $result = $this->BeheerderLogic->dienstenList();
+        include 'view/beheer/beheerdiensten.php';
+        return $result;
+    }
+    
 
     public function collectEditGebruiker($userID)
     {
