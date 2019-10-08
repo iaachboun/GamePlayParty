@@ -59,7 +59,7 @@
 <!--    </script>-->
 </head>
 <body>
-<div class="logo-container">
+<!-- <div class="logo-container">
     <img class="logo" src="assets/img/logo.svg" alt="logo">
 </div>
 <nav class="navbar navbar-expand-lg navbar-dark justify-content-end">
@@ -101,5 +101,5 @@
             </li>
         </ul>
     </div>
-</nav>
+</nav> -->
 

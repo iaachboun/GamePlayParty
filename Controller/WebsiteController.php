@@ -203,6 +203,9 @@ class WebsiteController
             case 'gebruikers':
                 $this->collectGebruikersList();
                 break;
+            case 'diensten':
+                $this->collectDiensten();
+                break;
             case 'editGebruiker':
                 $this->collectEditGebruiker($_REQUEST['userID']);
                 break;
@@ -376,6 +379,15 @@ class WebsiteController
         return $result;
     }
 
+    public function collectDiensten()
+    {
+        $result = $this->BeheerderLogic->dienstenList();
+        
+        include 'view/beheer/beheerdiensten.php';
+        return $result;
+    }
+    
+
     public function collectEditGebruiker($userID)
     {
         $result = $this->BeheerderLogic->editGebruiker($userID);
@@ -413,8 +425,12 @@ class WebsiteController
             case 'editGebruiker':
                 $this->biosCollectEditGebruiker($_REQUEST['userID']);
                 break;
+            case 'beschikbaarheden':
+                $this->biosCollectBeschikbaarheden();
+                break;
             case 'addBeschikbaarheid';
-                $this->biosCollectAddBeschikbaarheid();
+                $this->biosCollectAddBeschikbaarheid($_SESSION['biosID']);
+
                 break;
             default:
 
@@ -436,6 +452,10 @@ class WebsiteController
                     break;
                 case 'updateGebruiker':
                     $this->biosUpdateGebruiker($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['wachtwoord'], $_REQUEST['userID']);
+                    break;
+
+                case 'addNewBeschikbaarheid':
+                    $this->addNewBeschikbaarheid($_REQUEST['biosID'], $_REQUEST['date'], $_REQUEST['begintijd'], $_REQUEST['eindtijd'], $_REQUEST['zaal'], $_REQUEST['console']);
                     break;
 
                 default:
@@ -535,9 +555,27 @@ class WebsiteController
         return $result;
     }
 
-    public function biosCollectAddBeschikbaarheid()
-    {
 
+    public function biosCollectBeschikbaarheden()
+    {
+        $result = $this->BiosBeheerLogic->beschikbaarhedenList();
+        include 'view/biosbeheer/beschikbaarheden.php';
+        return $result;
+    }
+
+
+    public function biosCollectAddBeschikbaarheid($biosID)
+    {
+        $result = $this->BiosBeheerLogic->collectAddBeschikbaarheid($biosID);
+        include 'view/biosbeheer/addBeschikbaarheid.php';
+        return $result;
+    }
+
+    public function addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console)
+    {
+        $result = $this->BiosBeheerLogic->addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console);
+        include 'view/biosbeheer/addBeschikbaarheid.php';
+        return $result;
     }
 
 

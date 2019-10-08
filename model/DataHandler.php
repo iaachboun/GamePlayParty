@@ -185,4 +185,19 @@ class DataHandler
         return $result;
     }
 
+    public function addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console){
+        $stmt = $this->dbh->prepare("INSERT INTO `reserveringen`(biosID, reserveringsdatum, reservering_begin_tijd, reservering_eind_tijd, zaal_id, console_id) VALUES(:biosID, :reserveringsdatum, :reservering_begin_tijd, :reservering_eind_tijd, :zaal_id, :console_id)");
+        var_dump($stmt);
+        $result = $stmt->execute([
+            'biosID' => $biosID,
+            'reserveringsdatum' => $date,
+            'reservering_begin_tijd' => $begintijd,
+            'reservering_eind_tijd' => $eindtijd,
+            'zaal_id' => $zaal,
+            'console_id' => $console
+        ]);
+
+        return $result;
+    }
+
 }

@@ -1,10 +1,10 @@
 <?php
 
 
-class BiosGebruikersList
+class BeschikbaarheidList
 {
-    public function makeGebruikersList($result)
-    {
+
+    public function makeBeschikbaarhediList($result){
 
         $html = "";
 
@@ -12,9 +12,10 @@ class BiosGebruikersList
         $html .= "<div class='container'>";
         $html .= "<h1 style=''>Gebruikers</h1>";
         $html .= "<table id='paginas'><tbody>";
-        $html .= "<tr><th>Gebruiker</th><th>Rol</th><th>Bioscoop</th></tr>";
+        $html .= "<tr><th>Reservering</th><th>Acties</th></tr>";
 
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        while($row = $result->fetch(PDO::FETCH_ASSOC)){
+
             $userID = $row['userID'];
             $username = $row['username'];
             $rol = $row['rol'];
@@ -36,18 +37,16 @@ class BiosGebruikersList
                     break;
             }
 
+            var_dump($_SESSION['rol']);
+            var_dump($biosnaam);
 
             $html .= "<tr>";
             $html .= "<td><a href=?request=beheer&pagina=editGebruiker&userID=" . $userID . ">" . $username . "</a></td>";
             $html .= "<td>$rol</td>";
             $html .= "<td>$biosnaam</td>";
             $html .= "</tr>";
+
         }
-
-        $html .= "</tbody></table>";
-        $html .= "</div>";
-        $html .= "</div>";
-        return $html;
-
     }
+
 }
