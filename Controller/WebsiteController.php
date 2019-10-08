@@ -152,7 +152,7 @@ class WebsiteController
                 var_dump($_SESSION['rol']);
                 if ($_SESSION['rol'] == 0 || $_SESSION['rol'] == "0") {
                     echo "<script>window.location.href = '?request=beheer'</script>";
-                }elseif($_SESSION['rol'] == 0 || $_SESSION['rol'] == "1"){
+                } elseif ($_SESSION['rol'] == 0 || $_SESSION['rol'] == "1") {
                     echo "<script>window.location.href = '?request=biosbeheer'</script>";
                 }
             }
@@ -301,29 +301,25 @@ class WebsiteController
 
     }
 
-    public function collectGebruikersList(){
+    public function collectGebruikersList()
+    {
         $result = $this->BeheerderLogic->gebruikersList();
         include 'view/beheer/beheerGebruikers.php';
         return $result;
     }
 
-    public function collectEditGebruiker($userID){
+    public function collectEditGebruiker($userID)
+    {
         $result = $this->BeheerderLogic->editGebruiker($userID);
         include 'view/beheer/editGebruiker.php';
         return $result;
     }
 
-    public function updateGebruiker($username, $email, $wachtwoord, $userID){
+    public function updateGebruiker($username, $email, $wachtwoord, $userID)
+    {
         $result = $this->BeheerderLogic->updateGebruiker($username, $email, $wachtwoord, $userID);
         return $result;
     }
-
-
-
-
-
-
-
 
 
     //biosbeheer
@@ -350,8 +346,11 @@ class WebsiteController
             case 'editGebruiker':
                 $this->biosCollectEditGebruiker($_REQUEST['userID']);
                 break;
-                case 'addBeschikbaarheid';
-                $this->biosCollectAddBeschikbaarheid();
+            case 'Beschikbaarheden':
+                $this->biosCollectBeschikbaarheden();
+                break;
+            case 'addBeschikbaarheid';
+                $this->biosCollectAddBeschikbaarheid($_SESSION['biosID']);
                 break;
             default:
 
@@ -373,6 +372,10 @@ class WebsiteController
                     break;
                 case 'updateGebruiker':
                     $this->biosUpdateGebruiker($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['wachtwoord'], $_REQUEST['userID']);
+                    break;
+
+                case 'addNewBeschikbaarheid':
+                    $this->addNewBeschikbaarheid($_REQUEST['biosID'], $_REQUEST['date'], $_REQUEST['begintijd'], $_REQUEST['eindtijd'], $_REQUEST['zaal'], $_REQUEST['console']);
                     break;
 
                 default:
@@ -452,24 +455,47 @@ class WebsiteController
 
     }
 
-    public function biosCollectGebruikersList(){
+    public function biosCollectGebruikersList()
+    {
         $result = $this->BiosBeheerLogic->gebruikersList();
         include 'view/biosbeheer/beheerGebruikers.php';
         return $result;
     }
 
-    public function biosCollectEditGebruiker($userID){
+    public function biosCollectEditGebruiker($userID)
+    {
         $result = $this->BiosBeheerLogic->editGebruiker($userID);
         include 'view/biosbeheer/editGebruiker.php';
         return $result;
     }
 
-    public function biosUpdateGebruiker($username, $email, $wachtwoord, $userID){
+    public function biosUpdateGebruiker($username, $email, $wachtwoord, $userID)
+    {
         $result = $this->BiosBeheerLogic->updateGebruiker($username, $email, $wachtwoord, $userID);
         return $result;
     }
 
-    public function biosCollectAddBeschikbaarheid(){
-
+    public function biosCollectBeschikbaarheden()
+    {
+        $result = $this->BiosBeheerLogic->beschikbaarhedenList();
+        include 'view/biosbeheer/beschikbaarheden.php';
+        return $result;
     }
+
+
+    public function biosCollectAddBeschikbaarheid($biosID)
+    {
+        $result = $this->BiosBeheerLogic->collectAddBeschikbaarheid($biosID);
+        include 'view/biosbeheer/addBeschikbaarheid.php';
+        return $result;
+    }
+
+    public function addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console)
+    {
+        $result = $this->BiosBeheerLogic->addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console);
+        include 'view/biosbeheer/addBeschikbaarheid.php';
+        return $result;
+    }
+
+
 }
