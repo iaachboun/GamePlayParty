@@ -36,8 +36,6 @@ class BiosGebruikersList
                     break;
             }
 
-            var_dump($_SESSION['rol']);
-            var_dump($biosnaam);
 
             $html .= "<tr>";
             $html .= "<td><a href=?request=beheer&pagina=editGebruiker&userID=" . $userID . ">" . $username . "</a></td>";
