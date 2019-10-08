@@ -10,43 +10,37 @@ class BeschikbaarheidList
 
         $html .= "<div class='col-12 pagina-select-container'>";
         $html .= "<div class='container'>";
-        $html .= "<h1 style=''>Gebruikers</h1>";
+        $html .= "<h1 style=''>Beschikbare reserveringen</h1>";
         $html .= "<table id='paginas'><tbody>";
-        $html .= "<tr><th>Reservering</th><th>Acties</th></tr>";
+        $html .= "<tr><th>Reservering</th><th>Zaal</th><th>Begin tijd</th><th>Eind tijd</th><th>Gereserveerd</th><th>Acties</th></tr>";
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)){
 
-            $userID = $row['userID'];
-            $username = $row['username'];
-            $rol = $row['rol'];
-            $biosnaam = $row['biosnaam'];
-
-            if($biosnaam == "" || $biosnaam == null){
-                $biosnaam = "n.v.t.";
-            }
-
-            switch ($rol) {
-                case '0':
-                    $rol = "beheerder";
-                    break;
-                case '1':
-                    $rol = "bioscoop beheerder";
-                    break;
-                case '2':
-                    $rol = "toeschouwer";
-                    break;
-            }
-
-            var_dump($_SESSION['rol']);
-            var_dump($biosnaam);
+            $reserveringsdatum = $row['reserveringsdatum'];
+            $reservering_begin_tijd = $row['reservering_begin_tijd'];
+            $reservering_eind_tijd = $row['reservering_eind_tijd'];
+            $gereserveerd = $row['gereserveerd'];
+            $zaal = $row['zaal'];
 
             $html .= "<tr>";
-            $html .= "<td><a href=?request=beheer&pagina=editGebruiker&userID=" . $userID . ">" . $username . "</a></td>";
-            $html .= "<td>$rol</td>";
-            $html .= "<td>$biosnaam</td>";
+            $html .= "<td>$reserveringsdatum</a></td>";
+            $html .= "<td>$zaal</td>";
+            $html .= "<td>$reservering_begin_tijd</td>";
+            $html .= "<td>$reservering_eind_tijd</td>";
+            if($gereserveerd == "0") {
+                $gereserveerd = "Beschikbaar";
+                $html .= "<td><span style='color: green'>$gereserveerd</span></td>";
+            }else{
+                $gereserveerd = "Gereserveerd";
+                $html .= "<td><span style='color: red'>$gereserveerd</span></td>";
+            }
             $html .= "</tr>";
 
         }
+        $html .= "</tbody></table>";
+        $html .= "</div>";
+        $html .= "</div>";
+        return $html;
     }
 
 }
