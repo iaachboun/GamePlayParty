@@ -362,7 +362,6 @@ class WebsiteController
         return $result;
     }
 
-<
     //biosbeheer
     public function biosBeheerContent($page, $func)
     {
@@ -387,11 +386,11 @@ class WebsiteController
             case 'editGebruiker':
                 $this->biosCollectEditGebruiker($_REQUEST['userID']);
                 break;
-            case 'Beschikbaarheden':
+            case 'beschikbaarheden':
                 $this->biosCollectBeschikbaarheden();
                 break;
             case 'addBeschikbaarheid';
-                $this->biosCollectAddBeschikbaarheid();
+                $this->biosCollectAddBeschikbaarheid($_SESSION['biosID']);
 
                 break;
             default:
@@ -532,9 +531,6 @@ class WebsiteController
         include 'view/biosbeheer/addBeschikbaarheid.php';
         return $result;
     }
-
-    public function biosCollectAddBeschikbaarheid()
-    {
 
     public function addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console)
     {
