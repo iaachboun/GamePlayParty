@@ -9,6 +9,7 @@ require_once 'utilities/beheer/GebruikersList.php';
 require_once 'utilities/beheer/DienstenListForm.php';
 require_once 'utilities/beheer/EditGebruikerForm.php';
 require_once 'utilities/beheer/addNewBiosForm.php';
+require_once 'utilities/beheer/addNewDienstForm.php';
 
 class BeheerderLogic
 {
@@ -26,6 +27,7 @@ class BeheerderLogic
         $this->DienstenListForm = new DienstenListForm();
         $this->EditGebruikerForm = new EditGebruikerForm();
         $this->addBiosForm = new addNewBiosForm();
+        $this->addNewDienstForm = new addNewDienstForm();
 
     }
 
@@ -126,6 +128,24 @@ ON users.biosID = bioscopen.biosID";
         return $makeDienstenList;
 
         
+    }
+
+    public function collectAddDienst()
+    {
+            $result = $this->addNewDienstForm->makeNewDienstForm();
+            return $result;
+    }
+
+    public function addNewDienst($dienst, $tarief)
+    {        
+
+        if (isset($dienst, $tarief)) {
+            $result = $this->DataHandler->addNewDienst($dienst, $tarief);
+            
+                echo "<script>window.location.href = '?request=beheer&pagina=diensten'</script>";
+            
+        }
+        return $result;
     }
 
     public function editGebruiker($userID)

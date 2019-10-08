@@ -185,6 +185,15 @@ class DataHandler
         return $result;
     }
 
+    public function addNewDienst($dienst, $tarief)
+    {
+        $stmt = $this->dbh->prepare("INSERT INTO diensten (dienst, tarief) VALUES (:dienst, :tarief)");
+        $result = $stmt->execute([
+            'dienst' => $dienst,
+            'tarief' => $tarief,
+        ]);
+    }
+
     public function addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console){
         $stmt = $this->dbh->prepare("INSERT INTO `reserveringen`(biosID, reserveringsdatum, reservering_begin_tijd, reservering_eind_tijd, zaal_id, console_id) VALUES(:biosID, :reserveringsdatum, :reservering_begin_tijd, :reservering_eind_tijd, :zaal_id, :console_id)");
         var_dump($stmt);

@@ -206,6 +206,9 @@ class WebsiteController
             case 'editGebruiker':
                 $this->collectEditGebruiker($_REQUEST['userID']);
                 break;
+            case 'addDienst':
+                $this->collectAddDienst();
+                break;
             default:
 
                 /*$result = $this->Logic->getContent($page);
@@ -239,6 +242,10 @@ class WebsiteController
                     break;
                 case 'updateGebruiker':
                     $this->updateGebruiker($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['wachtwoord'], $_REQUEST['userID']);
+                    break;
+
+                case 'addDienst':
+                    $this->addNewDienst($_REQUEST['dienst'], $_REQUEST['tarief']);
                     break;
 
                 default:
@@ -275,6 +282,7 @@ class WebsiteController
         return $result;
     }
 
+
     public function collectpaginas()
     {
         $result = $this->BeheerderLogic->beheerContentPaginas();
@@ -306,6 +314,20 @@ class WebsiteController
 //        $result = $this->Logic->updateContent();
 
 //        return $result;
+    }
+
+    public function collectAddDienst()
+    {
+        $result = $this->BeheerderLogic->collectAddDienst();
+        include 'view/beheer/addDienst.php';
+        return $result;
+    }
+
+    public function addNewDienst($dienst, $tarief)
+    {
+        $result = $this->BeheerderLogic->addNewDienst($dienst, $tarief);
+
+        return $result;
     }
 
     public function collectAddPage()
@@ -401,8 +423,9 @@ class WebsiteController
             case 'beschikbaarheden':
                 $this->biosCollectBeschikbaarheden();
                 break;
-            case 'addBeschikbaarheid';
+            case 'addBeschikbaarheid':
                 $this->biosCollectAddBeschikbaarheid($_SESSION['biosID']);
+
 
                 break;
             default:
