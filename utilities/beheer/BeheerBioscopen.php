@@ -22,7 +22,9 @@ class BeheerBioscopen
 
             $html .= "<tr>";
             $html .= "<td><a href=?request=beheer&pagina=editBioscoop&biosID=" . $biosID . ">" . $biosnaam . "</a></td>";
+            $html .= "<td><a href=?request=beheer&pagina=bioscopen&func=verwijderBioscoop&biosID=" . $biosID . ">Verwijder</a></td>";
             $html .= "</tr>";
+
 
         }
         $html .= "</tbody></table>";

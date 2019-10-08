@@ -152,7 +152,7 @@ class WebsiteController
                 var_dump($_SESSION['rol']);
                 if ($_SESSION['rol'] == 0 || $_SESSION['rol'] == "0") {
                     echo "<script>window.location.href = '?request=beheer'</script>";
-                }elseif($_SESSION['rol'] == 0 || $_SESSION['rol'] == "1"){
+                } elseif ($_SESSION['rol'] == 0 || $_SESSION['rol'] == "1") {
                     echo "<script>window.location.href = '?request=biosbeheer'</script>";
                 }
             }
@@ -212,8 +212,14 @@ class WebsiteController
 
         if (isset($func)) {
             switch ($func) {
+                case 'verwijderPagina':
+                    $this->removePagina($_REQUEST['paginaID']);
+                    break;
+                case 'verwijderBioscoop':
+                    $this->removeBios($_REQUEST['biosID']);
+                    break;
                 case 'addBios':
-                    $this->addNewBioscoop($_REQUEST['biosID'], $_REQUEST['biosnaam'], $_REQUEST['biosadres'], $_REQUEST['biospostcode'], $_REQUEST['biosplaats'], $_REQUEST['biosprovincie'], $_REQUEST['omschrijving'] ,$_REQUEST['beschickbaarheid_auto'], $_REQUEST['beschickbaarheid_fiets'],  $_REQUEST['beschickbaarheid_OV'], $_REQUEST['aantal_zalen']);
+                    $this->addNewBioscoop($_REQUEST['biosID'], $_REQUEST['biosnaam'], $_REQUEST['biosadres'], $_REQUEST['biospostcode'], $_REQUEST['biosplaats'], $_REQUEST['biosprovincie'], $_REQUEST['omschrijving'], $_REQUEST['beschickbaarheid_auto'], $_REQUEST['beschickbaarheid_fiets'], $_REQUEST['beschickbaarheid_OV'], $_REQUEST['aantal_zalen']);
                     break;
                 case 'update':
                     $this->updateContent($_REQUEST['paginaID'], $_REQUEST['mytextarea']);
@@ -237,13 +243,28 @@ class WebsiteController
         }
     }
 
-    public function addNewBioscoop($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats ,$biosprovincie,$omschrijving, $beschickbaarheid_auto, $beschickbaarheid_fiets, $beschickbaarheid_OV ,$aantal_zalen){
-        $result = $this->BeheerderLogic->addBiosForm($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie,$omschrijving, $beschickbaarheid_auto, $beschickbaarheid_fiets, $beschickbaarheid_OV ,$aantal_zalen);
+    public function removePagina($id)
+    {
+        $result = $this->BeheerderLogic->verwijderPagina($id);
+        return $result;
+
+    }
+
+    public function removeBios($id)
+    {
+        $result = $this->BeheerderLogic->verwijderBios($id);
+        return $result;
+    }
+
+    public function addNewBioscoop($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie, $omschrijving, $beschickbaarheid_auto, $beschickbaarheid_fiets, $beschickbaarheid_OV, $aantal_zalen)
+    {
+        $result = $this->BeheerderLogic->addBiosForm($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie, $omschrijving, $beschickbaarheid_auto, $beschickbaarheid_fiets, $beschickbaarheid_OV, $aantal_zalen);
         return $result;
     }
 
 
-    public function addNewBios() {
+    public function addNewBios()
+    {
         $result = $this->BeheerderLogic->addBios();
         include 'view/beheer/addBioscopen.php';
         return $result;
@@ -319,19 +340,22 @@ class WebsiteController
 
     }
 
-    public function collectGebruikersList(){
+    public function collectGebruikersList()
+    {
         $result = $this->BeheerderLogic->gebruikersList();
         include 'view/beheer/beheerGebruikers.php';
         return $result;
     }
 
-    public function collectEditGebruiker($userID){
+    public function collectEditGebruiker($userID)
+    {
         $result = $this->BeheerderLogic->editGebruiker($userID);
         include 'view/beheer/editGebruiker.php';
         return $result;
     }
 
-    public function updateGebruiker($username, $email, $wachtwoord, $userID){
+    public function updateGebruiker($username, $email, $wachtwoord, $userID)
+    {
         $result = $this->BeheerderLogic->updateGebruiker($username, $email, $wachtwoord, $userID);
         return $result;
     }
@@ -360,7 +384,7 @@ class WebsiteController
             case 'editGebruiker':
                 $this->biosCollectEditGebruiker($_REQUEST['userID']);
                 break;
-                case 'addBeschikbaarheid';
+            case 'addBeschikbaarheid';
                 $this->biosCollectAddBeschikbaarheid();
                 break;
             default:
@@ -462,24 +486,28 @@ class WebsiteController
 
     }
 
-    public function biosCollectGebruikersList(){
+    public function biosCollectGebruikersList()
+    {
         $result = $this->BiosBeheerLogic->gebruikersList();
         include 'view/biosbeheer/beheerGebruikers.php';
         return $result;
     }
 
-    public function biosCollectEditGebruiker($userID){
+    public function biosCollectEditGebruiker($userID)
+    {
         $result = $this->BiosBeheerLogic->editGebruiker($userID);
         include 'view/biosbeheer/editGebruiker.php';
         return $result;
     }
 
-    public function biosUpdateGebruiker($username, $email, $wachtwoord, $userID){
+    public function biosUpdateGebruiker($username, $email, $wachtwoord, $userID)
+    {
         $result = $this->BiosBeheerLogic->updateGebruiker($username, $email, $wachtwoord, $userID);
         return $result;
     }
 
-    public function biosCollectAddBeschikbaarheid(){
+    public function biosCollectAddBeschikbaarheid()
+    {
 
     }
 

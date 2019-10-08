@@ -70,7 +70,7 @@ class BeheerderLogic
         if (isset($paginatitel, $mytextarea)) {
             $result = $this->DataHandler->addPreparedQueryData($paginatitel, $mytextarea);
             if ($result != null) {
-                header("?request=beheer");
+                echo "<script>window.location.href = '?request=beheer&pagina=paginas'</script>";
             }
         }
         return $result;
@@ -116,14 +116,16 @@ ON users.biosID = bioscopen.biosID";
         return $makeGebruikersList;
     }
 
-    public function editGebruiker($userID){
+    public function editGebruiker($userID)
+    {
         $sql = "SELECT * FROM users WHERE userID = $userID";
         $result = $this->DataHandler->getData($sql);
         $editGebruikerForm = $this->EditGebruikerForm->makeEditGebruikerForm($result);
         return $editGebruikerForm;
     }
 
-    public function updateGebruiker($username, $email, $wachtwoord, $userID){
+    public function updateGebruiker($username, $email, $wachtwoord, $userID)
+    {
         if (isset($username, $email, $wachtwoord, $userID)) {
             $result = $this->DataHandler->beheerUpdateGebruikerData($username, $email, $wachtwoord, $userID);
             if ($result != null) {
@@ -140,10 +142,36 @@ ON users.biosID = bioscopen.biosID";
         return $makePaginaSelect;
     }
 
-    public function addBiosForm($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie,$omschrijving, $beschickbaarheid_auto, $beschickbaarheid_fiets, $beschickbaarheid_OV ,$aantal_zalen) {
+    public function addBiosForm($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie, $omschrijving, $beschickbaarheid_auto, $beschickbaarheid_fiets, $beschickbaarheid_OV, $aantal_zalen)
+    {
         $sql = "INSERT INTO bioscopen(biosnaam, biosadres, biospostcode, biosplaats, biosprovincie, omschrijving, beschikbaarheid_auto, beschikbaarheid_fiets, beschikbaarheid_ov, aantal_zalen) VALUES ('$biosnaam','$biosadres','$biospostcode','$biosplaats','$biosprovincie','$omschrijving','$beschickbaarheid_auto','$beschickbaarheid_fiets','$beschickbaarheid_OV','$aantal_zalen')";
         $result = $this->DataHandler->getData($sql);
+        if ($result != null) {
+            echo "<script>window.location.href = '?request=beheer&pagina=bioscopen'</script>";
+        }
         return $result;
     }
+
+    public function verwijderBios($id)
+    {
+        $sql = "DELETE FROM `bioscopen` WHERE biosID = $id";
+        $result = $this->DataHandler->getData($sql);
+        if ($result != null) {
+            echo "<script>window.location.href = '?request=beheer&pagina=bioscopen'</script>";
+        }
+        return $result;
+    }
+
+    public function verwijderPagina($id)
+    {
+        $sql = "DELETE FROM `contentmanagement` WHERE paginaID = $id";
+        var_dump($sql);
+        $result = $this->DataHandler->getData($sql);
+        if ($result != null) {
+            echo "<script>window.location.href = '?request=beheer&pagina=paginas'</script>";
+        }
+        return $result;
+    }
+
 
 }
