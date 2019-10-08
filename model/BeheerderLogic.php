@@ -6,6 +6,7 @@ require_once 'utilities/beheer/AddPage.php';
 require_once 'utilities/beheer/BeheerBioscopen.php';
 require_once 'utilities/beheer/BeheerEditBioscoop.php';
 require_once 'utilities/beheer/GebruikersList.php';
+require_once 'utilities/beheer/DienstenListForm.php';
 require_once 'utilities/beheer/EditGebruikerForm.php';
 require_once 'utilities/beheer/addNewBiosForm.php';
 
@@ -22,6 +23,7 @@ class BeheerderLogic
         $this->BeheerBioscopen = new BeheerBioscopen();
         $this->BeheerEditBioscoop = new BeheerEditBioscoop();
         $this->GebruikersList = new GebruikersList();
+        $this->DienstenListForm = new DienstenListForm();
         $this->EditGebruikerForm = new EditGebruikerForm();
         $this->addBiosForm = new addNewBiosForm();
 
@@ -114,6 +116,16 @@ ON users.biosID = bioscopen.biosID";
         $result = $this->DataHandler->getData($sql);
         $makeGebruikersList = $this->GebruikersList->makeGebruikersList($result);
         return $makeGebruikersList;
+    }
+
+    public function dienstenList(){
+
+        $sql = "SELECT dienstID, biosID, dienst, tarief FROM diensten";
+        $result = $this->DataHandler->getData($sql);
+        $makeDienstenList = $this->DienstenListForm->makeDienstenList($result);
+        return $makeDienstenList;
+
+        
     }
 
     public function editGebruiker($userID)

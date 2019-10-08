@@ -6,7 +6,7 @@
 
 </div>
 
-<a href="#homeContent" class='pijl'>
+<a href="#home-section container" class='pijl'>
     <i class="fas fa-arrow-circle-down"></i>
 </a>
 <div style="position: relative; top: -290px;" class="banner bannerHero">
@@ -23,13 +23,14 @@
         <?php
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) { ?>
 
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-12">
                 <div id="homeContent" class="home-text">
                 <p id="contentData" style="display: block"><?php echo $row['content'] ?></p>
                 </div>
                 <a href="?request=bioscopen"
                    class="btn-custom btn-green btn-lg btn-block home-button-top-space">bekijk de
                     bioscopen</a>
+            
             </div>
 
         <?php } ?>
@@ -50,3 +51,4 @@
 
     });
 </script>
+

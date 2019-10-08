@@ -20,8 +20,7 @@ class Logic
 
     public function getCinema($id)
     {
-        $sql = "SELECT * FROM `contentmanagement` 
-WHERE biosID = " . $id;
+        $sql = "SELECT * FROM `contentmanagement` WHERE biosID = " . $id;
         $result = $this->DataHandler->getData($sql);
         $results = $this->BiosDetailCreate->createBiosDetail($result);
 
