@@ -147,9 +147,10 @@ WHERE users.biosID = '$biosID'";
     }
 
     public function beschikbaarhedenList(){
-        $sql = "select * from reserveringen";
+        $biosID = $_SESSION['biosID'];
+        $sql = "select reserveringsdatum, reservering_begin_tijd, reservering_eind_tijd, zaal, gereserveerd from reserveringen natural join zalen where biosID = '$biosID'";
         $result = $this->DataHandler->getData($sql);
-        $makeBeschikbaarheidList = $this->BeschikbaarheidList->makeBeschikbaarheidList($result);
+        $makeBeschikbaarheidList = $this->BeschikbaarheidList->makeBeschikbaarhediList($result);
         return $makeBeschikbaarheidList;
     }
 
