@@ -178,6 +178,8 @@ h1#typewritten {
 }
 .pijl {
   float: right;
+  font-size: 3em;
+  padding: 0 50px 0 0;
 }
 
 .biosDetails-section {

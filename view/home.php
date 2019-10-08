@@ -38,11 +38,6 @@
 </div>
 
 <script>
-    window.scroll({
-  top: 2500, 
-  left: 0, 
-  behavior: 'smooth'
-});
     var newData = JSON.parse($('#contentData').text());
 
     const homeContent = new EditorJS({
