@@ -1,7 +1,7 @@
 <?php
 
 
-class BeheerBioscopen
+class BiosBeheerBioscopen
 {
 
     public function makeBioscopenSelect($result)
@@ -13,7 +13,7 @@ class BeheerBioscopen
         $html .= "<div class='container'>";
         $html .= "<h1 style=''>Bioscopen</h1>";
         $html .= "<table id='paginas'><tbody>";
-        $html .= "<tr><th>Bioscoop</th><th>Acties</th></tr>";
+        $html .= "<tr><th>Bioscoop</th></tr>";
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             $biosID = $row['biosID'];
@@ -22,9 +22,7 @@ class BeheerBioscopen
 
             $html .= "<tr>";
             $html .= "<td><a href=?request=beheer&pagina=editBioscoop&biosID=" . $biosID . ">" . $biosnaam . "</a></td>";
-            $html .= "<td><a href=?request=beheer&pagina=bioscopen&func=verwijderBioscoop&biosID=" . $biosID . ">Verwijder</a></td>";
             $html .= "</tr>";
-
 
         }
         $html .= "</tbody></table>";

@@ -59,43 +59,48 @@
 <!--        });-->
 <!--    </script>-->
 </head>
-<!--<body>-->
-<!--<div class="logo-container">-->
-<!--    <img class="logo" src="assets/img/logo.svg" alt="logo">-->
-<!--</div>-->
-<!--<nav class="navbar navbar-expand-lg navbar-dark justify-content-end">-->
-<!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"-->
-<!--            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--        <span class="navbar-dark navbar-toggler-icon"></span>-->
-<!--    </button>-->
-<!--    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">-->
-<!--        <ul class="navbar-nav">-->
-<!--            <li class="nav-item">-->
-<!--                <a class="nav-link" href="index.php">Home</a>-->
-<!--            </li>-->
-<!--            --><?php
-//            if (isset($_SESSION['rol'])  && $_SESSION['rol'] == '0') {
-//
-//                echo "<li class='nav-item'>
-//                        <a class='nav-link' href = '?request=beheer&pagina=Home'> Beheer</a >
-//                       </li >";
-//            }
-//            ?>
-<!--            <li class="nav-item">-->
-<!--                <a class="nav-link" href="?request=bioscopen">Bioscopen</a>-->
-<!--            </li>-->
-<!--            <li class="nav-item">-->
-<!--                <a class="nav-link" href="?request=contact">Contact</a>-->
-<!--            </li>-->
-<!--            <li class="nav-item">-->
-<!--                --><?php
-//                if (!isset($_SESSION['loggedin'])) { ?>
-<!--                    <a class="nav-link" href="?request=login">Login</a>-->
-<!--                --><?php //}else{ ?>
-<!--                    <a class="nav-link" href="?request=logout">Log out</a>-->
-<!--                --><?php //}?>
-<!--            </li>-->
-<!--        </ul>-->
-<!--    </div>-->
-<!--</nav>-->
-<!---->
+<body>
+<div class="logo-container">
+    <img class="logo" src="assets/img/logo.svg" alt="logo">
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark justify-content-end">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-dark navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">Home</a>
+            </li>
+            <?php
+            if (isset($_SESSION['loggedin'])  && $_SESSION['rol'] == '0') {
+
+                echo "<li class='nav-item'>
+                        <a class='nav-link' href = '?request=beheer&pagina=Home'> Beheer</a >
+                       </li >";
+            }
+            elseif(isset($_SESSION['loggedin'])  && $_SESSION['rol'] == '1'){
+                echo "<li class='nav-item'>
+                        <a class='nav-link' href = '?request=biosbeheer&pagina=Home'> Beheer</a >
+                       </li >";
+            }
+            ?>
+            <li class="nav-item">
+                <a class="nav-link" href="?request=bioscopen">Bioscopen</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="?request=contact">Contact</a>
+            </li>
+            <li class="nav-item">
+                <?php
+                if (!isset($_SESSION['loggedin'])) { ?>
+                    <a class="nav-link" href="?request=login">Login</a>
+                <?php }else{ ?>
+                    <a class="nav-link" href="?request=logout">Log out</a>
+                <?php }?>
+            </li>
+        </ul>
+    </div>
+</nav>
+

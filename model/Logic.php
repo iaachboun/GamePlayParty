@@ -8,7 +8,7 @@ class Logic
     public function __construct()
     {
 
-        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "root", "");
+        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "ilias", "12345");
         $this->BiosDetailCreate = new biosDetailCreate();
         $this->BiosVrijePlaatsen = new biosVrijePlaatsen();
 
