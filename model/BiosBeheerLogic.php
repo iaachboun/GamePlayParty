@@ -1,27 +1,27 @@
 <?php
 require_once 'model/DataHandler.php';
-require_once 'utilities/beheer/PaginaSelect.php';
-require_once 'utilities/beheer/PaginaEdit.php';
-require_once 'utilities/beheer/AddPage.php';
-require_once 'utilities/beheer/BeheerBioscopen.php';
-require_once 'utilities/beheer/BeheerEditBioscoop.php';
-require_once 'utilities/beheer/GebruikersList.php';
-require_once 'utilities/beheer/EditGebruikerForm.php';
+require_once 'utilities/biosBeheer/BiosPaginaSelect.php';
+require_once 'utilities/biosBeheer/BiosPaginaEdit.php';
+require_once 'utilities/biosBeheer/BiosAddPage.php';
+require_once 'utilities/biosBeheer/BiosBeheerBioscopen.php';
+require_once 'utilities/biosBeheer/BiosBeheerEditBioscoop.php';
+require_once 'utilities/biosBeheer/BiosGebruikersList.php';
+require_once 'utilities/biosBeheer/BiosEditGebruikerForm.php';
 
-class BeheerderLogic
+class BiosBeheerLogic
 {
 
     public function __construct()
     {
 
         $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "root", "");
-        $this->PaginaSelect = new PaginaSelect();
-        $this->PaginaEdit = new PaginaEdit();
-        $this->AddPage = new AddPage();
-        $this->BeheerBioscopen = new BeheerBioscopen();
-        $this->BeheerEditBioscoop = new BeheerEditBioscoop();
-        $this->GebruikersList = new GebruikersList();
-        $this->EditGebruikerForm = new EditGebruikerForm();
+        $this->PaginaSelect = new BiosPaginaSelect();
+        $this->PaginaEdit = new BiosPaginaEdit();
+        $this->AddPage = new BiosAddPage();
+        $this->BeheerBioscopen = new BiosBeheerBioscopen();
+        $this->BeheerEditBioscoop = new BiosBeheerEditBioscoop();
+        $this->GebruikersList = new BiosGebruikersList();
+        $this->EditGebruikerForm = new BiosEditGebruikerForm();
 
     }
 
@@ -31,7 +31,8 @@ class BeheerderLogic
 
     public function beheerContentPaginas()
     {
-        $sql = "select * from contentmanagement;";
+        $biosID = $_SESSION['biosID'];
+        $sql = "select * from contentmanagement WHERE biosID = '$biosID';";
         $result = $this->DataHandler->getData($sql);
         $makePaginaSelect = $this->PaginaSelect->makePaginaSelect($result);
         return $makePaginaSelect;
@@ -39,7 +40,8 @@ class BeheerderLogic
 
     public function beheerContentEdit($paginaID)
     {
-        $sql = "select * from contentmanagement where paginaID = '$paginaID';";
+        $biosID = $_SESSION['biosID'];
+        $sql = "select * from contentmanagement where paginaID = '$paginaID' AND biosID = '$biosID';";
         $result = $this->DataHandler->getData($sql);
         $makePaginaEditor = $this->PaginaEdit->paginaEditCreate($result);
         return $makePaginaEditor;
@@ -50,7 +52,7 @@ class BeheerderLogic
         if (isset($paginaID, $mytextarea)) {
             $result = $this->DataHandler->updatePreparedQueryData($paginaID, $mytextarea);
             if ($result == null) {
-                header("?request=beheer&pagina=editContent&paginaID=$paginaID");
+                header("?request=biosbeheer&pagina=editContent&paginaID=$paginaID");
             }
         }
         return $result;
@@ -68,7 +70,7 @@ class BeheerderLogic
         if (isset($paginatitel, $mytextarea)) {
             $result = $this->DataHandler->addPreparedQueryData($paginatitel, $mytextarea);
             if ($result != null) {
-                header("?request=beheer");
+                header("?request=biosbeheer");
             }
         }
         return $result;
@@ -76,7 +78,8 @@ class BeheerderLogic
 
     public function beheerBioscoopSelect()
     {
-        $sql = "select * from bioscopen;";
+        $biosID = $_SESSION['biosID'];
+        $sql = "select * from bioscopen where biosID = '$biosID';";
         $result = $this->DataHandler->getData($sql);
         $makeBeheerBioscoopSelect = $this->BeheerBioscopen->makeBioscopenselect($result);
         return $makeBeheerBioscoopSelect;
@@ -96,7 +99,7 @@ class BeheerderLogic
         if (isset($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie, $aantal_zalen)) {
             $result = $this->DataHandler->updateBioscoopData($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie, $aantal_zalen);
             if ($result != null) {
-                echo "<script>window.location.href = '?request=beheer&pagina=editBioscoop&biosID=$biosID'</script>";
+                echo "<script>window.location.href = '?request=biosbeheer&pagina=editBioscoop&biosID=$biosID'</script>";
             }
         }
         return $result;
@@ -105,10 +108,12 @@ class BeheerderLogic
 
     public function gebruikersList()
     {
+        $biosID = $_SESSION['biosID'];
         $sql = "SELECT userID, username, email, wachtwoord, rol, biosnaam
 FROM users
 LEFT JOIN bioscopen
-ON users.biosID = bioscopen.biosID";
+ON users.biosID = bioscopen.biosID
+WHERE users.biosID = '$biosID'";
         $result = $this->DataHandler->getData($sql);
         $makeGebruikersList = $this->GebruikersList->makeGebruikersList($result);
         return $makeGebruikersList;

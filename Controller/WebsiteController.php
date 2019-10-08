@@ -1,6 +1,7 @@
 <?php
 require_once 'model/Logic.php';
 require_once 'model/BeheerderLogic.php';
+require_once 'model/BiosBeheerLogic.php';
 require_once 'utilities/Mail.php';
 
 class WebsiteController
@@ -9,6 +10,7 @@ class WebsiteController
     {
         $this->Logic = new Logic();
         $this->BeheerderLogic = new BeheerderLogic();
+        $this->BiosBeheerLogic = new BiosBeheerLogic();
         $this->Mail = new Mail();
 
     }
@@ -47,6 +49,9 @@ class WebsiteController
                     break;
                 case 'beheer':
                     $this->beheerContent($page, $func);
+                    break;
+                case 'biosbeheer':
+                    $this->biosBeheerContent($page, $func);
                     break;
                 case 'biosInfo':
                     $this->collectCreateCinema($id);
@@ -147,6 +152,8 @@ class WebsiteController
                 var_dump($_SESSION['rol']);
                 if ($_SESSION['rol'] == 0 || $_SESSION['rol'] == "0") {
                     echo "<script>window.location.href = '?request=beheer'</script>";
+                }elseif($_SESSION['rol'] == 0 || $_SESSION['rol'] == "1"){
+                    echo "<script>window.location.href = '?request=biosbeheer'</script>";
                 }
             }
 
@@ -160,6 +167,7 @@ class WebsiteController
     {
         session_destroy();
         include 'view/login.php';
+
         exit;
     }
 
@@ -308,5 +316,160 @@ class WebsiteController
     public function updateGebruiker($username, $email, $wachtwoord, $userID){
         $result = $this->BeheerderLogic->updateGebruiker($username, $email, $wachtwoord, $userID);
         return $result;
+    }
+
+
+
+
+
+
+
+
+
+    //biosbeheer
+    public function biosBeheerContent($page, $func)
+    {
+        switch ($page) {
+            case 'paginas':
+                $this->biosCollectpaginas();
+                break;
+            case 'editContent':
+                $this->biosCollectContentEdit($_REQUEST['paginaID']);
+                break;
+            case 'bioscopen':
+                $this->biosCollectBeheerBioscopen();
+//                $result = $this->Logic->getCinemas();
+//                include 'view/beheer/beheerPage.php';
+                break;
+            case 'editBioscoop':
+                $this->biosCollectEditBioscoop($_REQUEST['biosID']);
+                break;
+            case 'gebruikers':
+                $this->biosCollectGebruikersList();
+                break;
+            case 'editGebruiker':
+                $this->biosCollectEditGebruiker($_REQUEST['userID']);
+                break;
+                case 'addBeschikbaarheid';
+                $this->biosCollectAddBeschikbaarheid();
+                break;
+            default:
+
+                /*$result = $this->Logic->getContent($page);
+                include 'view/beheer/beheerPage.php';*/
+                $this->biosCollectpaginas();
+                break;
+        }
+
+
+        if (isset($func)) {
+            switch ($func) {
+                case 'update':
+                    $this->biosUpdateContent($_REQUEST['paginaID'], $_REQUEST['mytextarea']);
+                    break;
+
+                case 'updateBioscoop':
+                    $this->biosUpdateBioscoop($_REQUEST['biosID'], $_REQUEST['biosnaam'], $_REQUEST['biosadres'], $_REQUEST['biospostcode'], $_REQUEST['biosplaats'], $_REQUEST['biosprovincie'], $_REQUEST['aantal_zalen']);
+                    break;
+                case 'updateGebruiker':
+                    $this->biosUpdateGebruiker($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['wachtwoord'], $_REQUEST['userID']);
+                    break;
+
+                default:
+                    $this->biosUpdateContent($_REQUEST['paginaID']);
+                    break;
+            }
+        }
+    }
+
+
+    public function biosCollectpaginas()
+    {
+        $result = $this->BiosBeheerLogic->beheerContentPaginas();
+        include 'view/biosbeheer/beheerContentPaginas.php';
+        return $result;
+    }
+
+    public function biosCollectContentEdit($paginaID)
+    {
+        $result = $this->BiosBeheerLogic->beheerContentEdit($paginaID);
+        include 'view/biosbeheer/beheerEditContent.php';
+        return $result;
+
+    }
+
+    public function biosUpdateContent($paginaID, $mytextarea)
+    {
+        $result = $this->BiosBeheerLogic->beheerContentUpdate($paginaID, $mytextarea);
+        include 'view/biosbeheer/beheerEditContent.php';
+        return $result;
+    }
+
+    public function biosUpdateData($request)
+    {
+        $id = 'beheerContent' . $request['id'];
+        var_dump($request);
+//        var_dump($_REQUEST);
+//        $result = $this->Logic->updateContent();
+
+//        return $result;
+    }
+
+    public function biosCollectAddPage()
+    {
+        $result = $this->BiosBeheerLogic->collectAddPage();
+        include 'view/biosbeheer/addpage.php';
+        return $result;
+    }
+
+    public function biosPaginaToevoegen($paginatitel, $mytextarea)
+    {
+        $result = $this->BiosBeheerLogic->paginaToevoegen($paginatitel, $mytextarea);
+
+        return $result;
+
+    }
+
+    public function biosCollectBeheerBioscopen()
+    {
+        $result = $this->BiosBeheerLogic->beheerBioscoopSelect();
+        include 'view/biosbeheer/beheerbioscopen.php';
+        return $result;
+    }
+
+    public function biosCollectEditBioscoop($biosID)
+    {
+        $result = $this->BiosBeheerLogic->beheerEditBioscoop($biosID);
+        include 'view/biosbeheer/editBioscoop.php';
+        return $result;
+    }
+
+    public function biosUpdateBioscoop($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie, $aantal_zalen)
+    {
+        $result = $this->BiosBeheerLogic->beheerUpdateBioscoop($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie, $aantal_zalen);
+
+        return $result;
+
+    }
+
+    public function biosCollectGebruikersList(){
+        $result = $this->BiosBeheerLogic->gebruikersList();
+        include 'view/biosbeheer/beheerGebruikers.php';
+        return $result;
+    }
+
+    public function biosCollectEditGebruiker($userID){
+        $result = $this->BiosBeheerLogic->editGebruiker($userID);
+        include 'view/biosbeheer/editGebruiker.php';
+        return $result;
+    }
+
+    public function biosUpdateGebruiker($username, $email, $wachtwoord, $userID){
+        $result = $this->BiosBeheerLogic->updateGebruiker($username, $email, $wachtwoord, $userID);
+        return $result;
+    }
+
+    public function biosCollectAddBeschikbaarheid(){
+
     }
 }

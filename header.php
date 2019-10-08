@@ -74,10 +74,15 @@
                 <a class="nav-link" href="index.php">Home</a>
             </li>
             <?php
-            if (isset($_SESSION['rol'])  && $_SESSION['rol'] == '0') {
+            if (isset($_SESSION['loggedin'])  && $_SESSION['rol'] == '0') {
 
                 echo "<li class='nav-item'>
                         <a class='nav-link' href = '?request=beheer&pagina=Home'> Beheer</a >
+                       </li >";
+            }
+            elseif(isset($_SESSION['loggedin'])  && $_SESSION['rol'] == '1'){
+                echo "<li class='nav-item'>
+                        <a class='nav-link' href = '?request=biosbeheer&pagina=Home'> Beheer</a >
                        </li >";
             }
             ?>

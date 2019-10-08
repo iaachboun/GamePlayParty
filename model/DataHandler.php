@@ -113,4 +113,76 @@ class DataHandler
         return $result;
     }
 
+
+
+
+
+
+    //bioscoop
+
+    public function biosUpdatePreparedQueryData($paginaID ,$mytextarea){
+        $stmt = $this->dbh->prepare("UPDATE contentmanagement set content = :content where paginaID = :paginaID");
+        $result = $stmt->execute([
+            'content' => $mytextarea,
+            'paginaID' => $paginaID
+        ]);
+
+        return $result;
+    }
+
+    public function biosAddPreparedQueryData($paginatitel, $mytextarea){
+        //check rol to see who to assign as the owner of the page
+        if(isset($_SESSION['rol'])) {
+            switch($_SESSION['rol']){
+                case "0":
+                    $owner = "beheer";
+                    break;
+                case "1":
+                    $owner = "bioscoop";
+                    break;
+            }
+        }
+        //insert into the database table contentmangement
+        $stmt = $this->dbh->prepare("INSERT INTO `contentmanagement`(owner, pagina, content) VALUES(:owner, :pagina, :content)");
+        var_dump($stmt);
+        $result = $stmt->execute([
+            'owner' => $owner,
+            'pagina' => $paginatitel,
+            'content' => $mytextarea
+        ]);
+
+        return $result;
+    }
+
+    public function biosUpdateBioscoopData($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie, $aantal_zalen){
+        $stmt = $this->dbh->prepare("UPDATE bioscopen set biosnaam = :biosnaam, biosadres = :biosadres, biospostcode = :biospostcode, biosplaats = :biosplaats, biosprovincie = :biosprovincie, aantal_zalen = :aantal_zalen
+ where biosID = :biosID");
+        var_dump($stmt);
+        $result = $stmt->execute([
+            'biosnaam' => $biosnaam,
+            'biosadres' => $biosadres,
+            'biospostcode' => $biospostcode,
+            'biosplaats' => $biosplaats,
+            'biosprovincie' => $biosprovincie,
+            'aantal_zalen' => $aantal_zalen,
+            'biosID' => $biosID
+        ]);
+
+        return $result;
+    }
+
+    public function biosBeheerUpdateGebruikerData($username, $email, $wachtwoord, $userID){
+        $stmt = $this->dbh->prepare("UPDATE users set username = :username, email = :email, wachtwoord = :wachtwoord
+ where userID = :userID");
+        var_dump($stmt);
+        $result = $stmt->execute([
+            'username' => $username,
+            'email' => $email,
+            'wachtwoord' => $wachtwoord,
+            'userID' => $userID
+        ]);
+
+        return $result;
+    }
+
 }
