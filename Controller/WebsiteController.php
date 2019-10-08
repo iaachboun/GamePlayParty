@@ -355,6 +355,7 @@ class WebsiteController
     public function collectDiensten()
     {
         $result = $this->BeheerderLogic->dienstenList();
+        
         include 'view/beheer/beheerdiensten.php';
         return $result;
     }

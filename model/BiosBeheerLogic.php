@@ -127,13 +127,8 @@ WHERE users.biosID = '$biosID'";
         return $makeGebruikersList;
     }
 
-<<<<<<< HEAD
 
     public function editGebruiker($userID){
-=======
-    public function editGebruiker($userID)
-    {
->>>>>>> 87a5a3c6d76d131d17a7cf795720c0e2401452ea
         $sql = "SELECT * FROM users WHERE userID = $userID";
         $result = $this->DataHandler->getData($sql);
         $editGebruikerForm = $this->EditGebruikerForm->makeEditGebruikerForm($result);

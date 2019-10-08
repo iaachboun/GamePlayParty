@@ -1,7 +1,7 @@
 <?php
 
 
-class DienstenList
+class DienstenListForm
 {
     public function makeDienstenList($result)
     {
@@ -12,18 +12,17 @@ class DienstenList
         $html .= "<div class='container'>";
         $html .= "<h1 style=''>Diensten</h1>";
         $html .= "<table id='paginas'><tbody>";
-        $html .= "<tr><th>Dienst</th><th>Prijs</th></tr>";
+        $html .= "<tr><th>Dienst</th><th>Prijs</th><th>test</th></tr>";
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             $dienstID = $row['dienstID'];
             $biosId = $row['biosID'];
-            $diesnt = $row['dienst'];
+            $dienst = $row['dienst'];
             $tarief = $row['tarief'];
 
             $html .= "<tr>";
-            $html .= "<td><a href=?request=beheer&pagina=editGebruiker&userID=" . $dienstID . ">" . $biosId . "</a></td>";
-            $html .= "<td>$dients</td>";
-            $html .= "<td>$tarief</td>";
+            $html .= "<td><a href=?request=beheer&pagina=editGebruiker&biosID=" . $biosID . ">" . $dienst . "</a></td>";
+            $html .= "<td>€$tarief</td>";
             $html .= "</tr>";
         }
 
