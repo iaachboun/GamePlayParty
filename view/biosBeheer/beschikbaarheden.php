@@ -1,4 +1,4 @@
-<?php include 'view/biosbeheer/beheerheader.php'; ?>
+<?php include 'view/biosBeheer/beheerheader.php'; ?>
 
 <div class="container">
     <a href="?request=biosbeheer&pagina=addBeschikbaarheid" class="btn btn-primary">Beschikbaarheid toevoegen</a>

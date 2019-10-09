@@ -198,6 +198,11 @@ h1#typewritten {
 .biosDetails-section .detailContent {
   padding: 50px 0;
 }
+@media (min-width: 758px) {
+  .biosDetails-section .detailContent {
+    padding: 0px 0;
+  }
+}
 .biosDetails-section .detailContent p img {
   height: auto !important;
 }
