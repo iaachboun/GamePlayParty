@@ -13,7 +13,7 @@ class BiosDetailCreate
 
             $html .= "<div class='col-12 col-md-6'>";
             $html .= "<div class='detailContent'>";
-            $html .= $content;
+            $html .= "<p id='contentData' style='display: block'>$content</p>";
             $html .= "</div>";
             $html .= "</div>";
         }

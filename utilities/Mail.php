@@ -11,7 +11,7 @@ class Mail
         $msg = $bericht;
 
         $message = '<html lang="nl-NL"><body>';
-        $message .= '<img src="../assets/img/logo.svg" alt="Logo" />';
+        $message .= '<img src="assets/img/logo.svg" alt="Logo" />';
         $message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
         $message .= "<tr style='background: #eee;'><td><strong>Name:</strong> </td><td>" . $naam . "</td></tr>";
         $message .= "<tr><td><strong>Email:</strong> </td><td>" . $email . "</td></tr>";

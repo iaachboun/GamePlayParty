@@ -8,6 +8,11 @@
 
   .detailContent {
     padding: 50px 0;
+    p {
+      img {
+        height: auto !important;
+      }
+    }
   }
 }
 

@@ -34,15 +34,6 @@ class WebsiteController
                 $func = $_REQUEST['func'];
             }
 
-            if (isset($_REQUEST['contactsubmit'])) {
-                $naam = $_REQUEST['naam'];
-                $email = $_REQUEST['email'];
-                $telefoon = $_REQUEST['telefoon'];
-                $onderwerp = $_REQUEST['onderwerp'];
-                $bericht = $_REQUEST['bericht'];
-                $submit = $_REQUEST['contactsubmit'];
-            }
-
             switch ($request) {
                 case 'updateData':
                     $this->updateData($_REQUEST);
@@ -119,9 +110,9 @@ class WebsiteController
     {
         $page = "Contact";
         $result = $this->Logic->getContent($page);
-        if (isset($submit)) {
+
             $this->Mail->sendMail($naam, $email, $telefoon, $onderwerp, $bericht);
-        }
+
         include 'view/contact.php';
     }
 
