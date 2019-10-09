@@ -449,7 +449,7 @@ class WebsiteController
                 $this->biosCollectBeschikbaarheden();
                 break;
             case 'addBeschikbaarheid':
-                $this->biosCollectAddBeschikbaarheid($_SESSION['biosID']);
+                $this->biosCollectAddBeschikbaarheid();
 
 
                 break;
@@ -592,8 +592,10 @@ class WebsiteController
     }
 
 
-    public function biosCollectAddBeschikbaarheid($biosID)
+    public function biosCollectAddBeschikbaarheid()
     {
+        $biosID = $_SESSION['biosID'];
+        var_dump($biosID);
         $result = $this->BiosBeheerLogic->collectAddBeschikbaarheid($biosID);
         include 'view/biosBeheer/addBeschikbaarheid.php';
         return $result;
