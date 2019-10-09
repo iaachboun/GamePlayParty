@@ -61,7 +61,8 @@ class addNewBiosForm
   </div>
   
   <button type='submit' class='btn-custom btn-green'>Opslaan</button>
-</form>";
+</form>
+</div>";
 
 
         return $html;

@@ -2,10 +2,6 @@ body {
   margin: 0;
 }
 
-p#contentData img {
-  max-width: 90%;
-}
-
 .header {
   margin-left: -1px;
   width: 100%;
@@ -370,6 +366,10 @@ h1#typewritten {
 
 .submit-wysiwyg {
   margin: 20px 0;
+}
+
+.beheer-form {
+  margin-bottom: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */
