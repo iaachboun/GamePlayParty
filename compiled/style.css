@@ -207,18 +207,21 @@ h1#typewritten {
 .vrijePlaatsen {
   background-color: #C4E538;
   border-radius: 5px;
-  width: 368px;
   max-width: 450px;
-  padding: 10px;
-  margin: 20px 20px;
-  font-size: 1.3em;
-  height: 266px;
+  padding: 20px;
+  margin: 40px auto;
+  font-size: 1.1em;
   float: left;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
+}
+@media (min-width: 758px) {
+  .vrijePlaatsen {
+    font-size: 1.3em;
+  }
 }
 
 .bioscopen-section {
