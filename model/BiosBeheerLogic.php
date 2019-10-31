@@ -164,8 +164,10 @@ WHERE users.biosID = '$biosID'";
 
     public function collectAddBeschikbaarheid($biosID)
     {
-        $zaalSelectSQL = "SELECT zaal, zaal_id FROM zalen where biosID = $biosID";
+        $zaalSelectSQL = "SELECT zaal, zaal_id FROM zalen where biosID = '$biosID';";
+        var_dump($zaalSelectSQL);
         $zaalSelectSQLResult = $this->DataHandler->getData($zaalSelectSQL);
+        var_dump($zaalSelectSQLResult);
         $zaalSelect = $this->ZaalSelect->makeZaalSelect($zaalSelectSQLResult);
 
         $consoleSelectSQL = "SELECT console_id, console FROM consoles";

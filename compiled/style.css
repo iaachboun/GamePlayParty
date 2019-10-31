@@ -172,8 +172,14 @@ h1#typewritten {
     margin: 30px 0 30px 0;
     padding: 20px;
   }
+  .home-section .home-content {
+    width: 100%;
+  }
   .home-section .home-content .home-content-image {
     margin-bottom: 30px;
+  }
+  .home-section .home-content .homeContent p img {
+    height: auto !important;
   }
 }
 .pijl {
@@ -191,6 +197,14 @@ h1#typewritten {
 }
 .biosDetails-section .detailContent {
   padding: 50px 0;
+}
+@media (min-width: 758px) {
+  .biosDetails-section .detailContent {
+    padding: 0px 0;
+  }
+}
+.biosDetails-section .detailContent p img {
+  height: auto !important;
 }
 
 .detailImg {
@@ -357,6 +371,10 @@ h1#typewritten {
 
 .submit-wysiwyg {
   margin: 20px 0;
+}
+
+.beheer-form {
+  margin-bottom: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */

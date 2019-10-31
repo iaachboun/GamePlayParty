@@ -22,7 +22,7 @@ class BeschikbaarheidList
             $gereserveerd = $row['gereserveerd'];
             $zaal = $row['zaal'];
             $reseveringsID = $row['reserveringsID'];
-            var_dump($row);
+
             $html .= "<tr>";
             $html .= "<td>$reserveringsdatum</a></td>";
             $html .= "<td>$zaal</td>";

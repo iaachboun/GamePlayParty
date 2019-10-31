@@ -6,3 +6,10 @@ $("#userSelectClass").change(function(){
         $("#userSelectBiosGroup").hide();
     }
 });
+
+$('#homeContent').find("p").find('img').addClass("col-12");
+
+$('#homeContent').find("p").find('img').removeAttr("width, height");
+
+$('.detailContent').find("p").find('img').addClass("col-12");
+$('.detailContent').find("p").find('img').removeAttr("width, height");

@@ -16,12 +16,12 @@ class DienstenListForm
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             $dienstID = $row['dienstID'];
-            $biosId = $row['biosID'];
+            $biosID = $row['biosID'];
             $dienst = $row['dienst'];
             $tarief = $row['tarief'];
 
             $html .= "<tr>";
-            $html .= "<td><a href=?request=beheer&pagina=editGebruiker&biosID=" . $biosID . ">" . $dienst . "</a></td>";
+            $html .= "<td><a href=?request=beheer&pagina=editDienst&biosID=" . $biosID . ">" . $dienst . "</a></td>";
             $html .= "<td>€$tarief</td>";
             $html .= "<td><a href=?request=beheer&pagina=diensten&func=verwijderDiesnt&diesntID=" . $dienstID . " onclick='return confirm(`Weet je zeker dat je deze dienst wilt verwijderen`)'>Verwijder</a></td>";
             $html .= "</tr>";

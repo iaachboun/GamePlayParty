@@ -1,3 +1,5 @@
+<script src="https://www.google.com/recaptcha/api.js?render=6LcPpbwUAAAAAPe9vDJ-aoNn47pGg0oeA2rEG5yp"></script>
+
 <div class="hero">
     <img src="./assets/img/hero/download.jpeg" class="hero">
 
@@ -14,7 +16,7 @@
 
             <p id="contentData" style="display: block"><?php echo $row['content'] ?></p>
         <?php } ?>
-                <button class="btn-custom btn-green">Button</button>
+
             </div>
         </div>
 

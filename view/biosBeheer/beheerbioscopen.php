@@ -1,4 +1,4 @@
-<?php include 'view/biosbeheer/beheerheader.php'; ?>
+<?php include 'view/biosBeheer/beheerheader.php'; ?>
 
 <div class="container">
 

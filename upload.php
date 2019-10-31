@@ -1,6 +1,6 @@
 <?php
 // Allowed origins to upload images
-$accepted_origins = array("http://localhost/rocmn/2019-2020/gemaplayparty/", "localhost/rocmn/2019-2020/gameplayparty/", "localhost", "http://localhost/", "http://localhost", "localhost/rocmn/2019-2020/gameplayparty/index.php", "http://localhost/rocmn/2019-2020/gameplayparty/index.php");
+$accepted_origins = array("http://localhost/rocmn/2019-2020/gemaplayparty/", "localhost/rocmn/2019-2020/gameplayparty/", "localhost", "http://localhost/", "http://localhost", "localhost/rocmn/2019-2020/gameplayparty/index.php", "http://localhost/rocmn/2019-2020/gameplayparty/index.php", "https://www.gpp.chenpeihu.com", "http://www.gpp.chenpeihu.com", "www.gpp.chenpeihu.com", "gpp.chenpeihu.com", "185.104.29.46");
 
 // Images upload path
 $imageFolder = "assets/img/upload";

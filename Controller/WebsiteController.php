@@ -34,15 +34,6 @@ class WebsiteController
                 $func = $_REQUEST['func'];
             }
 
-            if (isset($_REQUEST['contactsubmit'])) {
-                $naam = $_REQUEST['naam'];
-                $email = $_REQUEST['email'];
-                $telefoon = $_REQUEST['telefoon'];
-                $onderwerp = $_REQUEST['onderwerp'];
-                $bericht = $_REQUEST['bericht'];
-                $submit = $_REQUEST['contactsubmit'];
-            }
-
             switch ($request) {
                 case 'updateData':
                     $this->updateData($_REQUEST);
@@ -127,9 +118,9 @@ class WebsiteController
     {
         $page = "Contact";
         $result = $this->Logic->getContent($page);
-        if (isset($submit)) {
+
             $this->Mail->sendMail($naam, $email, $telefoon, $onderwerp, $bericht);
-        }
+
         include 'view/contact.php';
     }
 
@@ -159,7 +150,7 @@ class WebsiteController
                 $_SESSION['username'] = $username;
                 $_SESSION['userID'] = $userID;
                 $_SESSION['biosID'] = $biosID;
-                var_dump($_SESSION['rol']);
+
                 if ($_SESSION['rol'] == 0 || $_SESSION['rol'] == "0") {
                     echo "<script>window.location.href = '?request=beheer'</script>";
                 } elseif ($_SESSION['rol'] == 0 || $_SESSION['rol'] == "1") {
@@ -351,7 +342,7 @@ class WebsiteController
     public function updateData($request)
     {
         $id = 'beheerContent' . $request['id'];
-        var_dump($request);
+
 //        var_dump($_REQUEST);
 //        $result = $this->Logic->updateContent();
 
@@ -466,7 +457,7 @@ class WebsiteController
                 $this->biosCollectBeschikbaarheden();
                 break;
             case 'addBeschikbaarheid':
-                $this->biosCollectAddBeschikbaarheid($_SESSION['biosID']);
+                $this->biosCollectAddBeschikbaarheid();
 
 
                 break;
@@ -514,14 +505,14 @@ class WebsiteController
     public function biosCollectpaginas()
     {
         $result = $this->BiosBeheerLogic->beheerContentPaginas();
-        include 'view/biosbeheer/beheerContentPaginas.php';
+        include 'view/biosBeheer/beheerContentPaginas.php';
         return $result;
     }
 
     public function biosCollectContentEdit($paginaID)
     {
         $result = $this->BiosBeheerLogic->beheerContentEdit($paginaID);
-        include 'view/biosbeheer/beheerEditContent.php';
+        include 'view/biosBeheer/beheerEditContent.php';
         return $result;
 
     }
@@ -529,14 +520,14 @@ class WebsiteController
     public function biosUpdateContent($paginaID, $mytextarea)
     {
         $result = $this->BiosBeheerLogic->beheerContentUpdate($paginaID, $mytextarea);
-        include 'view/biosbeheer/beheerEditContent.php';
+        include 'view/biosBeheer/beheerEditContent.php';
         return $result;
     }
 
     public function biosUpdateData($request)
     {
         $id = 'beheerContent' . $request['id'];
-        var_dump($request);
+
 //        var_dump($_REQUEST);
 //        $result = $this->Logic->updateContent();
 
@@ -546,7 +537,7 @@ class WebsiteController
     public function biosCollectAddPage()
     {
         $result = $this->BiosBeheerLogic->collectAddPage();
-        include 'view/biosbeheer/addpage.php';
+        include 'view/biosBeheer/addpage.php';
         return $result;
     }
 
@@ -561,14 +552,14 @@ class WebsiteController
     public function biosCollectBeheerBioscopen()
     {
         $result = $this->BiosBeheerLogic->beheerBioscoopSelect();
-        include 'view/biosbeheer/beheerbioscopen.php';
+        include 'view/biosBeheer/beheerbioscopen.php';
         return $result;
     }
 
     public function biosCollectEditBioscoop($biosID)
     {
         $result = $this->BiosBeheerLogic->beheerEditBioscoop($biosID);
-        include 'view/biosbeheer/editBioscoop.php';
+        include 'view/biosBeheer/editBioscoop.php';
         return $result;
     }
 
@@ -583,14 +574,14 @@ class WebsiteController
     public function biosCollectGebruikersList()
     {
         $result = $this->BiosBeheerLogic->gebruikersList();
-        include 'view/biosbeheer/beheerGebruikers.php';
+        include 'view/biosBeheer/beheerGebruikers.php';
         return $result;
     }
 
     public function biosCollectEditGebruiker($userID)
     {
         $result = $this->BiosBeheerLogic->editGebruiker($userID);
-        include 'view/biosbeheer/editGebruiker.php';
+        include 'view/biosBeheer/editGebruiker.php';
         return $result;
     }
 
@@ -604,22 +595,24 @@ class WebsiteController
     public function biosCollectBeschikbaarheden()
     {
         $result = $this->BiosBeheerLogic->beschikbaarhedenList();
-        include 'view/biosbeheer/beschikbaarheden.php';
+        include 'view/biosBeheer/beschikbaarheden.php';
         return $result;
     }
 
 
-    public function biosCollectAddBeschikbaarheid($biosID)
+    public function biosCollectAddBeschikbaarheid()
     {
+        $biosID = $_SESSION['biosID'];
+        var_dump($biosID);
         $result = $this->BiosBeheerLogic->collectAddBeschikbaarheid($biosID);
-        include 'view/biosbeheer/addBeschikbaarheid.php';
+        include 'view/biosBeheer/addBeschikbaarheid.php';
         return $result;
     }
 
     public function addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console)
     {
         $result = $this->BiosBeheerLogic->addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console);
-        include 'view/biosbeheer/addBeschikbaarheid.php';
+        include 'view/biosBeheer/addBeschikbaarheid.php';
         return $result;
     }
 

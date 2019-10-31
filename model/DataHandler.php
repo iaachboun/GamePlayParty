@@ -72,7 +72,7 @@ class DataHandler
         }
         //insert into the database table contentmangement
         $stmt = $this->dbh->prepare("INSERT INTO `contentmanagement`(owner, pagina, content) VALUES(:owner, :pagina, :content)");
-        var_dump($stmt);
+
         $result = $stmt->execute([
             'owner' => $owner,
             'pagina' => $paginatitel,
@@ -85,7 +85,7 @@ class DataHandler
     public function updateBioscoopData($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie, $aantal_zalen){
         $stmt = $this->dbh->prepare("UPDATE bioscopen set biosnaam = :biosnaam, biosadres = :biosadres, biospostcode = :biospostcode, biosplaats = :biosplaats, biosprovincie = :biosprovincie, aantal_zalen = :aantal_zalen
  where biosID = :biosID");
-        var_dump($stmt);
+
         $result = $stmt->execute([
             'biosnaam' => $biosnaam,
             'biosadres' => $biosadres,
@@ -102,7 +102,7 @@ class DataHandler
     public function beheerUpdateGebruikerData($username, $email, $wachtwoord, $userID){
         $stmt = $this->dbh->prepare("UPDATE users set username = :username, email = :email, wachtwoord = :wachtwoord
  where userID = :userID");
-        var_dump($stmt);
+
         $result = $stmt->execute([
             'username' => $username,
             'email' => $email,
@@ -144,7 +144,7 @@ class DataHandler
         }
         //insert into the database table contentmangement
         $stmt = $this->dbh->prepare("INSERT INTO `contentmanagement`(owner, pagina, content) VALUES(:owner, :pagina, :content)");
-        var_dump($stmt);
+
         $result = $stmt->execute([
             'owner' => $owner,
             'pagina' => $paginatitel,
@@ -157,7 +157,7 @@ class DataHandler
     public function biosUpdateBioscoopData($biosID, $biosnaam, $biosadres, $biospostcode, $biosplaats, $biosprovincie, $aantal_zalen){
         $stmt = $this->dbh->prepare("UPDATE bioscopen set biosnaam = :biosnaam, biosadres = :biosadres, biospostcode = :biospostcode, biosplaats = :biosplaats, biosprovincie = :biosprovincie, aantal_zalen = :aantal_zalen
  where biosID = :biosID");
-        var_dump($stmt);
+
         $result = $stmt->execute([
             'biosnaam' => $biosnaam,
             'biosadres' => $biosadres,
@@ -174,7 +174,7 @@ class DataHandler
     public function biosBeheerUpdateGebruikerData($username, $email, $wachtwoord, $userID){
         $stmt = $this->dbh->prepare("UPDATE users set username = :username, email = :email, wachtwoord = :wachtwoord
  where userID = :userID");
-        var_dump($stmt);
+
         $result = $stmt->execute([
             'username' => $username,
             'email' => $email,
@@ -196,7 +196,7 @@ class DataHandler
 
     public function addNewBeschikbaarheid($biosID, $date, $begintijd, $eindtijd, $zaal, $console){
         $stmt = $this->dbh->prepare("INSERT INTO `reserveringen`(biosID, reserveringsdatum, reservering_begin_tijd, reservering_eind_tijd, zaal_id, console_id) VALUES(:biosID, :reserveringsdatum, :reservering_begin_tijd, :reservering_eind_tijd, :zaal_id, :console_id)");
-        var_dump($stmt);
+        
         $result = $stmt->execute([
             'biosID' => $biosID,
             'reserveringsdatum' => $date,

@@ -9,6 +9,14 @@
 
   .detailContent {
     padding: 50px 0;
+    @include respond-to(tablet){
+      padding: 0px 0;
+    }
+    p {
+      img {
+        height: auto !important;
+      }
+    }
   }
 }
 
