@@ -4,14 +4,14 @@
         <br>
         <br>
         <?php
-        $datum = $data['Datum'];
+        $datum = $data['datum'];
         $begin_tijd = $data['begin_tijd'];
         $eind_tijd = $data['eind_tijd'];
         $zaal = $data['zaal'];
         $console = $data['console'];
-        $aantal_plaatsen = $data['Aantal_plaatsen'];
+        $aantal_plaatsen = $data['aantal_plaatsen'];
         $rolstoeplaatsen = $data['rolStoelPlaatsen'];
-        $schermgrootte = $data['Schermgrootte'];
+        $schermgrootte = $data['schermgrootte'];
         $reserveringsID = $data['reserveringsID'];
         if (isset($data)) {
             echo "<table >" .

@@ -18,7 +18,7 @@ class BeheerderLogic
     public function __construct()
     {
 
-        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "ilias", "12345");
+        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "root", "");
         $this->PaginaSelect = new PaginaSelect();
         $this->PaginaEdit = new PaginaEdit();
         $this->AddPage = new AddPage();

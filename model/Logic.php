@@ -2,15 +2,17 @@
 require_once 'model/DataHandler.php';
 require_once 'utilities/BiosDetailCreate.php';
 require_once 'utilities/BiosVrijePlaatsen.php';
+require_once 'utilities/reserveerForm.php';
 
 class Logic
 {
     public function __construct()
     {
 
-        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "ilias", "12345");
+        $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "root", "");
         $this->BiosDetailCreate = new biosDetailCreate();
         $this->BiosVrijePlaatsen = new biosVrijePlaatsen();
+        $this->reserveerForm = new reserveerForm();
 
     }
 
@@ -34,10 +36,18 @@ class Logic
    natural join zalen
    natural join consoles
   WHERE biosID = '$id'
-   and gereserveerd = 0";
+   and gereserveerd = 0
+   and reserveringsdatum >= CURDATE()";
         $result = $this->DataHandler->getData($sql);
         $vrije_plaatsen = $this->BiosVrijePlaatsen->BiosCreateVrijePlaatsen($result);
         return $vrije_plaatsen;
+    }
+
+    public function reserveerFormField($data){
+        $sql = "SELECT * FROM diensten where biosID is null;";
+        $result = $this->DataHandler->getData($sql);
+        $reserveringsForm = $this->reserveerForm->makeReserveerForm($result, $data);
+        return $reserveringsForm;
     }
 
     public function reseveerNu($reserveringsID)

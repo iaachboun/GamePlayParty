@@ -100,13 +100,17 @@ class WebsiteController
     }
 
     public function reseveerForm($data) {
+
         include "view/reseveringForm.php";
+
     }
 
     public function reseveerNow($data) {
+        $reserveerFormFields=$this->Logic->reserveerFormField($data);
         $reserveringsID = $data['reserveringsID'];
         $this->Logic->reseveerNu($reserveringsID);
         include "view/reseveringForm.php";
+        return $reserveerFormFields;
 
     }
     public function collectCreateCinema($id)

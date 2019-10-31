@@ -16,8 +16,8 @@
                 <?php
 
             $servername = "localhost";
-            $username = "ilias";
-            $password = "12345";
+            $username = "root";
+            $password = "";
             $dbname = "GamePlayParty";
             
             // Create connection

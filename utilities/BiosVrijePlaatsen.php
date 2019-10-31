@@ -29,14 +29,14 @@ class BiosVrijePlaatsen
 
 
             $html .= "<form class='vrijePlaatsen' method='post' action='?request=reseveerForm'>" .
-                "<input type='hidden' name='Datum' value='$datum'>" .
+                "<input type='hidden' name='datum' value='$datum'>" .
                 "<input type='hidden' name='begin_tijd' value='$begin_tijd'>" .
                 "<input type='hidden' name='eind_tijd' value='$eind_tijd'>" .
                 "<input type='hidden' name='zaal' value='$zaal'>" .
                 "<input type='hidden' name='console' value='$console'>" .
-                "<input type='hidden' name='Aantal_plaatsen' value='$aantal_plaatsen'>" .
+                "<input type='hidden' name='aantal_plaatsen' value='$aantal_plaatsen'>" .
                 "<input type='hidden' name='rolStoelPlaatsen' value='$rolstoeplaatsen'>" .
-                "<input type='hidden' name='Schermgrootte' value='$schermgrootte'>" .
+                "<input type='hidden' name='schermgrootte' value='$schermgrootte'>" .
                 "<input type='hidden' name='reserveringsID' value='$reserveringsID'>" .
                 "<table>" .
                 "<tr>" .
@@ -59,7 +59,7 @@ class BiosVrijePlaatsen
                 "<tr><td>Schermgroote: </td><td>$schermgrootte</td></tr>".
                 "<tr><td>Rolstoelplaatsen: </td><td>$rolstoeplaatsen</td></tr>".
                 "</table>" .
-                "<input type='submit' value='Reseveer een zaal'>" .
+                "<input type='submit' value='Reseveer deze zaal' class='btn btn-green'>" .
                 "</form>";
 
         }
