@@ -2,6 +2,7 @@
 require_once 'model/DataHandler.php';
 require_once 'utilities/BiosDetailCreate.php';
 require_once 'utilities/BiosVrijePlaatsen.php';
+require_once 'utilities/reserveerForm.php';
 
 class Logic
 {
@@ -11,6 +12,7 @@ class Logic
         $this->DataHandler = new DataHandler("localhost", "mysql", "GamePlayParty", "root", "");
         $this->BiosDetailCreate = new biosDetailCreate();
         $this->BiosVrijePlaatsen = new biosVrijePlaatsen();
+        $this->reserveerForm = new reserveerForm();
 
     }
 
@@ -41,6 +43,20 @@ class Logic
         return $vrije_plaatsen;
     }
 
+    public function reserveerFormField($data){
+        $sql = "SELECT * FROM diensten where biosID is null;";
+        $result = $this->DataHandler->getData($sql);
+        $reserveringsForm = $this->reserveerForm->makeReserveerForm($result, $data);
+        return $reserveringsForm;
+    }
+
+    public function reseveerNu($reserveringsID)
+    {
+        $sql = "UPDATE `reserveringen` SET `gereserveerd`= true WHERE `reserveringsID` = $reserveringsID";
+        $result = $this->DataHandler->getData($sql);
+
+        return $result;
+    }
 
     public function getCinemas()
     {

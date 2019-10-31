@@ -238,6 +238,24 @@ h1#typewritten {
   }
 }
 
+.reseveer-form {
+  margin: 100px 0;
+}
+.reseveer-form .reseveerData {
+  background-color: #C4E538;
+  border-radius: 5px;
+  max-width: 450px;
+  padding: 20px;
+  margin: 40px auto;
+  font-size: 1.1em;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 .bioscopen-section {
   margin: 50px 0;
 }

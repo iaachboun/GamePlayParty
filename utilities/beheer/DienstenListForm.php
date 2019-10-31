@@ -9,7 +9,7 @@ class DienstenListForm
         $html = "";
 
         $html .= "<div class='col-12 pagina-select-container'>";
-        $html .= "<div class='container'>";
+        $html .= "<!---<div class='container'>--->";
         $html .= "<h1 style=''>Diensten</h1>";
         $html .= "<table id='paginas'><tbody>";
         $html .= "<tr><th>Dienst</th><th>Prijs</th><th>Acties</th></tr>";
