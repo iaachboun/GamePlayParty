@@ -17,6 +17,7 @@ class BiosVrijePlaatsen
 
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 
+            $reserveringsID = $row['reserveringsID'];
             $datum = $row["DATE_FORMAT(`reserveringsdatum`, '%d-%m-%Y')"];
             $begin_tijd = $row['TIME_FORMAT(`reservering_begin_tijd`, \'%h:%i\')'];;
             $eind_tijd = $row['TIME_FORMAT(`reservering_eind_tijd`, \'%h:%i\')'];
@@ -26,7 +27,17 @@ class BiosVrijePlaatsen
             $rolstoeplaatsen = $row['rolstoelplaatsen'];
             $schermgrootte = $row['schermgrootte'];
 
+
             $html .= "<form class='vrijePlaatsen' method='post' action='?request=reseveerForm'>" .
+                "<input type='hidden' name='Datum' value='$datum'>" .
+                "<input type='hidden' name='begin_tijd' value='$begin_tijd'>" .
+                "<input type='hidden' name='eind_tijd' value='$eind_tijd'>" .
+                "<input type='hidden' name='zaal' value='$zaal'>" .
+                "<input type='hidden' name='console' value='$console'>" .
+                "<input type='hidden' name='Aantal_plaatsen' value='$aantal_plaatsen'>" .
+                "<input type='hidden' name='rolStoelPlaatsen' value='$rolstoeplaatsen'>" .
+                "<input type='hidden' name='Schermgrootte' value='$schermgrootte'>" .
+                "<input type='hidden' name='reserveringsID' value='$reserveringsID'>" .
                 "<table>" .
                 "<tr>" .
                 "<th><h3>$datum</h3></th>" .
@@ -48,7 +59,7 @@ class BiosVrijePlaatsen
                 "<tr><td>Schermgroote: </td><td>$schermgrootte</td></tr>".
                 "<tr><td>Rolstoelplaatsen: </td><td>$rolstoeplaatsen</td></tr>".
                 "</table>" .
-                "<input type='submit'>" .
+                "<input type='submit' value='Reseveer een zaal'>" .
                 "</form>";
 
         }

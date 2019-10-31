@@ -40,6 +40,13 @@ class Logic
         return $vrije_plaatsen;
     }
 
+    public function reseveerNu($reserveringsID)
+    {
+        $sql = "UPDATE `reserveringen` SET `gereserveerd`= true WHERE `reserveringsID` = $reserveringsID";
+        $result = $this->DataHandler->getData($sql);
+
+        return $result;
+    }
 
     public function getCinemas()
     {

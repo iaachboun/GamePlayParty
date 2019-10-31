@@ -41,6 +41,9 @@ class WebsiteController
                 case 'reseveerForm':
                     $this->reseveerForm($_REQUEST);
                     break;
+                case 'reseveerNOW':
+                    $this->reseveerNow($_REQUEST);
+                    break;
                 case 'beheer':
                     $this->beheerContent($page, $func);
                     break;
@@ -91,9 +94,14 @@ class WebsiteController
 
     public function reseveerForm($data) {
         include "view/reseveringForm.php";
-
     }
 
+    public function reseveerNow($data) {
+        $reserveringsID = $data['reserveringsID'];
+        $this->Logic->reseveerNu($reserveringsID);
+        include "view/reseveringForm.php";
+
+    }
     public function collectCreateCinema($id)
     {
         $biosinfo = $this->Logic->getCinema($id);
