@@ -113,11 +113,6 @@ class DataHandler
         return $result;
     }
 
-
-
-
-
-
     //bioscoop
 
     public function biosUpdatePreparedQueryData($paginaID ,$mytextarea){

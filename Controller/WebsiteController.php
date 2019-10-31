@@ -35,6 +35,9 @@ class WebsiteController
             }
 
             switch ($request) {
+                case 'overzicht':
+                    $this->overzicht();
+                    break;
                 case 'updateData':
                     $this->updateData($_REQUEST);
                     break;
@@ -90,6 +93,10 @@ class WebsiteController
         } catch (ValidationException $e) {
             $errors = $e->getErrors();
         }
+    }
+    public function overzicht() {
+        $result = $this->Logic->getResevaties();
+        include "view/overzichtPagina.php";
     }
 
     public function reseveerForm($data) {

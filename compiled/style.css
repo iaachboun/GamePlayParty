@@ -2,6 +2,10 @@ body {
   margin: 0;
 }
 
+.overzichtpagina {
+  margin: 300px 0 100px 0;
+}
+
 .header {
   margin-left: -1px;
   width: 100%;

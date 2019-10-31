@@ -84,6 +84,16 @@
                         <a class='nav-link' href = '?request=biosbeheer&pagina=Home'> Beheer</a >
                        </li >";
             }
+            elseif(isset($_SESSION['loggedin'])  && $_SESSION['rol'] == '1'){
+                echo "<li class='nav-item'>
+                        <a class='nav-link' href = '?request=biosbeheer&pagina=Home'> Beheer</a >
+                       </li >";
+            }
+            if(isset($_SESSION['loggedin'])  && $_SESSION['rol'] == '1'){
+                echo "<li class='nav-item'>
+                        <a class='nav-link' href = '?request=overzicht'> overzicht</a >
+                       </li >";
+            }
             ?>
             <li class="nav-item">
                 <a class="nav-link" href="?request=bioscopen">Bioscopen</a>

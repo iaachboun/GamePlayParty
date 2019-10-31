@@ -56,6 +56,14 @@ class Logic
         return $result;
     }
 
+    public function getResevaties()
+    {
+        $sql = "SELECT * FROM `reserveringen` WHERE `gereserveerd` = 1";
+        $result = $this->DataHandler->getData($sql);
+
+
+        return $result;
+    }
     public function getContent($page)
     {
         $sql = "SELECT * FROM contentmanagement WHERE contentmanagement.pagina = '$page'";
