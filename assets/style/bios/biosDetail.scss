@@ -36,8 +36,9 @@ flex-flow: row wrap;
   border-radius: 5px;
   max-width: 450px;
   padding: 20px;
-  margin: 40px auto;
+  margin: 40px 6px;
   font-size: 1.1em;
+
 
   @include respond-to('tablet') {
     font-size: 1.3em;

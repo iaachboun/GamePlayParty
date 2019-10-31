@@ -34,7 +34,8 @@ class Logic
    natural join zalen
    natural join consoles
   WHERE biosID = '$id'
-   and gereserveerd = 0";
+   and gereserveerd = 0
+   and reserveringsdatum >= CURDATE()";
         $result = $this->DataHandler->getData($sql);
         $vrije_plaatsen = $this->BiosVrijePlaatsen->BiosCreateVrijePlaatsen($result);
         return $vrije_plaatsen;
