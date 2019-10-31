@@ -47,6 +47,9 @@ class WebsiteController
                 case 'updateData':
                     $this->updateData($_REQUEST);
                     break;
+                case 'reseveerForm':
+                    $this->reseveerForm($_REQUEST);
+                    break;
                 case 'beheer':
                     $this->beheerContent($page, $func);
                     break;
@@ -93,6 +96,11 @@ class WebsiteController
         } catch (ValidationException $e) {
             $errors = $e->getErrors();
         }
+    }
+
+    public function reseveerForm($data) {
+        include "view/reseveringForm.php";
+
     }
 
     public function collectCreateCinema($id)

@@ -26,7 +26,7 @@ class BiosVrijePlaatsen
             $rolstoeplaatsen = $row['rolstoelplaatsen'];
             $schermgrootte = $row['schermgrootte'];
 
-            $html .= "<div class='vrijePlaatsen'>" .
+            $html .= "<form class='vrijePlaatsen' method='post' action='?request=reseveerForm'>" .
                 "<table>" .
                 "<tr>" .
                 "<th><h3>$datum</h3></th>" .
@@ -48,7 +48,8 @@ class BiosVrijePlaatsen
                 "<tr><td>Schermgroote: </td><td>$schermgrootte</td></tr>".
                 "<tr><td>Rolstoelplaatsen: </td><td>$rolstoeplaatsen</td></tr>".
                 "</table>" .
-                "</div>";
+                "<input type='submit'>" .
+                "</form>";
 
         }
 
