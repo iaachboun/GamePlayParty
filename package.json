@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "froala-editor": "^3.0.5-rc.1",
+    "froala-editor": "^4.0.7",
     "sass": "^1.23.0-module.beta.1"
   },
   "devDependencies": {
